@@ -63,13 +63,11 @@ public class EventListFragment extends Fragment {
 
         View rootView = inflater.inflate(R.layout.layout_empty, container, false);
 
-
         mListEvents = new ListEventsView(this.getActivity().getApplicationContext());
         mListEvents.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Event e = getAdapter().getItem(position);
-
                 mListener.onArticleSelected(e);
             }
         });
