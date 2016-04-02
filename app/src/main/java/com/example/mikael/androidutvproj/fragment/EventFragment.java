@@ -95,21 +95,6 @@ public class EventFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.layout_event, container, false);
 
         ////////////////////////////
-        // EDIT BUTTON
-        //////////////////////////
-        final ImageButton btn_editEvent = (ImageButton) rootView.findViewById(R.id.btn_edit_apartment);
-        btn_editEvent.setPadding(30, 30, 30, 30);
-        btn_editEvent.setLayoutParams(
-                new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
-
-        btn_editEvent.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                editEntryRequest(mCurrentEvent).show();
-            }
-        });
-
-        ////////////////////////////
         // NEW PHOTO BUTTON
         //////////////////////////
         ImageButton btnStartCamera = (ImageButton) rootView.findViewById(R.id.btn_startcamera);

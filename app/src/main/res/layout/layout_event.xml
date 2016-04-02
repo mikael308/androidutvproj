@@ -49,13 +49,6 @@
             <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="@drawable/ic_build_black_24dp"
-                android:id="@+id/btn_edit_apartment" />
-
-            <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:background="@drawable/ic_camera_enhance_black_24dp"
                 android:id="@+id/btn_startcamera"
                 android:layout_gravity="right" />
