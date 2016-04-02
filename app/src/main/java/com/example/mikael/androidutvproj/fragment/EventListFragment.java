@@ -1,30 +1,18 @@
 package com.example.mikael.androidutvproj.fragment;
 
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.app.Fragment;
-import android.content.DialogInterface;
-import android.content.Intent;
-import android.content.res.Configuration;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.LinearLayout;
-import android.widget.ListAdapter;
-import android.widget.Toast;
 
 import com.example.mikael.androidutvproj.R;
-import com.example.mikael.androidutvproj.activity.EventActivity;
 import com.example.mikael.androidutvproj.event.Event;
 import com.example.mikael.androidutvproj.listEvents.ListEventsAdapter;
 import com.example.mikael.androidutvproj.listEvents.ListEventsView;
-
-import java.util.Date;
 
 /**
  * fragment listing current Events<br>
