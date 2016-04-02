@@ -56,10 +56,7 @@ public class EventFragment extends Fragment {
 
     private static final int CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE = 100;
     private static final int CAPTURE_VIDEO_ACTIVITY_REQUEST_CODE = 200;
-    /**
-     * determines if activity is in edit mode or view mode
-     */
-    private boolean mEditMode = false;
+
     /**
      * this current displayed event
      */
@@ -108,13 +105,6 @@ public class EventFragment extends Fragment {
         btn_editEvent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-               /* switchMode();
-                Drawable bg = mEditMode ?
-                        getResources().getDrawable(R.drawable.ic_check_circle_black_24dp, getActivity().getTheme()) :
-                        getResources().getDrawable(R.drawable.ic_build_black_24dp, getActivity().getTheme());
-                btn_editEvent.setBackground(bg);
-                */
                 editEntryRequest(mCurrentEvent).show();
             }
         });
