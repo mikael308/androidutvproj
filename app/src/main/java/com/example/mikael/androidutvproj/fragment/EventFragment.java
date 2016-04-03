@@ -137,7 +137,7 @@ public class EventFragment extends Fragment {
     public boolean onOptionsItemSelected(MenuItem item) {
 
         switch(item.getItemId()){
-            case R.id.action_edit: editEntryRequest(mCurrentEvent).show();
+            case R.id.action_edit: dialog_editEvent(mCurrentEvent).show();
                 break;
         }
 
@@ -206,7 +206,7 @@ public class EventFragment extends Fragment {
     */
 
 
-    private AlertDialog editEntryRequest(Event event){
+    private AlertDialog dialog_editEvent(Event event){
 
         final View v = getActivity().getLayoutInflater().inflate(R.layout.layout_apartment_edit, null);
 
