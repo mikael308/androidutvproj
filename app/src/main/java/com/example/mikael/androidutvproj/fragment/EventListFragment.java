@@ -60,8 +60,7 @@ public class EventListFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-
-        View rootView = inflater.inflate(R.layout.layout_empty, container, false);
+        LinearLayout layout  = new LinearLayout(getActivity().getApplicationContext());
 
         mListEvents = new ListEventsView(this.getActivity().getApplicationContext());
         mListEvents.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -84,10 +83,9 @@ public class EventListFragment extends Fragment {
         mListEvents.setAdapter(mAdapter);
 
         // add views to root
-        LinearLayout layout = (LinearLayout) rootView.findViewById(R.id.layout_empty);
         layout.addView(mListEvents);
 
-        return rootView;
+        return layout;
 
     }
 
