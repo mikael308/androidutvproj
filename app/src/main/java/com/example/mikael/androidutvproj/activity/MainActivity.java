@@ -76,6 +76,7 @@ public class MainActivity extends AppCompatActivity {
 
         AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
         builder .setTitle(getResources().getString(R.string.about_title))
+                .setIcon(R.drawable.ic_help_outline_black_24dp)
                 .setView(aboutmessage)
                 .setPositiveButton(getResources().getString(R.string.btn_ok), null);
 
