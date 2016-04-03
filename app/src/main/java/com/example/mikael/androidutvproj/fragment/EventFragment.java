@@ -174,22 +174,54 @@ public class EventFragment extends Fragment {
         ((TextView) a.findViewById(R.id.apartment_description)).setText(apartment.getDescription());
     }
 
+
+/*
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if(requestCode == CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE){
+            if(resultCode == getActivity().RESULT_OK){
+
+                savePhotoDialog().show();
+
+            } else if (resultCode == getActivity().RESULT_CANCELED){
+                //TODO USER CANCELED
+                Log.d("hal", "RESULT_CANCEL");
+
+            }
+        }
+
+        if(requestCode == CAPTURE_VIDEO_ACTIVITY_REQUEST_CODE){
+            if(resultCode == getActivity().RESULT_OK){
+                Log.d("hal", "datastring : " + data.getDataString());
+                Log.d("hal", "data       : " + data.getData());
+            } else if(resultCode == getActivity().RESULT_CANCELED){
+                Log.d("hal", "cancel");
+                //TODO USER CANCELED
+            } else {
+                Log.d("hal", "error");
+                //TODO ERROR SHOW TOAST ??
+            }
+        }
+    }
+    */
+
+
     private AlertDialog editEntryRequest(Event event){
 
-        final View v = getActivity().getLayoutInflater().inflate(R.layout.layout_eventsettings, null);
+        final View v = getActivity().getLayoutInflater().inflate(R.layout.layout_apartment_edit, null);
 
         // add to event to this dialog
         Apartment a = event.getApartment();
-        ((EditText)v.findViewById(R.id.input_address))      .setText(a.getAddress());
-        ((EditText)v.findViewById(R.id.input_type))         .setText(a.getType());
-        ((EditText)v.findViewById(R.id.input_constructyear)).setText(a.getConstructYearString());
-        ((EditText)v.findViewById(R.id.input_openHouseDate)).setText(event.getDateString(Event.DATEFORMAT_STDFORMAT));
-        ((EditText)v.findViewById(R.id.input_startBid))     .setText(String.valueOf(a.getStartBid()));
-        ((EditText)v.findViewById(R.id.input_rent))         .setText(String.valueOf(a.getRent()));
-        ((EditText)v.findViewById(R.id.input_floor))        .setText(String.valueOf(a.getFloor()));
-        ((EditText)v.findViewById(R.id.input_rooms))        .setText(String.valueOf(a.getRooms()));
-        ((EditText)v.findViewById(R.id.input_livingspace))  .setText(String.valueOf(a.getLivingSpace()));
-        ((EditText)v.findViewById(R.id.input_description))  .setText(a.getDescription());
+        ((EditText)v.findViewById(R.id.edit_address))      .setText(a.getAddress());
+        ((EditText)v.findViewById(R.id.edit_type))         .setText(a.getType().name());
+        ((EditText)v.findViewById(R.id.edit_constructyear)).setText(a.getConstructYearString());
+        ((EditText)v.findViewById(R.id.edit_openHouseDate)).setText(event.getDateString(Event.DATEFORMAT_STDFORMAT));
+        ((EditText)v.findViewById(R.id.edit_startBid))     .setText(String.valueOf(a.getStartBid()));
+        ((EditText)v.findViewById(R.id.edit_rent))         .setText(String.valueOf(a.getRent()));
+        ((EditText)v.findViewById(R.id.edit_floor))        .setText(String.valueOf(a.getFloor()));
+        ((EditText)v.findViewById(R.id.edit_rooms))        .setText(String.valueOf(a.getRooms()));
+        ((EditText)v.findViewById(R.id.edit_livingspace))  .setText(String.valueOf(a.getLivingSpace()));
+        ((EditText)v.findViewById(R.id.edit_description))  .setText(a.getDescription());
 
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
 
@@ -197,21 +229,22 @@ public class EventFragment extends Fragment {
 
         builder.setTitle(getResources().getString(R.string.event_entry_dialog_edit_title))
                 .setView(v)
+                .setIcon(R.drawable.ic_mode_edit_black_24dp)
                 .setPositiveButton(getResources().getString(R.string.btn_ok), new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         //TODO edit in database
 
-                        String address      = ((EditText) v.findViewById(R.id.input_address)).getText().toString();
-                        String type         = ((EditText) v.findViewById(R.id.input_type)).getText().toString();
-                        String constructYear = ((EditText) v.findViewById(R.id.input_constructyear)).getText().toString();
-                        String openHouse    = ((EditText) v.findViewById(R.id.input_openHouseDate)).getText().toString();
-                        String startBid     = ((EditText) v.findViewById(R.id.input_startBid)).getText().toString();
-                        String rent         = ((EditText) v.findViewById(R.id.input_rent)).getText().toString();
-                        String floor        = ((EditText) v.findViewById(R.id.input_floor)).getText().toString();
-                        String rooms        = ((EditText) v.findViewById(R.id.input_rooms)).getText().toString();
-                        String livingspace  = ((EditText) v.findViewById(R.id.input_livingspace)).getText().toString();
-                        String description  = ((EditText) v.findViewById(R.id.input_description)).getText().toString();
+                        String address = ((EditText) v.findViewById(R.id.edit_address)).getText().toString();
+                        String type = ((EditText) v.findViewById(R.id.edit_type)).getText().toString();
+                        String constructYear = ((EditText) v.findViewById(R.id.edit_constructyear)).getText().toString();
+                        String openHouse = ((EditText) v.findViewById(R.id.edit_openHouseDate)).getText().toString();
+                        String startBid = ((EditText) v.findViewById(R.id.edit_startBid)).getText().toString();
+                        String rent = ((EditText) v.findViewById(R.id.edit_rent)).getText().toString();
+                        String floor = ((EditText) v.findViewById(R.id.edit_floor)).getText().toString();
+                        String rooms = ((EditText) v.findViewById(R.id.edit_rooms)).getText().toString();
+                        String livingspace = ((EditText) v.findViewById(R.id.edit_livingspace)).getText().toString();
+                        String description = ((EditText) v.findViewById(R.id.edit_description)).getText().toString();
 
                         try {
                             Event newEvent = new Event(address);
