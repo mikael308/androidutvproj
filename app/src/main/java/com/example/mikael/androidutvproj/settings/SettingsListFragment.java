@@ -5,6 +5,7 @@ import android.app.ListFragment;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.Environment;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,6 +17,7 @@ import android.widget.ScrollView;
 
 import com.example.mikael.androidutvproj.R;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -37,7 +39,10 @@ public class SettingsListFragment extends ListFragment {
      * shared preferences key : this app language
      */
     public static final String SHAREDPREFKEY_LANGUAGE = "SHAREDPREFKEY_LANGUAGE";
-
+    /**
+     * shared preferences key : photosource
+     */
+    public static final String SHAREDPREFKEY_PHOTOSOURCE = "SHAREDPREFKEY_PHOTOSOURCE";
     /**
      * this listview
      */
@@ -52,7 +57,11 @@ public class SettingsListFragment extends ListFragment {
      * @see #SHAREDPREFKEY_LANGUAGE
      */
     private SettingsListItem        mListitem_lang;
-
+    /**
+     * listitem : photo source
+     * @see #SHAREDPREFKEY_PHOTOSOURCE
+     */
+    private SettingsListItem        mListitem_photosrc;
     /**
      * this shared preferences
      * @see #SHAREDPREFKEY_SETTINGS
@@ -79,6 +88,7 @@ public class SettingsListFragment extends ListFragment {
         init_listitems();
         init_adapter();
     }
+
     /**
      * initialize this shared preferences with listener
      */
@@ -92,7 +102,9 @@ public class SettingsListFragment extends ListFragment {
                     case SHAREDPREFKEY_LANGUAGE:
                         mListitem_lang.setInfo(sharedPreferences.getString(key, Lang.ENGLISH.getName()));
                         break;
-
+                    case SHAREDPREFKEY_PHOTOSOURCE:
+                        mListitem_photosrc.setInfo(sharedPreferences.getString(key, ""));
+                        break;
                 }
             }
         });
@@ -118,6 +130,18 @@ public class SettingsListFragment extends ListFragment {
             }
         });
 
+        // PHOTO SOURCE
+        ////////////////////////////////////
+        String photosrc_header = getResources().getString(R.string.settings_listitem_photosrc_header);
+        String photosrc_info = mSharedPref.getString(SHAREDPREFKEY_PHOTOSOURCE, "");
+        mListitem_photosrc  = new SettingsListItem(getActivity(), photosrc_header, photosrc_info);
+        mListitem_photosrc  .setInfo(photosrc_info);
+        mListitem_photosrc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog_photoSource().show();
+            }
+        });
     }
     /**
      * initialize this adapter
@@ -173,4 +197,67 @@ public class SettingsListFragment extends ListFragment {
                 .create();
     }
 
+
+    /**
+     * recursive method<br>
+     * get list of file f subdirectories
+     * @param paths current list of subdirectory paths
+     * @param f rootfile
+     * @return list of file f subdirectories
+     */
+    private List<String> getSubDirectoryPaths(List<String> paths, File f){
+        if (f.isDirectory())   paths.add(f.getAbsolutePath());
+
+        File[] flist = f.listFiles();
+        if (flist == null)     return paths;
+
+        for (int i = 0; i < flist.length; i++){
+            File tf = flist[i];
+            if (tf.isDirectory()){
+                paths = getSubDirectoryPaths(paths, tf);
+            }
+        }
+
+        return paths;
+    }
+
+    /**
+     * settings dialog : set photo source<br>
+     * if confirmed: shared preference {@link #SHAREDPREFKEY_PHOTOSOURCE} is set to new value
+     * @return settings dialog
+     */
+    private AlertDialog dialog_photoSource(){
+        List<String> listitems = new ArrayList<>();
+
+        File f = Environment.getExternalStorageDirectory().getParentFile();
+        LinearLayout layout = new LinearLayout(getActivity());
+        layout.addView(new SettingsListItem(getActivity(), Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM).toString()));
+        layout.addView(new SettingsListItem(getActivity(), f.getAbsolutePath().toString()));
+
+        listitems = getSubDirectoryPaths(listitems, f);
+        for (String dirpath : listitems){
+            layout.addView(new SettingsListItem(getActivity(), dirpath));
+        }
+        ScrollView scrollView = new ScrollView(getActivity());
+        scrollView.addView(layout);
+
+        final List<String> PHOTOSRC = listitems;
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_list_item_1, listitems);
+        return builder
+                .setTitle(getResources().getString(R.string.settings_listitem_photosrc_header))
+                .setIcon(R.drawable.ic_camera_roll_black_24dp)
+                .setAdapter(adapter, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        String photosrc = PHOTOSRC.get(which);
+                        getActivity().getSharedPreferences(SHAREDPREFKEY_SETTINGS, getActivity().MODE_PRIVATE).edit()
+                                .putString(SHAREDPREFKEY_PHOTOSOURCE, photosrc)
+                                .apply();
+
+                    }
+                })
+                .setNegativeButton(getResources().getString(R.string.btn_cancel), null)
+                .create();
+    }
 }
