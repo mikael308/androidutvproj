@@ -11,5 +11,15 @@
 
     <dimen name="aboutmessage_inner_padding">10dp</dimen>
 
+    <!-- SETTINGS ACTIVITY -->
+    <dimen name="settings_list_margin">20dp</dimen>
+    <dimen name="settings_listitem_padding">40px</dimen>
+    <dimen name="settings_listitem_header_textsize">9sp</dimen>
+    <dimen name="settings_listitem_info_textsize">8sp</dimen>
+    <dimen name="settings_listitem_info_padding_left">10px</dimen>
+    <dimen name="settings_listitem_info_padding_top">3px</dimen>
+    <dimen name="settings_listitem_info_padding_right">0px</dimen>
+    <dimen name="settings_listitem_info_padding_bottom">0px</dimen>
+
 
 </resources>
