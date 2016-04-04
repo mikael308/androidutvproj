@@ -36,6 +36,9 @@
     <string name="about_message_refIcons">Graphics provided by Google material design icons under Creative Common Attribution 4.0 International License (CC-BY 4.0)</string>
 
     <!-- SETTINGS ACTIVITY -->
+    <string name="settings_listitem_language_header">Language</string>
+    <string name="settings_listitem_photosrc_header">Photo source</string>
+
     <string name="settings_delete_title">Delete entry</string>
     <string name="settings_delete_message">Confirm delete</string>
 
