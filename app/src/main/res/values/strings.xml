@@ -42,6 +42,7 @@
     <string name="settings_delete_title">Delete entry</string>
     <string name="settings_delete_message">Confirm delete</string>
 
+    <string name="toast_externalstorage_notmounted">external storage is not mounted</string>
     <!-- EVENT ACTIVITY -->
     <string name="apartment_btn_addApartment">Add event</string>
     <string name="apartment_btn_addPhoto">Add photo</string>
