@@ -1,16 +1,7 @@
-/**
-* @author Mikael Holmbom
-* @version 1.0
-*
-* @see Trip.java
-*
-* Class used to view list of <Code>Event</Code> items
-*/
 
-package com.example.mikael.androidutvproj.listEvents;
+package com.example.mikael.androidutvproj.eventlist;
 
 import android.content.Context;
-import android.util.Log;
 import android.widget.ListView;
 
 import com.example.mikael.androidutvproj.event.Apartment;
@@ -22,17 +13,19 @@ import java.util.Date;
 
 /**
  * @author Mikael Holmbom
- * @version 1.0
+ * @version 1.1
  * @see Event
+ * @see EventListAdapter
+ * @see EventListItem
  */
-public class ListEventsView extends ListView {
+class EventListView extends ListView {
 
-    public ListEventsView(Context context) {
+    public EventListView(Context context) {
         super(context);
 
     }
 
-    public void setAdapter(ListEventsAdapter adapter) {
+    public void setAdapter(EventListAdapter adapter) {
 
         //TODO add items from database
         Event e;
@@ -62,7 +55,7 @@ public class ListEventsView extends ListView {
                 a.setRent(i * 800);
 
             a.setDescription("here at fakestreet " + i + " everything is fake, but its cool man, recordless. its one of my selfdefense mechanisms");
-            a.setType("bostadsrätt");
+            a.setType(Apartment.Type.CONDOMINIUM);
             a.setRooms(i+1);
             adapter.add(e);
         }

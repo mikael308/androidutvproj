@@ -1,4 +1,4 @@
-package com.example.mikael.androidutvproj.listEvents;
+package com.example.mikael.androidutvproj.eventlist;
 
 import android.content.Context;
 import android.text.TextUtils;
@@ -9,15 +9,15 @@ import android.widget.TextView;
  * class used as listitem containing a <Code>Event</Code> instance
  *
  * @author Mikael Holmbom - miho1202
- * @version 1.0
+ * @version 1.1
  *
  */
-public class ListEventItem extends LinearLayout {
+public class EventListItem extends LinearLayout {
 
     private TextView mName;
     private TextView mDescription;
 
-    public ListEventItem(Context context) {
+    public EventListItem(Context context) {
         super(context);
         mName           = new TextView(getContext());
         mDescription    = new TextView(getContext());
@@ -30,12 +30,12 @@ public class ListEventItem extends LinearLayout {
      * initialize this Layout
      */
     private void init(){
-        this.setOrientation(LinearLayout.HORIZONTAL);
+        this.setOrientation(LinearLayout.VERTICAL);
         LayoutParams nameParams = new LayoutParams(
-                0, LayoutParams.MATCH_PARENT, 4
+                LayoutParams.MATCH_PARENT, 0, 4
         );
         LayoutParams descrParams = new LayoutParams(
-                0, LayoutParams.MATCH_PARENT, 6
+                LayoutParams.MATCH_PARENT, 0, 6
         );
 
         this.addView(mName, nameParams);

@@ -1,4 +1,4 @@
-package com.example.mikael.androidutvproj.fragment;
+package com.example.mikael.androidutvproj.eventlist;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -27,7 +27,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -47,7 +46,7 @@ import java.util.Date;
  * displays a com.example.mikael.androidutvproj.event.Event
  *
  * @author Mikael Holmbom
- * @version 1.0
+ * @version 1.1
  *
  * @see com.example.mikael.androidutvproj.event.Event
  *
@@ -129,7 +128,6 @@ public class EventFragment extends Fragment {
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        //super.onCreateOptionsMenu(menu, inflater);
         inflater.inflate(R.menu.menu_event, menu);
     }
 
@@ -144,6 +142,9 @@ public class EventFragment extends Fragment {
         return super.onOptionsItemSelected(item);
     }
 
+    public void displayEmpty(){
+        displayEvent(new Event(""));
+    }
     /**
      * display event in this fragment view
      * @param event event to display
@@ -152,26 +153,27 @@ public class EventFragment extends Fragment {
         if(event == null) return;
 
         mCurrentEvent = event;
-        Apartment apartment = event.getApartment();
-        Activity a = getActivity();
-        ((TextView) a.findViewById(R.id.apartment_address)).setText(apartment.getAddress());
-        ((TextView) a.findViewById(R.id.apartment_type)).setText(apartment.getType());
-        ((TextView) a.findViewById(R.id.apartment_constructYear)).setText(apartment.getConstructYearString());
-        ((TextView) a.findViewById(R.id.apartment_openHouseDate)).setText(event.getDateString(Event.DATEFORMAT_STDFORMAT));
+        Apartment apartm = event.getApartment();
+        Activity act = getActivity();
+        ((TextView) act.findViewById(R.id.apartment_address)).setText(apartm.getAddress());
+        String type = getResources().getString(apartm.getType().getNameId());
+        ((TextView) act.findViewById(R.id.apartment_type)).setText(type);
+        ((TextView) act.findViewById(R.id.apartment_constructYear)).setText(apartm.getConstructYearString());
+        ((TextView) act.findViewById(R.id.apartment_openHouseDate)).setText(event.getDateString(Event.DATEFORMAT_STDFORMAT));
 
-        TextView startbid = ((TextView) a.findViewById(R.id.apartment_startBid));
+        TextView startbid = ((TextView) act.findViewById(R.id.apartment_startBid));
         startbid.addTextChangedListener(new MyWatcher());
 
-        ((TextView) a.findViewById(R.id.apartment_startBid)).setText(String.valueOf(apartment.getStartBid()));
-        ((TextView) a.findViewById(R.id.apartment_rent)).setText(String.valueOf(apartment.getRent()));
-        ((TextView) a.findViewById(R.id.apartment_floor)).setText(String.valueOf(apartment.getFloor()));
-        ((TextView) a.findViewById(R.id.apartment_rooms)).setText(String.valueOf(apartment.getRooms()));
-        ((TextView) a.findViewById(R.id.apartment_livingSpace)).setText(String.valueOf(apartment.getLivingSpace()));
+        ((TextView) act.findViewById(R.id.apartment_startBid)).setText(String.valueOf(apartm.getStartBid()));
+        ((TextView) act.findViewById(R.id.apartment_rent)).setText(String.valueOf(apartm.getRent()));
+        ((TextView) act.findViewById(R.id.apartment_floor)).setText(String.valueOf(apartm.getFloor()));
+        ((TextView) act.findViewById(R.id.apartment_rooms)).setText(String.valueOf(apartm.getRooms()));
+        ((TextView) act.findViewById(R.id.apartment_livingSpace)).setText(String.valueOf(apartm.getLivingSpace()));
 
-        double priceLivingSpace = apartment.getLivingSpace() == 0? 0: apartment.getStartBid() / apartment.getLivingSpace();
-        ((TextView) a.findViewById(R.id.apartment_priceLivingSpace)).setText(String.valueOf(priceLivingSpace));
+        double priceLivingSpace = apartm.getLivingSpace() == 0? 0: apartm.getStartBid() / apartm.getLivingSpace();
+        ((TextView) act.findViewById(R.id.apartment_priceLivingSpace)).setText(String.valueOf(priceLivingSpace));
 
-        ((TextView) a.findViewById(R.id.apartment_description)).setText(apartment.getDescription());
+        ((TextView) act.findViewById(R.id.apartment_description)).setText(apartm.getDescription());
     }
 
 
@@ -206,7 +208,7 @@ public class EventFragment extends Fragment {
     */
 
 
-    private AlertDialog dialog_editEvent(Event event){
+    public AlertDialog dialog_editEvent(Event event){
 
         final View v = getActivity().getLayoutInflater().inflate(R.layout.layout_apartment_edit, null);
 
@@ -253,7 +255,7 @@ public class EventFragment extends Fragment {
 
                             Apartment a = newEvent.getApartment();
 
-                            a.setType(type);
+                            a.setType(Apartment.Type.CONDOMINIUM); //TODO tmp
                             Calendar cal = Calendar.getInstance();
                             cal.set(Calendar.YEAR, Integer.parseInt(constructYear));
                             a.setConstructYear(cal.getTime());
@@ -297,7 +299,7 @@ public class EventFragment extends Fragment {
                     public void onClick(DialogInterface dialogInterface, int i) {
 
                         Context context = getActivity().getApplicationContext();
-                        String photoDescr = ((EditText) VIEW.findViewById(R.id.input_openHouseDate)).getText().toString();
+                        String photoDescr = ((EditText) VIEW.findViewById(R.id.edit_openHouseDate)).getText().toString();
                         if ( Build.VERSION.SDK_INT >= 23 &&
                                 ContextCompat.checkSelfPermission(context, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED &&
                                 ContextCompat.checkSelfPermission(context, android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
