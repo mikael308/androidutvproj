@@ -14,6 +14,7 @@ import android.widget.TextView;
  */
 public class EventListItem extends LinearLayout {
 
+    private int mDescriptionMaxLength = 20;
     private TextView mName;
     private TextView mDescription;
 
@@ -21,7 +22,7 @@ public class EventListItem extends LinearLayout {
         super(context);
         mName           = new TextView(getContext());
         mDescription    = new TextView(getContext());
-        mDescription.setEms(20);
+        mDescription.setEms(mDescriptionMaxLength);
 
         init();
     }
@@ -51,7 +52,7 @@ public class EventListItem extends LinearLayout {
 	* set desription of this ListTripItem
 	*/
     public void setDescription(String description){
-        if(description.length() > 20){
+        if(description.length() > mDescriptionMaxLength){
             addMarquee(mDescription);
         }
         mDescription    .setText(description);
