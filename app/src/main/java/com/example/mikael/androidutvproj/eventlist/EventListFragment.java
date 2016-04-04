@@ -23,8 +23,13 @@ import com.example.mikael.androidutvproj.event.Event;
  */
 public class EventListFragment extends ClickableListFragment<Event> {
 
-
+    /**
+     * this listview
+     */
     private EventListView mListEvents;
+    /**
+     * this listadapter
+     */
     private EventListAdapter mAdapter;
 
 
