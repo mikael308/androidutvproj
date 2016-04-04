@@ -14,11 +14,11 @@ import com.example.mikael.androidutvproj.event.Event;
  * <ul>
  *     <li>list of current events</li>
  * </ul>
- * for callback function on selecting listitems, use interface EventListFragment.OnArticleSelectedListener
+ * for callback function on selecting listitems, use interface EventListFragment.OnItemSelectedListener
  *
  * @author Mikael Holmbom
  * @version 1.1
- * @see OnArticleSelectedListener
+ * @see OnItemSelectedListener
  * @see Event
  */
 public class EventListFragment extends ClickableListFragment<Event> {
@@ -41,14 +41,14 @@ public class EventListFragment extends ClickableListFragment<Event> {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Event e = getAdapter().getItem(position);
-                mListener.onArticleSelected(e);
+                mListener.onItemSelected(e);
             }
         });
         mListEvents.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
                 Event e = getAdapter().getItem(position);
-                mListener.onArticleLongClick(e);
+                mListener.onItemLongClick(e);
                 return true;
             }
         });
