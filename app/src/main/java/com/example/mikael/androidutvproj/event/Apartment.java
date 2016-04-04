@@ -1,5 +1,7 @@
 package com.example.mikael.androidutvproj.event;
 
+import com.example.mikael.androidutvproj.R;
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -9,6 +11,30 @@ import java.util.Date;
  * @version 1.0
  */
 public class Apartment {
+
+    public enum Type{
+        CONDOMINIUM     (0, R.string.apartment_type_condominium),
+        HOUSE           (1, R.string.apartment_type_house),
+        TOWNHOUSE       (2, R.string.apartment_type_townhouse),
+        HOLIDAY_HOUSE   (3, R.string.apartment_type_holidayhouse),
+        GROUND_PLOT     (4, R.string.apartment_type_ground_plot),
+        WOODLAND_SITE   (5, R.string.apartment_type_woodland_site),
+        OTHER           (6, R.string.apartment_type_other);
+
+        private int mNameId;
+        private int mId;
+
+        Type(int id, int nameId){
+            mId = id;
+            mNameId = nameId;
+        }
+        public int getNameId(){
+            return mNameId;
+        }
+        public int getId(){
+            return mId;
+        }
+    }
 
     /**
      * this address
@@ -45,7 +71,7 @@ public class Apartment {
     /**
      * this type of Apartment
      */
-    private String mType = "";
+    private Type mType;
 
     /**
      * create Apartment with address
@@ -109,8 +135,9 @@ public class Apartment {
      * get this type
      * @return this type
      */
-    public String getType(){
+    public Type getType(){
         return mType;
+
     }
     /**
      * get this amount of rooms
@@ -170,7 +197,7 @@ public class Apartment {
      * set this type
      * @param type new type value
      */
-    public void setType(String type){
+    public void setType(Type type){
         mType = type;
     }
     /**
