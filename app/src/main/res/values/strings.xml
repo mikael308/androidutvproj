@@ -70,6 +70,10 @@
     <string name="apartment_constructYear_stdVal">1900</string>
     <string name="apartment_toast_intent_couldNotReadApartment">Could not read event data</string>
 
+    <!-- EVENTLIST DIALOG -->
+    <string name="eventlist_click_dialog_header">Event</string>
+    <string name="eventlist_click_dialog_edit">Edit</string>
+    <string name="eventlist_click_dialog_delete">Delete</string>
     <string name="event_newphoto_dialog_title">New photo</string>
     <string name="event_newphoto_dialog_description_label">Description</string>
 
