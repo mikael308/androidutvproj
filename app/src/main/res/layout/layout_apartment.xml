@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/main_layout" >
+
+    <!-- ADDRESS -->
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="10">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="@string/apartment_label_stdAddress"
+            android:layout_weight="9"
+            android:id="@+id/apartment_address" />
+
+    </LinearLayout>
+
+    <!-- TYPE -->
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="3">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="@string/apartment_type_label"
+            android:gravity="left"
+            android:id="@+id/apartment_type_label" />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:text="@string/apartment_type_stdVal"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:id="@+id/apartment_type" />
+
+    </LinearLayout>
+    <!-- CONSTRUCTYEAR -->
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="3">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="@string/apartment_constructYear_label"
+            android:gravity="left"
+            android:id="@+id/apartment_constructYear_label" />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="@string/apartment_constructYear_stdVal"
+            android:gravity="left"
+            android:id="@+id/apartment_constructYear" />
+
+    </LinearLayout>
+
+    <!-- OPEN HOUSE -->
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="3">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="@string/apartment_openHouse_label"
+            android:gravity="left"
+            android:id="@+id/apartment_openHouse_label" />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="@string/apartment_openHouseDate_stdVal"
+            android:id="@+id/apartment_openHouseDate" />
+
+    </LinearLayout>
+    <!-- STARTBID -->
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="3">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="@string/apartment_startBid_label"
+            android:id="@+id/apartment_startBid_label" />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="@string/apartment_startBid_stdVal"
+            android:id="@+id/apartment_startBid" />
+
+    </LinearLayout>
+    <!-- RENT -->
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="3">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="@string/apartment_rent_label"
+            android:gravity="left"
+            android:id="@+id/apartment_rent_label" />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="@string/apartment_rent_stdVal"
+            android:id="@+id/apartment_rent" />
+
+
+    </LinearLayout>
+    <!-- FLOOR -->
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="3">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="@string/apartment_floor_label"
+            android:gravity="left"
+            android:id="@+id/apartment_floor_label" />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="@string/apartment_floor_stdVal"
+            android:id="@+id/apartment_floor" />
+
+    </LinearLayout>
+    <!-- ROOMS -->
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="3">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="@string/apartment_rooms_label"
+            android:gravity="left"
+            android:id="@+id/apartment_rooms_label" />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="@string/apartment_rooms_stdVal"
+            android:id="@+id/apartment_rooms" />
+
+
+    </LinearLayout>
+    <!-- LIVINGSPACE -->
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="3" >
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="@string/apartment_livingSpace_label"
+            android:gravity="left"
+            android:id="@+id/apartment_livingSpace_label" />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="@string/apartment_livingSpace_stdVal"
+            android:id="@+id/apartment_livingSpace" />
+
+
+    </LinearLayout>
+    <!-- PRICE LIVINGSPACE -->
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="3">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="@string/apartment_priceLivingSpace_label"
+            android:gravity="left"
+            android:id="@+id/apartment_priceLivingSpace_label" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="@string/apartment_priceLivingSpace_stdVal"
+            android:gravity="left"
+            android:id="@+id/apartment_priceLivingSpace" />
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="10dp"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="@string/apartment_label_stdDescription"
+        android:id="@+id/apartment_description" />
+
+</LinearLayout>
