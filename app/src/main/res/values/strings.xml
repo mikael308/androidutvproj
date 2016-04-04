@@ -76,6 +76,16 @@
     <string name="eventlist_click_dialog_header">Event</string>
     <string name="eventlist_click_dialog_edit">Edit</string>
     <string name="eventlist_click_dialog_delete">Delete</string>
+
+    <!-- APARTMENT TYPE NAME -->
+    <string name="apartment_type_condominium">Condominimum</string>
+    <string name="apartment_type_house">House</string>
+    <string name="apartment_type_townhouse">Townhouse</string>
+    <string name="apartment_type_holidayhouse">Holiday house</string>
+    <string name="apartment_type_ground_plot">Ground plot</string>
+    <string name="apartment_type_woodland_site">Woodland site</string>
+    <string name="apartment_type_other">Other</string>
+
     <string name="event_newphoto_dialog_title">New photo</string>
     <string name="event_newphoto_dialog_description_label">Description</string>
 
