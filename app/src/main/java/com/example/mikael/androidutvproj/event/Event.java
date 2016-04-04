@@ -141,6 +141,14 @@ public class Event implements Parcelable {
         return 0;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (o instanceof Event)
+            return mApartment.getAddress().equals(((Event) o).getApartment().getAddress());
+
+        return false;
+    }
+
     public static final Parcelable.Creator<Event> CREATOR = new Parcelable.Creator<Event>(){
         public Event createFromParcel(Parcel in){
             return new Event(in);
