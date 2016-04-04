@@ -32,9 +32,7 @@ public class EventListFragment extends ClickableListFragment<Event> {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        //LinearLayout layout  = new LinearLayout(getActivity().getApplicationContext());
 
-        ListView layout = new ListView(getActivity().getApplicationContext());
         mListEvents = new EventListView(this.getActivity().getApplicationContext());
         mListEvents.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -56,10 +54,8 @@ public class EventListFragment extends ClickableListFragment<Event> {
         mAdapter.setResources(getResources());
         mListEvents.setAdapter(mAdapter);
 
-        // add views to root
-        layout.addView(mListEvents);
 
-        return layout;
+        return mListEvents;
     }
 
     public EventListAdapter getAdapter(){
