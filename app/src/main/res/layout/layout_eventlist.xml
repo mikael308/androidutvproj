@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:weightSum="12"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <fragment android:name="com.example.mikael.androidutvproj.eventlist.EventListFragment"
+        android:id="@+id/list"
+        android:layout_weight="11"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        tools:layout="@layout/layout_empty" />
+
+    <ImageButton
+        android:id="@+id/imgbtn_newevent"
+        android:layout_weight="1"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+
+        android:background="@drawable/ic_add_circle_outline_black_24dp" />
+
+
+</LinearLayout>
