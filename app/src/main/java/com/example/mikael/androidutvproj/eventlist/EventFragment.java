@@ -41,12 +41,14 @@ import java.io.IOException;
 
 /**
  *
- * displays a com.example.mikael.androidutvproj.event.Event
+ * displays a com.example.mikael.androidutvproj.event.Event<br>
+ * fragment calls calling class on menu options
  *
  * @author Mikael Holmbom
  * @version 1.1
  *
  * @see com.example.mikael.androidutvproj.event.Event
+ * @see EventListener
  *
  */
 public class EventFragment extends Fragment {
