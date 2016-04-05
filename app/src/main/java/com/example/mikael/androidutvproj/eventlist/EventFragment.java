@@ -108,8 +108,7 @@ public class EventFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-
-        setHasOptionsMenu(true); // add callback to actionbar menu
+        setHasOptionsMenu(true);
         View rootView = inflater.inflate(R.layout.layout_event, container, false);
 
         ////////////////////////////
