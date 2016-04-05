@@ -129,16 +129,11 @@ public class EventFragment extends Fragment {
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         inflater.inflate(R.menu.menu_event, menu);
+
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-
-        switch(item.getItemId()){
-            case R.id.action_edit: dialog_editEvent(mCurrentEvent).show();
-                break;
-        }
-
         return super.onOptionsItemSelected(item);
     }
 
