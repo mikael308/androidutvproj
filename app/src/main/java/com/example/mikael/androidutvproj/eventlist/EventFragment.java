@@ -104,14 +104,12 @@ public class EventFragment extends Fragment {
         }
     }
 
-
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         setHasOptionsMenu(true);
         View rootView = inflater.inflate(R.layout.layout_event, container, false);
 
-        ////////////////////////////
         // NEW PHOTO BUTTON
         //////////////////////////
         ImageButton btnStartCamera = (ImageButton) rootView.findViewById(R.id.btn_startcamera);
@@ -137,7 +135,6 @@ public class EventFragment extends Fragment {
                 } catch (IOException e) {
                     Toast.makeText(getActivity().getApplicationContext(), e.getMessage(), Toast.LENGTH_LONG).show();
                 }
-
             }
         });
 
@@ -330,6 +327,5 @@ public class EventFragment extends Fragment {
                 .setNegativeButton(getResources().getString(R.string.btn_cancel), null);
 
         return builder.create();
-
     }
 }
