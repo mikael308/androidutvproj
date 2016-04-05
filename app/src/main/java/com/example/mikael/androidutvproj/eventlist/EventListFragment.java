@@ -24,6 +24,24 @@ import com.example.mikael.androidutvproj.event.Event;
 public class EventListFragment extends ClickableListFragment<Event> {
 
     /**
+     * activity using this fragment
+     */
+    protected EventListListener mEventListListener;
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+
+        try{
+            if (context instanceof Activity)
+                mEventListListener = (EventListListener) context;
+
+        } catch(ClassCastException e){
+            throw new ClassCastException(context.toString() + " must implement " + EventListListener.class);
+        }
+    }
+
+    /**
      * this listview
      */
     private EventListView mListEvents;
