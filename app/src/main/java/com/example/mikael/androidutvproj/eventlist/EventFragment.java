@@ -53,6 +53,25 @@ import java.io.IOException;
  */
 public class EventFragment extends Fragment {
 
+    /**
+     * activity using this fragment
+     */
+    protected EventListener mEventListener;
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+
+        try {
+            if (context instanceof Activity)
+                mEventListener = (EventListener) context;
+
+        } catch(ClassCastException e){
+            throw new ClassCastException(context.toString() + " must implement " + EventListener.class);
+        }
+    }
+
+
     private static final int CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE = 100;
     private static final int CAPTURE_VIDEO_ACTIVITY_REQUEST_CODE = 200;
 
