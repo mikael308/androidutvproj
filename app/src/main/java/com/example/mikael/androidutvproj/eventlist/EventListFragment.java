@@ -49,6 +49,7 @@ public class EventListFragment extends ClickableListFragment<EventListItem> {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        setHasOptionsMenu(true);
 
         ListView listView = new ListView(getActivity());
         EventListAdapter adapter = new EventListAdapter(getActivity(), listView.getId());
