@@ -33,7 +33,7 @@ public class EventListAdapter extends ArrayAdapter<EventListItem> {
      * @param e Event to add
      */
     public void add(Event e){
-        super.add(new EventListItem(getContext(), e));
+        add(new EventListItem(getContext(), e));
     }
 
     /**
@@ -41,7 +41,7 @@ public class EventListAdapter extends ArrayAdapter<EventListItem> {
      * @param e Event to remove
      */
     public void remove(Event e){
-        super.remove(new EventListItem(getContext(), e));
+        remove(new EventListItem(getContext(), e));
     }
 
     /**
@@ -49,6 +49,6 @@ public class EventListAdapter extends ArrayAdapter<EventListItem> {
      * @param e Event to determine position in this adapter
      */
     public int getPosition(Event e){
-        return super.getPosition(new EventListItem(getContext(), e));
+        return getPosition(new EventListItem(getContext(), e));
     }
 }
