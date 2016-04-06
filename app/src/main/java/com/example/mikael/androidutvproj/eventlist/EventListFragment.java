@@ -1,12 +1,18 @@
 package com.example.mikael.androidutvproj.eventlist;
 
+import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
+import android.widget.ListView;
 
 import com.example.mikael.androidutvproj.event.Event;
+
 
 /**
  * fragment listing current Events<br>
@@ -41,26 +47,17 @@ public class EventListFragment extends ClickableListFragment<EventListItem> {
         }
     }
 
-    /**
-     * this listview
-     */
-    private EventListView mListEvents;
-    /**
-     * this listadapter
-     */
-    private EventListAdapter mAdapter;
-
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
+        ListView listView = new ListView(getActivity());
+        EventListAdapter adapter = new EventListAdapter(getActivity(), listView.getId());
 
-        mAdapter = new EventListAdapter(this.getActivity(), mListEvents.getId());
-        mAdapter.setResources(getResources());
-        mListEvents.setAdapter(mAdapter);
+        setListAdapter(adapter);
 
+        return listView;
+    }
 
-        return mListEvents;
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
@@ -70,6 +67,5 @@ public class EventListFragment extends ClickableListFragment<EventListItem> {
     public boolean onOptionsItemSelected(MenuItem item) {
         return super.onOptionsItemSelected(item);
     }
-
 
 }
