@@ -48,8 +48,28 @@ public class EventListAdapter extends ArrayAdapter<EventListItem> {
 
         item.setName(name);
         item.setDescription(    event.getApartment().getDescription());
+    /**
+     * add Event to this adapter
+     * @param e Event to add
+     */
+    public void add(Event e){
+        super.add(new EventListItem(getContext(), e));
+    }
 
+    /**
+     * remove Event from this adapter
+     * @param e Event to remove
+     */
+    public void remove(Event e){
+        super.remove(new EventListItem(getContext(), e));
+    }
 
         return item;
+    /**
+     * get position of Event in this adapter
+     * @param e Event to determine position in this adapter
+     */
+    public void getPosition(Event e){
+        super.getPosition(new EventListItem(getContext(), e));
     }
 }
