@@ -45,10 +45,7 @@ public class SettingsListFragment extends ListFragment {
      * shared preferences key : photosource
      */
     public static final String SHAREDPREFKEY_PHOTOSOURCE = "SHAREDPREFKEY_PHOTOSOURCE";
-    /**
-     * this listview
-     */
-    private ListView                mListView;
+
     /**
      * this listadapter
      */
@@ -76,7 +73,17 @@ public class SettingsListFragment extends ListFragment {
 
         init();
 
-        return mListView;
+        // add items to adapter
+        List<SettingsListItem> listitems = new ArrayList<>();
+        listitems.add(mListitem_lang);
+        listitems.add(mListitem_photosrc);
+
+        ListView listView = new ListView(getActivity());
+        mListAdapter = new SettingsListAdapter(getActivity(), listView.getId());
+        mListAdapter.addAll(listitems);
+        setListAdapter(mListAdapter);
+
+        return listView;
     }
 
     @Override
@@ -88,12 +95,10 @@ public class SettingsListFragment extends ListFragment {
      * initialize this fragment
      * @see #init_sharedPref()
      * @see #init_listitems()
-     * @see #init_adapter()
      */
     private void init(){
         init_sharedPref();
         init_listitems();
-        init_adapter();
     }
 
     /**
@@ -150,23 +155,6 @@ public class SettingsListFragment extends ListFragment {
             }
         });
     }
-    /**
-     * initialize this adapter
-     * {@link #init_listitems()} must be called in prior of this
-     * @see #init_listitems()
-     */
-    private void init_adapter(){
-        mListView = new ListView(getActivity());
-
-        // add items to adapter
-        List<SettingsListItem> listitems = new ArrayList<>();
-        listitems.add(mListitem_lang);
-        listitems.add(mListitem_photosrc);
-
-        mListAdapter = new SettingsListAdapter(getActivity().getApplicationContext(), R.layout.activity_settings);
-        mListAdapter.addAll(listitems);
-        mListView.setAdapter(mListAdapter);
-    }
 
     /**
      * settings dialog set app language
@@ -203,7 +191,6 @@ public class SettingsListFragment extends ListFragment {
                 .setNegativeButton(getResources().getString(R.string.btn_cancel), null)
                 .create();
     }
-
 
     /**
      * recursive method<br>
