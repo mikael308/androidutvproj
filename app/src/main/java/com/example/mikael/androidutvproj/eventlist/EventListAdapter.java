@@ -69,7 +69,7 @@ public class EventListAdapter extends ArrayAdapter<EventListItem> {
      * get position of Event in this adapter
      * @param e Event to determine position in this adapter
      */
-    public void getPosition(Event e){
-        super.getPosition(new EventListItem(getContext(), e));
+    public int getPosition(Event e){
+        return super.getPosition(new EventListItem(getContext(), e));
     }
 }
