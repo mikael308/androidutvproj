@@ -8,7 +8,6 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-import com.example.mikael.androidutvproj.R;
 import com.example.mikael.androidutvproj.event.Event;
 
 /**
@@ -18,14 +17,8 @@ import com.example.mikael.androidutvproj.event.Event;
  */
 public class EventListAdapter extends ArrayAdapter<Event>  {
 
-    private Resources mResources;
-
     public EventListAdapter(Context context, int resource) {
         super(context, resource);
-    }
-
-    public void setResources(Resources r){
-        mResources = r;
     }
 
     @Override
