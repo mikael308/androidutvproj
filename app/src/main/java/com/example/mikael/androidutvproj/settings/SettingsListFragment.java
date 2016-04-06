@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
@@ -23,6 +24,7 @@ import java.util.List;
 
 /**
  * Settings used for this app<br>
+ * fragment calls calling class on menu options
  * settings values stored in shared preferences
  * @author Mikael Holmbom
  * @version 1.0
@@ -75,6 +77,11 @@ public class SettingsListFragment extends ListFragment {
         init();
 
         return mListView;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        return super.onOptionsItemSelected(item);
     }
 
     /**
