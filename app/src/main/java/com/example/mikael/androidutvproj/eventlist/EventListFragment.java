@@ -77,6 +77,9 @@ public class EventListFragment extends ClickableListFragment<Event> {
 
 
         return mListEvents;
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        super.onCreateOptionsMenu(menu, inflater);
     }
 
     public EventListAdapter getAdapter(){
