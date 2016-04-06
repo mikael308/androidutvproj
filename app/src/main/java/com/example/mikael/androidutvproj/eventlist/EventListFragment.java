@@ -82,8 +82,6 @@ public class EventListFragment extends ClickableListFragment<EventListItem> {
         super.onCreateOptionsMenu(menu, inflater);
     }
 
-    public EventListAdapter getAdapter(){
-        return mAdapter;
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         return super.onOptionsItemSelected(item);
