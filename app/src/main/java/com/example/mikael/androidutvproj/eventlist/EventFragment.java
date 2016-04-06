@@ -75,11 +75,6 @@ public class EventFragment extends Fragment {
     private static final int CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE = 100;
     private static final int CAPTURE_VIDEO_ACTIVITY_REQUEST_CODE = 200;
 
-    /**
-     * this current displayed event
-     */
-    private Event mCurrentEvent;
-
 
     private class MyWatcher implements TextWatcher{
         @Override
