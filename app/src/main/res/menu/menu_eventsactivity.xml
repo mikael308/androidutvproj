@@ -4,6 +4,8 @@
 
     <item android:id="@+id/action_new" android:title="@string/actionbar_new_title" android:icon="@drawable/ic_add_circle_outline_white_24dp"
         android:orderInCategory="100" app:showAsAction="ifRoom"  />
+    <item android:id="@+id/action_settings" android:title="@string/actionbar_settings_title" android:icon="@drawable/ic_settings_white_24dp"
+        android:orderInCategory="100" app:showAsAction="never" />
 
 
 </menu>
