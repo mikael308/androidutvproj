@@ -54,22 +54,6 @@ public class EventListFragment extends ClickableListFragment<EventListItem> {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        mListEvents = new EventListView(this.getActivity().getApplicationContext());
-        mListEvents.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Event e = getAdapter().getItem(position);
-                mListener.onItemSelected(e);
-            }
-        });
-        mListEvents.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
-            @Override
-            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
-                Event e = getAdapter().getItem(position);
-                mListener.onItemLongClick(e);
-                return true;
-            }
-        });
 
         mAdapter = new EventListAdapter(this.getActivity(), mListEvents.getId());
         mAdapter.setResources(getResources());
