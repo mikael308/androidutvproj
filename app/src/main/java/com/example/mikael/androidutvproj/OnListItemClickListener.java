@@ -1,4 +1,4 @@
-package com.example.mikael.androidutvproj.eventlist;
+package com.example.mikael.androidutvproj;
 
 /**
  * interface used for callback function when using ListView
