@@ -14,14 +14,14 @@ import com.example.mikael.androidutvproj.event.Event;
  * <ul>
  *     <li>list of current events</li>
  * </ul>
- * for callback function on selecting listitems, use interface EventListFragment.OnItemSelectedListener
+ * for callback function on selecting listitems, use interface OnListItemClickListener
  *
  * @author Mikael Holmbom
  * @version 1.1
- * @see OnItemSelectedListener
+ * @see OnListItemClickListener
  * @see Event
  */
-public class EventListFragment extends ClickableListFragment<Event> {
+public class EventListFragment extends ClickableListFragment<EventListItem> {
 
     /**
      * activity using this fragment
