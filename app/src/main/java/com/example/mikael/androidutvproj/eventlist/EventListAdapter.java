@@ -11,11 +11,12 @@ import android.widget.ListView;
 import com.example.mikael.androidutvproj.event.Event;
 
 /**
+ * Adapter used for ListView containing EventListItem
  * @author Mikael Holmbom
  * @version 1.1
- * @see Event
+ * @see EventListItem
  */
-public class EventListAdapter extends ArrayAdapter<Event>  {
+public class EventListAdapter extends ArrayAdapter<EventListItem> {
 
     public EventListAdapter(Context context, int resource) {
         super(context, resource);
