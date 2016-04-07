@@ -16,7 +16,7 @@
             android:layout_width="wrap_content"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textAppearance="?android:attr/textAppearanceSmall"
             android:text="@string/apartment_address_label"
             android:id="@+id/title_address" />
         <EditText
@@ -32,7 +32,7 @@
             android:layout_width="wrap_content"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textAppearance="?android:attr/textAppearanceSmall"
             android:text="@string/apartment_type_label"
             android:id="@+id/title_type" />
         <EditText
@@ -46,7 +46,7 @@
             android:layout_width="wrap_content"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textAppearance="?android:attr/textAppearanceSmall"
             android:text="@string/apartment_constructYear_label"
             android:id="@+id/title_constructyear" />
         <EditText
@@ -60,13 +60,14 @@
             android:layout_width="wrap_content"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textAppearance="?android:attr/textAppearanceSmall"
             android:text="@string/apartment_openHouse_label"
             android:id="@+id/title_openHouseDate" />
         <EditText
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="3"
+            android:textAppearance="?android:attr/textAppearanceSmall"
             android:inputType="datetime"
             android:id="@+id/edit_openHouseDate" />
 
@@ -74,7 +75,7 @@
             android:layout_width="wrap_content"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textAppearance="?android:attr/textAppearanceSmall"
             android:text="@string/apartment_startBid_label"
             android:id="@+id/title_startBid" />
         <EditText
@@ -89,7 +90,7 @@
             android:layout_width="wrap_content"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textAppearance="?android:attr/textAppearanceSmall"
             android:text="@string/apartment_rent_label"
             android:id="@+id/title_rent" />
         <EditText
@@ -104,7 +105,7 @@
             android:layout_width="wrap_content"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textAppearance="?android:attr/textAppearanceSmall"
             android:text="@string/apartment_floor_label"
             android:id="@+id/title_floor" />
         <EditText
@@ -119,7 +120,7 @@
             android:layout_width="wrap_content"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textAppearance="?android:attr/textAppearanceSmall"
             android:text="@string/apartment_rooms_label"
             android:id="@+id/title_rooms" />
         <EditText
@@ -134,7 +135,7 @@
             android:layout_width="wrap_content"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textAppearance="?android:attr/textAppearanceSmall"
             android:text="@string/apartment_livingSpace_label"
             android:id="@+id/title_livingspace" />
         <EditText
@@ -149,7 +150,7 @@
             android:layout_width="wrap_content"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textAppearance="?android:attr/textAppearanceSmall"
             android:text="@string/apartment_description_label"
             android:id="@+id/title_description" />
         <EditText
