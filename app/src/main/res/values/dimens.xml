@@ -11,6 +11,8 @@
 
     <dimen name="aboutmessage_inner_padding">10dp</dimen>
 
+    <dimen name="apartment_edit_padding_left">10dp</dimen>
+
     <!-- SETTINGS ACTIVITY -->
     <dimen name="settings_list_margin">20dp</dimen>
     <dimen name="settings_listitem_padding">40px</dimen>
