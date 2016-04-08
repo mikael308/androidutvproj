@@ -27,7 +27,7 @@ import java.util.Vector;
  * @see Apartment
  * @see Photo
  */
-public class Event implements Parcelable {
+public class Event implements Parcelable, Comparable<Event>{
 
     /**
      * apartment of this event
@@ -214,4 +214,8 @@ public class Event implements Parcelable {
 
     }
 
+    @Override
+    public int compareTo(Event another) {
+        return getApartment().getAddress().compareTo(another.getApartment().getAddress());
+    }
 }
