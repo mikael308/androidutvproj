@@ -18,6 +18,7 @@ enum Lang{
         return langarr[idx];
     }
     public String getName(){return mName;}
+    public String getLangCode(){return mLangCode;}
     public static Lang getByName(String name){
         for(Lang lang : Lang.values()){
             if(lang.mName.equals(name))
