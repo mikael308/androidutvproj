@@ -26,6 +26,18 @@ enum Lang{
         }
         return null;
     }
+    /**
+     * get Lang from lang code
+     * @param langCode langcode of desired Lang
+     * @return Lang of param langcode<br>null if langcode does not correspond to any Lang
+     */
+    public static Lang getByLangCode(String langCode){
+        for(Lang lang : Lang.values()){
+            if(lang.mLangCode.equals(langCode))
+                return lang;
+        }
+        return null;
+    }
 }
 
 
