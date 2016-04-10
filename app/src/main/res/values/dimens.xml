@@ -23,5 +23,13 @@
     <dimen name="settings_listitem_info_padding_right">0px</dimen>
     <dimen name="settings_listitem_info_padding_bottom">0px</dimen>
 
+    <!-- EVENTLIST FRAGMENT -->
+    <dimen name="events_listitem_header_textsize">8sp</dimen>
+    <dimen name="events_listitem_info_textsize">8sp</dimen>
+    <dimen name="events_listitem_info_padding_left">2dp</dimen>
+    <dimen name="events_listitem_info_padding_top">9dp</dimen>
+    <dimen name="events_listitem_info_padding_right">2dp</dimen>
+    <dimen name="events_listitem_info_padding_bottom">16dp</dimen>
+
 
 </resources>
