@@ -5,11 +5,13 @@ package com.example.mikael.androidutvproj.settings;
  * @version 1.0
  */
 enum Lang{
-    ENGLISH("English"),
-    SWEDISH("Swedish");
+    ENGLISH("English", "en"),
+    SWEDISH("Swedish", "sv");
     private String mName;
-    Lang(String name){
+    private String mLangCode;
+    Lang(String name, String langCode){
         mName = name;
+        mLangCode = langCode;
     }
     public static Lang findByIdx(int idx){
         Lang[] langarr = values();
