@@ -27,11 +27,24 @@ public class EventListItem extends LinearLayout {
 
     public EventListItem(Context context) {
         super(context);
-        mName           = new TextView(getContext());
-        mDescription    = new TextView(getContext());
-        mDescription.setEms(mDescriptionMaxLength);
-
         init();
+    }
+    public EventListItem(Context context, String header){
+        super(context);
+        init();
+        setHeader(header);
+    }
+    public EventListItem(Context context, String header, String description){
+        super(context);
+        init();
+        setHeader(header);
+        setDescription(description);
+    }
+    public EventListItem(Context context, Event e){
+        super(context);
+        init();
+        setHeader(e.getApartment().getAddress());
+        setDescription(e.getApartment().getDescription());
     }
 
     /**
