@@ -225,5 +225,8 @@ public class Event implements Parcelable, Comparable<Event>{
 
         return getApartment().getAddress().toLowerCase().compareTo(another.getApartment().getAddress().toLowerCase());
     }
+    @Override
+    public String toString(){
+        return getApartment().toString();
     }
 }
