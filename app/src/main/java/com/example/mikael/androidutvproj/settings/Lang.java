@@ -18,6 +18,13 @@ enum Lang{
         return langarr[idx];
     }
     public String getName(){return mName;}
+    public static Lang getByName(String name){
+        for(Lang lang : Lang.values()){
+            if(lang.mName.equals(name))
+                return lang;
+        }
+        return null;
+    }
 }
 
 
