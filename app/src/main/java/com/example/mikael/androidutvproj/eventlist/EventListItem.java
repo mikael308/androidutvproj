@@ -38,16 +38,13 @@ public class EventListItem extends LinearLayout {
      * initialize this Layout
      */
     private void init(){
-        this.setOrientation(LinearLayout.VERTICAL);
-        LayoutParams nameParams = new LayoutParams(
-                LayoutParams.MATCH_PARENT, 0, 4
-        );
-        LayoutParams descrParams = new LayoutParams(
-                LayoutParams.MATCH_PARENT, 0, 6
-        );
+        View item           = LinearLayout.inflate(getContext(), R.layout.layout_eventlist_item, null);
+        mHeader             = (TextView) item.findViewById(R.id.header);
 
-        this.addView(mName, nameParams);
-        this.addView(mDescription, descrParams);
+        mDescription        = (TextView) item.findViewById(R.id.description);
+        mDescription        .setEms(mDescriptionMaxLength);
+
+        addView(item);
     }
 	/**
 	* set name of this ListTripItem
