@@ -91,16 +91,20 @@ class SettingsListItem extends LinearLayout {
     /**
      * set this header text string
      * @param newHeader new text value
+     * @return this SettingsListItem
      */
-    public void setHeader(String newHeader){
+    public SettingsListItem setHeader(String newHeader){
         mHeader.setText(newHeader);
+        return this;
     }
     /**
      * set this info text string
      * @param newInfo new text value
+     * @return this SettingsListItem
      */
-    public void setInfo(String newInfo){
+    public SettingsListItem setInfo(String newInfo){
         mInfo.setText(newInfo);
+        return this;
     }
 
 }
