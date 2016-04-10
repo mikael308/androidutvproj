@@ -2,8 +2,12 @@ package com.example.mikael.androidutvproj.eventlist;
 
 import android.content.Context;
 import android.text.TextUtils;
+import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import com.example.mikael.androidutvproj.R;
+import com.example.mikael.androidutvproj.event.Event;
 
 /**
  * class used as listitem containing a <Code>Event</Code> instance
