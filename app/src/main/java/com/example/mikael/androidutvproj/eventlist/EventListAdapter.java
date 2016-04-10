@@ -8,6 +8,10 @@ import android.widget.ArrayAdapter;
 
 import com.example.mikael.androidutvproj.event.Event;
 
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.List;
+
 /**
  * Adapter used for ListView containing EventListItem
  * @author Mikael Holmbom
@@ -34,6 +38,16 @@ public class EventListAdapter extends ArrayAdapter<EventListItem> {
      */
     public void add(Event e){
         add(new EventListItem(getContext(), e));
+    }
+
+    /**
+     * add Events all from list events
+     * @param events list of Events to add to this adapter
+     */
+    public void add(Collection<Event> events){
+        Iterator<Event> it = events.iterator();
+        while(it.hasNext())
+            add(it.next());
     }
     public void insert(Event e, int position){
         insert(new EventListItem(getContext(), e), position);
