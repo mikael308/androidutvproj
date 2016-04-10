@@ -117,4 +117,16 @@ public class EventListItem extends LinearLayout {
         tv  .setSelected(true);
     }
 
+    @Override
+    public boolean equals(Object o) {
+        try{
+            EventListItem item = (EventListItem) o;
+            return (this.getHeader().equals(item.getHeader())
+                && this.getDescription().equals(item.getDescription()));
+
+        } catch(ClassCastException e){
+            return false;
+        }
+    }
+
 }
