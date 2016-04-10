@@ -19,7 +19,6 @@ import com.example.mikael.androidutvproj.event.Event;
 public class EventListItem extends LinearLayout {
 
     private int mDescriptionMaxLength = 20;
-    private TextView mName;
     /**
      * this header
      */
@@ -63,11 +62,6 @@ public class EventListItem extends LinearLayout {
 
         addView(item);
     }
-	/**
-	* set name of this ListTripItem
-	*/
-    public void setName(String name){
-        mName   .setText(name);
 
     /**
      * set name of this ListTripItem
