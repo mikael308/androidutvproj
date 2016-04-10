@@ -214,6 +214,12 @@ public class Event implements Parcelable, Comparable<Event>{
 
     }
 
+    /**
+     * comparison is made on evnts Apartment address<br>
+     *     comparison is not case-sensitive
+     * @param another
+     * @return
+     */
     @Override
     public int compareTo(Event another) {
         return getApartment().getAddress().compareTo(another.getApartment().getAddress());
