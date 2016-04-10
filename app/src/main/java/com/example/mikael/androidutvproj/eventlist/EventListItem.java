@@ -16,6 +16,13 @@ public class EventListItem extends LinearLayout {
 
     private int mDescriptionMaxLength = 20;
     private TextView mName;
+    /**
+     * this header
+     */
+    private TextView mHeader;
+    /**
+     * this description
+     */
     private TextView mDescription;
 
     public EventListItem(Context context) {
@@ -47,22 +54,45 @@ public class EventListItem extends LinearLayout {
 	*/
     public void setName(String name){
         mName   .setText(name);
+
+    /**
+     * set name of this ListTripItem
+     * @param header new header value
+     * @return
+     */
+    public EventListItem setHeader(String header) {
+        mHeader.setText(header);
+        return this;
     }
-	/**
-	* set desription of this ListTripItem
-	*/
-    public void setDescription(String description){
-        if(description.length() > mDescriptionMaxLength){
+
+    /**
+     *
+     * set desription of this ListTripItem
+     * @param description new description value
+     * @return this EventListItem
+     */
+    public EventListItem setDescription(String description){
+        if(description.length() > mDescriptionMaxLength) {
             addMarquee(mDescription);
         }
-        mDescription    .setText(description);
+        mDescription.setText(description);
+        return this;
     }
-    public void setInnerPadding(int left, int top, int right, int bottom, int spacing){
-        mName           .setPadding(left, top, (spacing / 2), bottom);
-        mDescription    .setPadding((spacing / 2), top, right, bottom);
+
+    /**
+     * get this header text
+     * @return header text
+     */
+    public String getHeader(){
+        return mHeader.getText().toString();
     }
-    public void setInnerPadding(int padding, int spacing){
-        this.setInnerPadding(padding, padding, padding, padding, spacing);
+
+    /**
+     * get this description text
+     * @return description text
+     */
+    public String getDescription(){
+        return mDescription.getText().toString();
     }
 
     /**
