@@ -65,6 +65,10 @@ public class EventListItem extends LinearLayout {
         this.setInnerPadding(padding, padding, padding, padding, spacing);
     }
 
+    /**
+     * add marquee to textview: rolling text animation
+     * @param tv textView to add marquee to
+     */
     private void addMarquee(TextView tv){
         tv  .setMarqueeRepeatLimit(-1);
         tv  .setHorizontalFadingEdgeEnabled(true);
