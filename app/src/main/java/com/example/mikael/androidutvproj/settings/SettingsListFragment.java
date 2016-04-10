@@ -34,43 +34,28 @@ import java.util.List;
 public class SettingsListFragment extends ListFragment {
 
     /**
-     * shared preferenes main key : settings
-     */
-    public static final String SHAREDPREFKEY_SETTINGS = "SETTINGS";
-    /**
-     * shared preferences key : this app language
-     */
-    public static final String SHAREDPREFKEY_LANGUAGE = "SHAREDPREFKEY_LANGUAGE";
-    /**
-     * shared preferences key : photosource
-     */
-    public static final String SHAREDPREFKEY_PHOTOSOURCE = "SHAREDPREFKEY_PHOTOSOURCE";
-
-    /**
      * this listadapter
      */
     private SettingsListAdapter     mListAdapter;
-
     /**
-     * listitem : language settigns
-     * @see #SHAREDPREFKEY_LANGUAGE
+     * listitem : language settigns<br>
+     * key: Settings.SHAREDPREFKEY_LANGUAGE
      */
     private SettingsListItem        mListitem_lang;
     /**
-     * listitem : photo source
-     * @see #SHAREDPREFKEY_PHOTOSOURCE
+     * listitem : photo source<br>
+     * key: Settings.SHAREDPREFKEY_PHOTOSRC
      */
     private SettingsListItem        mListitem_photosrc;
     /**
-     * this shared preferences
-     * @see #SHAREDPREFKEY_SETTINGS
+     * this shared preferences<br>
+     * key: Settings.SHAREDPREFKEY_SETTINGS
      */
     private SharedPreferences       mSharedPref;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-
         init();
 
         // add items to adapter
