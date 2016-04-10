@@ -70,8 +70,8 @@ class SettingsListItem extends LinearLayout {
         mInfo.setPadding(getResources().getDimensionPixelSize(R.dimen.settings_listitem_info_padding_left), getResources().getDimensionPixelSize(R.dimen.settings_listitem_info_padding_top), getResources().getDimensionPixelSize(R.dimen.settings_listitem_info_padding_right), getResources().getDimensionPixelSize(R.dimen.settings_listitem_info_padding_bottom));
         mInfo.setTextColor(Color.GRAY);
 
-        this.addView(mHeader);
-        this.addView(mInfo);
+        addView(mHeader);
+        addView(mInfo);
     }
 
     /**
