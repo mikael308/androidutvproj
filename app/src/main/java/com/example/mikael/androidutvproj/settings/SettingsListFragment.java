@@ -91,15 +91,17 @@ public class SettingsListFragment extends ListFragment {
      */
     private void init_sharedPref(){
 
-        mSharedPref = getActivity().getSharedPreferences(SHAREDPREFKEY_SETTINGS, getActivity().MODE_PRIVATE);
+        mSharedPref = getActivity().getSharedPreferences(Settings.SHAREDPREFKEY_SETTINGS, getActivity().MODE_PRIVATE);
         mSharedPref.registerOnSharedPreferenceChangeListener(new SharedPreferences.OnSharedPreferenceChangeListener() {
             @Override
             public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
                 switch (key) {
-                    case SHAREDPREFKEY_LANGUAGE:
-                        mListitem_lang.setInfo(sharedPreferences.getString(key, Lang.ENGLISH.getName()));
+                    case Settings.SHAREDPREFKEY_LANGUAGE:
+                        String newLangCode = sharedPreferences.getString(key, Settings.LANGUAGE_DEFAULT);
+
+
                         break;
-                    case SHAREDPREFKEY_PHOTOSOURCE:
+                    case Settings.SHAREDPREFKEY_PHOTOSRC:
                         mListitem_photosrc.setInfo(sharedPreferences.getString(key, ""));
                         break;
                 }
@@ -117,7 +119,7 @@ public class SettingsListFragment extends ListFragment {
         // LANGUAGE
         ////////////////////////////////////
         String lang_header  = getResources().getString(R.string.settings_listitem_language_header);
-        String lang_info    = mSharedPref.getString(SHAREDPREFKEY_LANGUAGE, Lang.ENGLISH.getName());
+        String langCode     = mSharedPref.getString(Settings.SHAREDPREFKEY_LANGUAGE, Settings.LANGUAGE_DEFAULT);
         mListitem_lang      = new SettingsListItem(getActivity(), lang_header, lang_info);
         mListitem_lang      .setInfo(lang_info);
         mListitem_lang.setOnClickListener(new View.OnClickListener() {
@@ -130,7 +132,7 @@ public class SettingsListFragment extends ListFragment {
         // PHOTO SOURCE
         ////////////////////////////////////
         String photosrc_header = getResources().getString(R.string.settings_listitem_photosrc_header);
-        String photosrc_info = mSharedPref.getString(SHAREDPREFKEY_PHOTOSOURCE, "");
+        String photosrc_info = mSharedPref.getString(Settings.SHAREDPREFKEY_PHOTOSRC, Settings.PHOTOSRC_DEFAULT);
         mListitem_photosrc  = new SettingsListItem(getActivity(), photosrc_header, photosrc_info);
         mListitem_photosrc  .setInfo(photosrc_info);
         mListitem_photosrc.setOnClickListener(new View.OnClickListener() {
@@ -141,9 +143,10 @@ public class SettingsListFragment extends ListFragment {
         });
     }
 
+
     /**
      * settings dialog set app language
-     * if confirmed: shared preference {@link #SHAREDPREFKEY_LANGUAGE} is set to new value
+     * if confirmed: shared preference Settings.SHAREDPREFKEY_LANGUAGE is set to new value
      * @return language dialog
      * @see Lang
      */
@@ -167,8 +170,8 @@ public class SettingsListFragment extends ListFragment {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         String lang = Lang.findByIdx(which).getName();
-                        getActivity().getSharedPreferences(SHAREDPREFKEY_SETTINGS, getActivity().MODE_PRIVATE).edit()
-                                .putString(SHAREDPREFKEY_LANGUAGE, lang)
+                        getActivity().getSharedPreferences(Settings.SHAREDPREFKEY_SETTINGS, getActivity().MODE_PRIVATE).edit()
+                                .putString(Settings.SHAREDPREFKEY_LANGUAGE, langCode)
                                 .apply();
 
                     }
@@ -202,7 +205,7 @@ public class SettingsListFragment extends ListFragment {
 
     /**
      * settings dialog : set photo source<br>
-     * if confirmed: shared preference {@link #SHAREDPREFKEY_PHOTOSOURCE} is set to new value
+     * if confirmed: shared preference Settings.SHAREDPREFKEY_PHOTOSRC is set to new value
      * @return settings dialog
      */
     private AlertDialog dialog_photoSource(){
@@ -230,8 +233,8 @@ public class SettingsListFragment extends ListFragment {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         String photosrc = PHOTOSRC.get(which);
-                        getActivity().getSharedPreferences(SHAREDPREFKEY_SETTINGS, getActivity().MODE_PRIVATE).edit()
-                                .putString(SHAREDPREFKEY_PHOTOSOURCE, photosrc)
+                        getActivity().getSharedPreferences(Settings.SHAREDPREFKEY_SETTINGS, getActivity().MODE_PRIVATE).edit()
+                                .putString(Settings.SHAREDPREFKEY_PHOTOSRC, photosrc)
                                 .apply();
 
                     }
