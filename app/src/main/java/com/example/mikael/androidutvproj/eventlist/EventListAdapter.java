@@ -35,6 +35,9 @@ public class EventListAdapter extends ArrayAdapter<EventListItem> {
     public void add(Event e){
         add(new EventListItem(getContext(), e));
     }
+    public void insert(Event e, int position){
+        insert(new EventListItem(getContext(), e), position);
+    }
 
     /**
      * remove Event from this adapter
