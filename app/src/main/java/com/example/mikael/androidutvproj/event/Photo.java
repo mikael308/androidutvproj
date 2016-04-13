@@ -14,11 +14,13 @@ package com.example.mikael.androidutvproj.event;
 
 import com.google.android.gms.maps.model.LatLng;
 
+import java.io.File;
 import java.util.Date;
 
 
 public class Photo {
 
+    private File mPhotoFile;
     /**
      * description of the content of this photo
      * */
@@ -34,27 +36,38 @@ public class Photo {
 
     /**
      * creates Photo object with date as current date and time
+     * @param photofile file containing photo
      * @param description description of this photo
      * @param latlng destination of this photo
      */
-    public Photo(String description, LatLng latlng){
+    public Photo(File photofile, String description, LatLng latlng){
+        mPhotoFile      = photofile;
         mDescription    = description;
         mLatLng         = latlng;
         mDate           = new Date();
     }
     /**
      * std ctor
+     * @param photofile file containing photo
      * @param description description of this photo
      * @param latlng destination of this photo
      * @param date date this photo was taken
      */
-    public Photo(String description, LatLng latlng, Date date){
+    public Photo(File photofile, String description, LatLng latlng, Date date){
+        mPhotoFile      = photofile;
         mDescription    = description;
         mLatLng         = latlng;
         mDate           = date;
 
     }
 
+    /**
+     * get this photofile
+     * @return  photofile
+     */
+    public File getPhotoFile(){
+        return mPhotoFile;
+    }
     /**
      * get this description
      * @return description
@@ -77,6 +90,10 @@ public class Photo {
      */
     public Date getDate(){
         return mDate;
+    }
+
+    public String toString(){
+        return mPhotoFile.getName();
     }
 
 
