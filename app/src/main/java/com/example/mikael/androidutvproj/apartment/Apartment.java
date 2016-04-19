@@ -1,16 +1,20 @@
-package com.example.mikael.androidutvproj.event;
+package com.example.mikael.androidutvproj.apartment;
+
+import android.os.Parcel;
 
 import com.example.mikael.androidutvproj.R;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 
 /**
+ *
  * Apartment
  * @author Mikael Holmbom
  * @version 1.0
  */
-public class Apartment {
+public class Apartment extends DataAccessObject implements Comparable<Apartment>{
 
     public enum Type{
         CONDOMINIUM     (0, R.string.apartment_type_condominium),
@@ -73,12 +77,19 @@ public class Apartment {
      */
     private Type mType;
 
+    private ArrayList<Event> mShowings = new ArrayList<>(2);
+
     /**
-     * create Apartment with address
-     * @param address address value
+     * collection of photos of this Event
      */
-    public Apartment(String address){
-        mAddress = address;
+    private ArrayList<Photo> mPhotos       = new ArrayList<>();
+
+    /**
+     * create Apartment
+     * @param id id
+     */
+    public Apartment(String id){
+        super(id);
     }
     /**
      * get this title
@@ -154,6 +165,10 @@ public class Apartment {
     public double getFloor(){
         return mFloor;
     }
+
+    public ArrayList<Event> getShowings(){
+        return mShowings;
+    }
     /**
      * set this address
      * @param address new address
@@ -173,6 +188,10 @@ public class Apartment {
      */
     public void setConstructYear(Date constructYear){
         mConstructYear = constructYear;
+    }
+
+    public void setConstructYear(long time){
+        mConstructYear = new Date(time);
     }
     /**
      * set this livingspace
@@ -223,5 +242,71 @@ public class Apartment {
     @Override
     public String toString() {
         return getAddress() + ":" + getFloor();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if( o instanceof Apartment)
+            return getId().equals(((Apartment) o).getId());
+        return false;
+    }
+
+    @Override
+    public int compareTo(Apartment another) {
+        return getAddress().compareTo(another.getAddress());
+    }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+        super.writeToParcel(parcel, i);
+
+        parcel.writeStringArray(new String[]{
+                getId(),
+                getAddress(),
+                getDescription(),
+                getType().name() //TODO denna ger error om du gåpr ur app i eventlist view
+        });
+        parcel.writeLongArray(new long[]{
+                getConstructYear().getTime()
+        });
+        parcel.writeIntArray(new int[]{
+                getStartBid(),
+                getRent()
+        });
+        parcel.writeDoubleArray(new double[]{
+                getFloor(),
+                getRooms(),
+                getLivingSpace()
+        });
+    }
+
+    protected Apartment(Parcel in){
+        super(in);
+
+        String[] stringData   = new String[4];
+        in.readStringArray(stringData);
+        setDescription(stringData[2]);
+        setType(Apartment.Type.valueOf(stringData[3])); //TODO tmp use enum functions
+
+        long[] longData = new long[1];
+        in.readLongArray(longData);
+        setConstructYear(new Date(longData[1]));
+
+        int[] intData = new int[2];
+        in.readIntArray(intData);
+        setStartBid(intData[0]);
+        setRent(intData[1]);
+
+        double[] doubleData = new double[3];
+        in.readDoubleArray(doubleData);
+        setFloor(doubleData[0]);
+        setRooms(doubleData[1]);
+        setLivingSpace(doubleData[2]);
+
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
     }
 }

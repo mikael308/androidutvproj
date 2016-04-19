@@ -1,15 +1,11 @@
 
-package com.example.mikael.androidutvproj.event;
+package com.example.mikael.androidutvproj.apartment;
 
 import android.os.Parcel;
 import android.os.Parcelable;
 
-import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.LatLngBounds;
-
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.Vector;
 
 /**
  *
@@ -27,22 +23,23 @@ import java.util.Vector;
  * @see Apartment
  * @see Photo
  */
-public class Event implements Parcelable, Comparable<Event>{
+public class Event extends DataAccessObject implements Parcelable, Comparable<Event>{
 
-    /**
+
+/*    *//**
      * apartment of this event
-     */
+     *//*
     private Apartment mApartment;
-	/**
+	*//**
 	* collection of photos of this Event
-	*/
-    private Vector<Photo> mPhotos       = new Vector<Photo>();
+	*//*
+    private Vector<Photo> mPhotos       = new Vector<Photo>();*/
 	/**
 	* bounds of map according to the LatLng of <Code>mPhotos</Code> instances
 	* used to show a map viewing all LatLngs of <Code>mPhotos</Code>
 	* @see Photo
 	*/
-    private LatLngBounds mMapBounds = new LatLngBounds(new LatLng(0,0), new LatLng(0,0));
+    //private LatLngBounds mMapBounds = new LatLngBounds(new LatLng(0,0), new LatLng(0,0));
 	/**
 	* date of this event
 	*/
@@ -54,24 +51,12 @@ public class Event implements Parcelable, Comparable<Event>{
 	*/
     public static final String DATEFORMAT_STDFORMAT = "yyyy-MM-dd HH:mm";
 
-    /**
-     * creates Event object without description, with date set to time object was created
-     * @param address
-     */
-    public Event(String address){
-        mApartment = new Apartment(address);
-    }
-    public Event(Apartment apartment){
-        mApartment = apartment;
+
+    public Event(String id){
+        super(id);
     }
 
-    /**
-     * get this apartment
-     * @return this apartment
-     */
-    public Apartment getApartment(){
-        return mApartment;
-    }
+
     /**
      * gets this date
      * @return this date
@@ -88,20 +73,15 @@ public class Event implements Parcelable, Comparable<Event>{
         SimpleDateFormat sdf = new SimpleDateFormat(dateformat);
         return sdf.format(getDate());
     }
-
-    /**
-     * gets size of this photo-vector
-     * @return size of this photo-vector
-     */
-    public int getPhotosSize(){
-        return mPhotos.size();
-    }
-
-    /**
+/*
+TODO -..
+    */
+/**
      * add new photo to this photo container<br>
      * extends MapBounds if photo is outside of MapBounds
      * @param photo new photo to add
-     */
+     *//*
+
     public void addPhoto(Photo photo){
         if(mPhotos.isEmpty()){
             mMapBounds = new LatLngBounds(photo.getLatLng(), photo.getLatLng());
@@ -111,6 +91,7 @@ public class Event implements Parcelable, Comparable<Event>{
 
         mPhotos.add(photo);
     }
+*/
 
     /**
      * set this date
@@ -120,21 +101,11 @@ public class Event implements Parcelable, Comparable<Event>{
         mDate = date;
     }
 
-    /**
-     * set this apartment
-     * @param apartment new apartment
-     */
-    public void setApartment(Apartment apartment){
-        mApartment = apartment;
-    }
-
-    ///////////////////////////////
-    //     PARCELABLE METHODS
-    ///////////////////////////////
 
     @Override
     public int hashCode(){
-        return getApartment().hashCode() * (int) Math.pow(10, 32) + mDate.hashCode();
+        return getId().hashCode();
+        //return getApartment().hashCode() * (int) Math.pow(10, 32) + mDate.hashCode();
     }
     @Override
     public int describeContents() {
@@ -144,7 +115,7 @@ public class Event implements Parcelable, Comparable<Event>{
     @Override
     public boolean equals(Object o) {
         if (o instanceof Event)
-            return mApartment.getAddress().equals(((Event) o).getApartment().getAddress());
+            return getId().equals(((Event) o).getId());
 
         return false;
     }
@@ -160,11 +131,19 @@ public class Event implements Parcelable, Comparable<Event>{
 
     @Override
     public void writeToParcel(Parcel parcel, int i) {
+        super.writeToParcel(parcel, i);
 
+        //parcel.writeParcelable(getApartment(), i);
+
+        parcel.writeLongArray(new long[]{
+                getDate().getTime()
+        });
+
+        /*
         parcel.writeStringArray(new String[]{
                 getApartment().getAddress(),
                 getApartment().getDescription(),
-                getApartment().getType()
+                getApartment().getType().name() //TODO denna ger error om du gåpr ur app i eventlist view
         });
         parcel.writeLongArray(new long[]{
                 mDate.getTime(),
@@ -179,6 +158,7 @@ public class Event implements Parcelable, Comparable<Event>{
                 getApartment().getRooms(),
                 getApartment().getLivingSpace()
         });
+        */
 
         //parcel.writeLongArray(dates);
     }
@@ -187,13 +167,22 @@ public class Event implements Parcelable, Comparable<Event>{
      * constructor used for parcelable
      * @param in
      */
-    private Event(Parcel in){
+    protected Event(Parcel in){
+        super(in);
 
-        String[] stringData   = new String[3];
+        Apartment apartment =  in.readParcelable(Apartment.class.getClassLoader());
+
+        long[] longData = new long[1];
+        in.readLongArray(longData);
+        mDate = new Date(longData[0]);
+
+
+/*
+        String[] stringData   = new String[4];
         in.readStringArray(stringData);
-        Apartment apartment = new Apartment(stringData[0]);
-        apartment.setDescription(stringData[1]);
-        apartment.setType(stringData[2]);
+        Apartment apartment = new Apartment(stringData[1]);
+        apartment.setDescription(stringData[2]);
+        apartment.setType(Apartment.Type.valueOf(stringData[3])); //TODO tmp use enum functions
 
         mApartment = apartment;
         long[] longData = new long[2];
@@ -210,7 +199,7 @@ public class Event implements Parcelable, Comparable<Event>{
         in.readDoubleArray(doubleData);
         getApartment().setFloor(doubleData[0]);
         getApartment().setRooms(doubleData[1]);
-        getApartment().setLivingSpace(doubleData[2]);
+        getApartment().setLivingSpace(doubleData[2]);*/
 
     }
 
@@ -223,10 +212,12 @@ public class Event implements Parcelable, Comparable<Event>{
     @Override
     public int compareTo(Event another) {
 
-        return getApartment().getAddress().toLowerCase().compareTo(another.getApartment().getAddress().toLowerCase());
+        return getId().compareTo(another.getId());
     }
+
     @Override
     public String toString(){
-        return getApartment().toString();
+        return getId();
     }
+
 }

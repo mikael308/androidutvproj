@@ -8,7 +8,7 @@
 *	- date photo was taken
 */
 
-package com.example.mikael.androidutvproj.event;
+package com.example.mikael.androidutvproj.apartment;
 
 
 
