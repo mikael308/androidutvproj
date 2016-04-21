@@ -1,0 +1,103 @@
+<resources>
+    <!-- ACTIVITIES -->
+    <string name="app_name">AndrutvProj</string>
+    <string name="apartments_activity">Bostäder</string>
+    <string name="settings_activity">Inställningar</string>
+
+    <!-- STD BUTTONS -->
+    <string name="btn_ok">OK</string>
+    <string name="btn_cancel">Cancel</string>
+
+    <!-- NEW ACTIVITY -->
+    <string name="event_entry_dialog_newevent_title">Nytt event</string>
+    <string name="event_entry_dialog_newevent_toast_eventCreated">Nytt event skapades korrekt</string>
+    <string name="event_entry_dialog_newevent_toast_eventCreatedError">New event incorrect</string>
+    <string name="event_entry_dialog_newevent_toast_incorrectOpenHouseDate">Open house date incorrect, use blank for start now</string>
+    <string name="event_entry_dialog_newevent_toast_incorrectAddress">Address incorrect</string>
+
+
+    <!-- MAIN MENU BUTTONS -->
+    <string name="main_menu_btn_continue">Svenska Events</string>
+
+    <!-- ACTIONBAR MENU MAIN -->
+    <string name="actionbar_settings_title">Inställningar</string>
+    <string name="actionbar_about_title">Om appen</string>
+    <!-- ACTIONBAR MENU EVENT -->
+    <string name="actionbar_edit_title">Ändra</string>
+    <string name="actionbar_delete_title">Ta bort</string>
+    <!-- ACTIONBAR MENU EVENTLIST -->
+    <string name="actionbar_new_title">Ny</string>
+
+    <!-- MAIN ABOUT MESSAGE -->
+    <string name="about_title">Om appen</string>
+    <string name="about_message_appDescription">klaatu barada nikto</string><!-- TODO write about message -->
+    <string name="about_message_refIcons">Graphics provided by Google material design icons under Creative Common Attribution 4.0 International License (CC-BY 4.0)</string>
+
+    <!-- SETTINGS ACTIVITY -->
+    <string name="settings_listitem_language_header">Språk</string>
+    <string name="settings_listitem_photosrc_header">Foto-källa</string>
+
+    <string name="settings_delete_title">Ta bort</string>
+    <string name="settings_delete_message">Godkänn ta bort</string>
+
+    <string name="toast_externalstorage_notmounted">extern lagring ej funnen</string>
+    <string name="settings_toast_langauge_newlanguage_correct">Nytt språk angett korrekt</string>
+    <string name="settings_toast_langauge_newlanguage_incorrect">Nytt språk kunde inte anges</string>
+    <string name="settings_photosource_notfound">photosource not found</string>
+
+    <!-- EVENT ACTIVITY -->
+    <string name="apartment_btn_addApartment">Lägg till visning</string>
+    <string name="apartment_btn_addPhoto">Lägg till foto</string>
+
+    <string name="apartment_address_label">Adress</string>
+    <string name="apartment_description_label">Beskrivning</string>
+    <string name="apartment_type_label">Bostadstyp</string>
+    <string name="apartment_openHouse_label">Visning</string>
+    <string name="apartment_startBid_label">Startbud</string>
+    <string name="apartment_floor_label">Våning</string>
+    <string name="apartment_priceLivingSpace_label">Pris/Boyta</string>
+    <string name="apartment_rent_label">Avgift</string>
+    <string name="apartment_livingSpace_label">Boarea</string>
+    <string name="apartment_rooms_label">Rum</string>
+    <string name="apartment_constructYear_label">Byggnadsår</string>
+    <string name="apartment_toast_intent_couldNotReadApartment">Could not read event data</string>
+    <string name="apartment_std_value">-</string>
+
+    <string name="apartment_startbid_unit">kr</string>
+    <string name="apartment_rent_unit">kr/mån</string>
+    <string name="apartment_floor_unit">tr</string>
+    <string name="apartment_room_unit">st</string>
+    <string name="apartment_livingSpace_unit">kvm</string>
+    <string name="apartment_priceLivingSpace_unit">kr/kvm</string>
+
+    <string name="database_empty">Inga bostäder funna</string>
+    <string name="database_task_label_new">Ny</string>
+    <string name="database_task_label_edit">Redigerar</string>
+    <string name="database_task_label_delete">Ta bort</string>
+    <string name="database_loading_msg">Laddar...</string>
+
+    <string name="apartment_selector_map">Karta</string>
+    <string name="apartment_selector_list">Lista</string>
+
+    <!-- EVENTLIST DIALOG -->
+    <string name="eventlist_click_dialog_header">Visning</string>
+    <string name="eventlist_click_dialog_edit">Ändra</string>
+    <string name="eventlist_click_dialog_delete">Ta bort</string>
+
+    <!-- APARTMENT TYPE NAME -->
+    <string name="apartment_type_condominium">Bostadsrätt</string>
+    <string name="apartment_type_house">Villa</string>
+    <string name="apartment_type_townhouse">Radhus</string>
+    <string name="apartment_type_holidayhouse">Fritidshus</string>
+    <string name="apartment_type_ground_plot">Tomt</string>
+    <string name="apartment_type_woodland_site">Gård/skog</string>
+    <string name="apartment_type_other">Övrigt</string>
+
+    <string name="event_newphoto_dialog_title">Nytt foto</string>
+    <string name="event_newphoto_dialog_description_label">Beskrivning</string>
+
+    <!-- EDIT -->
+    <string name="event_entry_dialog_edit_title">Edit entry</string>
+    <string name="edit_toast_editentry">Entry was edited sucessfully</string>
+
+</resources>

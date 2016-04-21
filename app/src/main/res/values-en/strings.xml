@@ -1,11 +1,8 @@
 <resources>
     <!-- ACTIVITIES -->
     <string name="app_name">AndrutvProj</string>
-    <string name="events_activity">Events</string>
+    <string name="apartments_activity">Apartments</string>
     <string name="settings_activity">Settings</string>
-    <string name="new_activity">New Event</string>
-    <string name="continue_activity">Continue Event</string>
-    <string name="view_activity">View Event</string>
 
     <!-- STD BUTTONS -->
     <string name="btn_ok">OK</string>
@@ -27,6 +24,7 @@
     <string name="actionbar_about_title">About</string>
     <!-- ACTIONBAR MENU EVENT -->
     <string name="actionbar_edit_title">Edit</string>
+    <string name="actionbar_delete_title">Delete</string>
     <!-- ACTIONBAR MENU EVENTLIST -->
     <string name="actionbar_new_title">New</string>
 
@@ -42,40 +40,48 @@
     <string name="settings_delete_title">Delete entry</string>
     <string name="settings_delete_message">Confirm delete</string>
 
+    <string name="settings_toast_langauge_newlanguage_correct">New Language set successfully</string>
+    <string name="settings_toast_langauge_newlanguage_incorrect">New Language could not be set</string>
     <string name="toast_externalstorage_notmounted">external storage is not mounted</string>
+    <string name="settings_photosource_notfound">photosource not found</string>
+
     <!-- EVENT ACTIVITY -->
     <string name="apartment_btn_addApartment">Add event</string>
     <string name="apartment_btn_addPhoto">Add photo</string>
     <string name="apartment_address_label">Address</string>
-    <string name="apartment_label_stdAddress">APARTMENT_ADDRESS</string>
     <string name="apartment_description_label">Description</string>
-    <string name="apartment_label_stdDescription">APARTMENT_DESCRIPTION</string>
     <string name="apartment_type_label">Type</string>
-    <string name="apartment_type_stdVal">TYPEOF_APARTMENT</string>
     <string name="apartment_openHouse_label">Open house</string>
-    <string name="apartment_openHouseDate_stdVal">OPEN_HOUSE_DATE</string>
     <string name="apartment_startBid_label">Startbid</string>
-    <string name="apartment_startBid_stdVal">START_BID</string>
     <string name="apartment_floor_label">Floor</string>
-    <string name="apartment_floor_stdVal">FLOOR</string>
     <string name="apartment_priceLivingSpace_label">Price/living space</string>
-    <string name="apartment_priceLivingSpace_stdVal">PRICE_P_LS</string>
     <string name="apartment_rent_label">Rent</string>
-    <string name="apartment_rent_stdVal">RENT</string>
     <string name="apartment_livingSpace_label">Living space</string>
-    <string name="apartment_livingSpace_stdVal">LS</string>
     <string name="apartment_rooms_label">Rooms</string>
-    <string name="apartment_rooms_stdVal">ROOMS</string>
     <string name="apartment_constructYear_label">Construct year</string>
-    <string name="apartment_constructYear_stdVal">1900</string>
     <string name="apartment_toast_intent_couldNotReadApartment">Could not read event data</string>
+    <string name="apartment_std_value">-</string>
 
+    <string name="apartment_startbid_unit"></string>
+    <string name="apartment_rent_unit">rentunit</string>
     <string name="apartment_floor_unit">floor</string>
+    <string name="apartment_room_unit"></string>
+    <string name="apartment_livingSpace_unit"></string>
+    <string name="apartment_priceLivingSpace_unit"></string>
+
+    <string name="database_empty">No items found</string>
+    <string name="database_task_label_new">New</string>
+    <string name="database_task_label_edit">Edit</string>
+    <string name="database_task_label_delete">Delete</string>
+    <string name="database_loading_msg">Loading, Please wait...</string>
 
     <!-- EVENTLIST DIALOG -->
     <string name="eventlist_click_dialog_header">Event</string>
     <string name="eventlist_click_dialog_edit">Edit</string>
     <string name="eventlist_click_dialog_delete">Delete</string>
+
+    <string name="apartment_selector_map">Map</string>
+    <string name="apartment_selector_list">List</string>
 
     <!-- APARTMENT TYPE NAME -->
     <string name="apartment_type_condominium">Condominimum</string>
