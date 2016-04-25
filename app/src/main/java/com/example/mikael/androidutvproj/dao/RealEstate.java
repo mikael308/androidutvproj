@@ -1,29 +1,34 @@
-package com.example.mikael.androidutvproj.apartment;
+package com.example.mikael.androidutvproj.dao;
 
 import android.os.Parcel;
 
 import com.example.mikael.androidutvproj.R;
+import com.google.android.gms.maps.model.LatLng;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
 /**
+ * //TODO denna behöver inte id?? gör composition med eventID+address
  *
- * Apartment
+ * RealEstate
  * @author Mikael Holmbom
  * @version 1.0
  */
-public class Apartment extends DataAccessObject implements Comparable<Apartment>{
+public class RealEstate extends DataAccessObject implements Comparable<RealEstate>{
 
+    /**
+     * Type of RealEstate
+     */
     public enum Type{
-        CONDOMINIUM     (0, R.string.apartment_type_condominium),
-        HOUSE           (1, R.string.apartment_type_house),
-        TOWNHOUSE       (2, R.string.apartment_type_townhouse),
-        HOLIDAY_HOUSE   (3, R.string.apartment_type_holidayhouse),
-        GROUND_PLOT     (4, R.string.apartment_type_ground_plot),
-        WOODLAND_SITE   (5, R.string.apartment_type_woodland_site),
-        OTHER           (6, R.string.apartment_type_other);
+        CONDOMINIUM     (0, R.string.realestate_type_condominium),
+        HOUSE           (1, R.string.realestate_type_house),
+        TOWNHOUSE       (2, R.string.realestate_type_townhouse),
+        HOLIDAY_HOUSE   (3, R.string.realestate_type_holidayhouse),
+        GROUND_PLOT     (4, R.string.realestate_type_ground_plot),
+        WOODLAND_SITE   (5, R.string.realestate_type_woodland_site),
+        OTHER           (6, R.string.realestate_type_other);
 
         private int mNameId;
         private int mId;
@@ -38,12 +43,22 @@ public class Apartment extends DataAccessObject implements Comparable<Apartment>
         public int getId(){
             return mId;
         }
+        public static Type newType(int id){
+            for(Type t : Type.values())
+                if(t.getId() == id) return t;
+            return null;
+        }
+        //TODO ta bort id och använd bara nameid???
     }
 
     /**
      * this address
      */
     private String mAddress;
+    /**
+     * this position
+     */
+    private LatLng mLatLng;
     /**
      * this startbid
      */
@@ -73,7 +88,7 @@ public class Apartment extends DataAccessObject implements Comparable<Apartment>
      */
     private double mFloor = 0.0;
     /**
-     * this type of Apartment
+     * this type of RealEstate
      */
     private Type mType;
 
@@ -85,10 +100,10 @@ public class Apartment extends DataAccessObject implements Comparable<Apartment>
     private ArrayList<Photo> mPhotos       = new ArrayList<>();
 
     /**
-     * create Apartment
+     * create RealEstate
      * @param id id
      */
-    public Apartment(String id){
+    public RealEstate(String id){
         super(id);
     }
     /**
@@ -99,6 +114,9 @@ public class Apartment extends DataAccessObject implements Comparable<Apartment>
         return mAddress;
     }
 
+    public LatLng getLatLng(){
+        return mLatLng;
+    }
     /**
      * get this year of construction as String
      * @return year of construction as String
@@ -148,7 +166,6 @@ public class Apartment extends DataAccessObject implements Comparable<Apartment>
      */
     public Type getType(){
         return mType;
-
     }
     /**
      * get this amount of rooms
@@ -173,44 +190,59 @@ public class Apartment extends DataAccessObject implements Comparable<Apartment>
      * set this address
      * @param address new address
      */
-    public void setAddress(String address){
+    public RealEstate setAddress(String address){
         mAddress = address;
+        return this;
+    }
+    public RealEstate setLatLng(LatLng latlng){
+        mLatLng = latlng;
+        return this;
     }
     /**
      *
      * @param startBid new startbid
      */
-    public void setStartBid(int startBid){mStartBid = startBid;}
+    public RealEstate setStartBid(int startBid){
+        mStartBid = startBid;
+        return this;
+    }
 
     /**
      * set this year of construction
      * @param constructYear
      */
-    public void setConstructYear(Date constructYear){
+    public RealEstate setConstructYear(Date constructYear){
         mConstructYear = constructYear;
+        return this;
     }
 
-    public void setConstructYear(long time){
+    public RealEstate setConstructYear(long time){
         mConstructYear = new Date(time);
+        return this;
     }
     /**
      * set this livingspace
      * @param livingSpace new livingspace value
      */
-    public void setLivingSpace(double livingSpace){mLivingSpace = livingSpace;}
+    public RealEstate setLivingSpace(double livingSpace){
+        mLivingSpace = livingSpace;
+        return this;
+    }
     /**
      * set this rent
      * @param rent new rent value
      */
-    public void setRent(int rent){
+    public RealEstate setRent(int rent){
         mRent = rent;
+        return this;
     }
     /**
      * sets this description
      * @param description new description
      */
-    public void setDescription(String description){
+    public RealEstate setDescription(String description){
         mDescription = description;
+        return this;
     }
     /**
      * set this type
@@ -223,15 +255,25 @@ public class Apartment extends DataAccessObject implements Comparable<Apartment>
      * set this amount of room
      * @param rooms new amount of rooms
      */
-    public void setRooms(double rooms){
+    public RealEstate setRooms(double rooms){
         mRooms = rooms;
+        return this;
     }
     /**
      * set this floor
      * @param floor new floor value
      */
-    public void setFloor(double floor){
+    public RealEstate setFloor(double floor){
         mFloor = floor;
+        return this;
+    }
+
+    public boolean hasComingShowings(){
+        boolean futureshowings = false;
+        for(Event showing : mShowings){
+            if(showing.isProspective()) futureshowings = true;
+        }
+        return futureshowings;
     }
 
     @Override
@@ -246,13 +288,13 @@ public class Apartment extends DataAccessObject implements Comparable<Apartment>
 
     @Override
     public boolean equals(Object o) {
-        if( o instanceof Apartment)
-            return getId().equals(((Apartment) o).getId());
+        if( o instanceof RealEstate)
+            return getId().equals(((RealEstate) o).getId());
         return false;
     }
 
     @Override
-    public int compareTo(Apartment another) {
+    public int compareTo(RealEstate another) {
         return getAddress().compareTo(another.getAddress());
     }
 
@@ -263,45 +305,55 @@ public class Apartment extends DataAccessObject implements Comparable<Apartment>
         parcel.writeStringArray(new String[]{
                 getId(),
                 getAddress(),
-                getDescription(),
-                getType().name() //TODO denna ger error om du gåpr ur app i eventlist view
+                getDescription()
         });
         parcel.writeLongArray(new long[]{
                 getConstructYear().getTime()
         });
         parcel.writeIntArray(new int[]{
                 getStartBid(),
-                getRent()
+                getRent(),
+                getType().getId()
         });
         parcel.writeDoubleArray(new double[]{
                 getFloor(),
                 getRooms(),
                 getLivingSpace()
         });
+
+        parcel.writeParcelableArray((Event[]) getShowings().toArray(), 0); //TODO kolla upp, vad är åparcelableflag??? 0..
+        parcel.writeParcelable(getLatLng(), 0);
     }
 
-    protected Apartment(Parcel in){
+    protected RealEstate(Parcel in){
         super(in);
 
         String[] stringData   = new String[4];
         in.readStringArray(stringData);
+        setAddress(stringData[1]);
         setDescription(stringData[2]);
-        setType(Apartment.Type.valueOf(stringData[3])); //TODO tmp use enum functions
 
         long[] longData = new long[1];
         in.readLongArray(longData);
         setConstructYear(new Date(longData[1]));
 
-        int[] intData = new int[2];
+        int[] intData = new int[3];
         in.readIntArray(intData);
         setStartBid(intData[0]);
         setRent(intData[1]);
+        setType(Type.newType(intData[2]));
 
         double[] doubleData = new double[3];
         in.readDoubleArray(doubleData);
         setFloor(doubleData[0]);
         setRooms(doubleData[1]);
         setLivingSpace(doubleData[2]);
+
+        for(Event showing : (Event[]) in.readParcelableArray(Event.class.getClassLoader())){
+            getShowings().add(showing);
+        }
+
+        setLatLng(((LatLng) in.readParcelable(LatLng.class.getClassLoader())));
 
     }
 

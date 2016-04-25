@@ -1,4 +1,4 @@
-package com.example.mikael.androidutvproj.apartment;
+package com.example.mikael.androidutvproj.dao;
 
 
 import android.os.Parcel;

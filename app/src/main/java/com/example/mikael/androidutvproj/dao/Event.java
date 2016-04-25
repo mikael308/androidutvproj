@@ -1,5 +1,5 @@
 
-package com.example.mikael.androidutvproj.apartment;
+package com.example.mikael.androidutvproj.dao;
 
 import android.os.Parcel;
 import android.os.Parcelable;
@@ -13,33 +13,18 @@ import java.util.Date;
  *
  * 	<ul>
  * 	  <li>date of Event</li>
- * 	  <li>Apartment</li>
+ * 	  <li>RealEstate</li>
  * 	  <li>list of photos</li>
  * 	  <li>LatLngBounds with coverage of destination of all photo objects</li>
  * 	</ul>
  *
  * @author Mikael Holmbom - miho1202
  * @version 1.0
- * @see Apartment
+ * @see RealEstate
  * @see Photo
  */
 public class Event extends DataAccessObject implements Parcelable, Comparable<Event>{
 
-
-/*    *//**
-     * apartment of this event
-     *//*
-    private Apartment mApartment;
-	*//**
-	* collection of photos of this Event
-	*//*
-    private Vector<Photo> mPhotos       = new Vector<Photo>();*/
-	/**
-	* bounds of map according to the LatLng of <Code>mPhotos</Code> instances
-	* used to show a map viewing all LatLngs of <Code>mPhotos</Code>
-	* @see Photo
-	*/
-    //private LatLngBounds mMapBounds = new LatLngBounds(new LatLng(0,0), new LatLng(0,0));
 	/**
 	* date of this event
 	*/
@@ -55,7 +40,6 @@ public class Event extends DataAccessObject implements Parcelable, Comparable<Ev
     public Event(String id){
         super(id);
     }
-
 
     /**
      * gets this date
@@ -73,6 +57,12 @@ public class Event extends DataAccessObject implements Parcelable, Comparable<Ev
         SimpleDateFormat sdf = new SimpleDateFormat(dateformat);
         return sdf.format(getDate());
     }
+
+    public boolean isProspective(){
+        Date now = new Date();
+        return getDate().after(now);
+    }
+
 /*
 TODO -..
     */
@@ -97,15 +87,15 @@ TODO -..
      * set this date
      * @param date new date
      */
-    public void setDate(Date date){
+    public Event setDate(Date date){
         mDate = date;
+        return this;
     }
 
 
     @Override
     public int hashCode(){
         return getId().hashCode();
-        //return getApartment().hashCode() * (int) Math.pow(10, 32) + mDate.hashCode();
     }
     @Override
     public int describeContents() {
@@ -133,34 +123,10 @@ TODO -..
     public void writeToParcel(Parcel parcel, int i) {
         super.writeToParcel(parcel, i);
 
-        //parcel.writeParcelable(getApartment(), i);
-
         parcel.writeLongArray(new long[]{
                 getDate().getTime()
         });
 
-        /*
-        parcel.writeStringArray(new String[]{
-                getApartment().getAddress(),
-                getApartment().getDescription(),
-                getApartment().getType().name() //TODO denna ger error om du gåpr ur app i eventlist view
-        });
-        parcel.writeLongArray(new long[]{
-                mDate.getTime(),
-                getApartment().getConstructYear().getTime()
-        });
-        parcel.writeIntArray(new int[]{
-                getApartment().getStartBid(),
-                getApartment().getRent()
-        });
-        parcel.writeDoubleArray(new double[]{
-                getApartment().getFloor(),
-                getApartment().getRooms(),
-                getApartment().getLivingSpace()
-        });
-        */
-
-        //parcel.writeLongArray(dates);
     }
 
     /**
@@ -170,41 +136,16 @@ TODO -..
     protected Event(Parcel in){
         super(in);
 
-        Apartment apartment =  in.readParcelable(Apartment.class.getClassLoader());
+        RealEstate realEstate =  in.readParcelable(RealEstate.class.getClassLoader());
 
         long[] longData = new long[1];
         in.readLongArray(longData);
         mDate = new Date(longData[0]);
 
-
-/*
-        String[] stringData   = new String[4];
-        in.readStringArray(stringData);
-        Apartment apartment = new Apartment(stringData[1]);
-        apartment.setDescription(stringData[2]);
-        apartment.setType(Apartment.Type.valueOf(stringData[3])); //TODO tmp use enum functions
-
-        mApartment = apartment;
-        long[] longData = new long[2];
-        in.readLongArray(longData);
-        mDate = new Date(longData[0]);
-        getApartment().setConstructYear(new Date(longData[1]));
-
-        int[] intData = new int[2];
-        in.readIntArray(intData);
-        getApartment().setStartBid(intData[0]);
-        getApartment().setRent(intData[1]);
-
-        double[] doubleData = new double[3];
-        in.readDoubleArray(doubleData);
-        getApartment().setFloor(doubleData[0]);
-        getApartment().setRooms(doubleData[1]);
-        getApartment().setLivingSpace(doubleData[2]);*/
-
     }
 
     /**
-     * comparison is made on evnts Apartment address<br>
+     * comparison is made on evnts RealEstate address<br>
      *     comparison is not case-sensitive
      * @param another
      * @return
