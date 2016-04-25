@@ -6,8 +6,8 @@
     <dimen name="menu_btn_paddingWidth">500dp</dimen>
     <dimen name="menu_btn_paddingHeight">50dp</dimen>
 
-    <dimen name="eventlistitem_padding">10dp</dimen>
-    <dimen name="eventlistitem_spacing">10dp</dimen>
+    <dimen name="realestatelistitem_padding">10dp</dimen>
+    <dimen name="realestatelistitem_spacing">10dp</dimen>
 
     <dimen name="aboutmessage_inner_padding">10dp</dimen>
 
@@ -23,13 +23,15 @@
     <dimen name="settings_listitem_info_padding_right">0px</dimen>
     <dimen name="settings_listitem_info_padding_bottom">0px</dimen>
 
-    <!-- EVENTLIST FRAGMENT -->
-    <dimen name="events_listitem_header_textsize">8sp</dimen>
-    <dimen name="events_listitem_info_textsize">8sp</dimen>
-    <dimen name="events_listitem_info_padding_left">2dp</dimen>
-    <dimen name="events_listitem_info_padding_top">9dp</dimen>
-    <dimen name="events_listitem_info_padding_right">2dp</dimen>
-    <dimen name="events_listitem_info_padding_bottom">16dp</dimen>
+    <!-- REAL ESTATE LIST FRAGMENT -->
+    <dimen name="realestate_listitem_header_textsize">8sp</dimen>
+    <dimen name="realestate_listitem_info_textsize">8sp</dimen>
+    <dimen name="realestate_listitem_info_padding_left">2dp</dimen>
+    <dimen name="realestate_listitem_info_padding_top">9dp</dimen>
+    <dimen name="realestate_listitem_info_padding_right">2dp</dimen>
+    <dimen name="realestate_listitem_info_padding_bottom">16dp</dimen>
 
+
+    <integer name="map_latlngbounds_padding">100</integer>
 
 </resources>
