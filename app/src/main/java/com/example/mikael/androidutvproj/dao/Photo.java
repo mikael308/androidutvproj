@@ -37,18 +37,7 @@ public class Photo {
      */
     private Date    mDate;
 
-    /**
-     * creates Photo object with date as current date and time
-     * @param photofile file containing photo
-     * @param description description of this photo
-     * @param latlng destination of this photo
-     */
-    public Photo(File photofile, String description, LatLng latlng){
-        mPhotoFile      = photofile;
-        mDescription    = description;
-        mLatLng         = latlng;
-        mDate           = new Date();
-    }
+
     /**
      * std ctor
      * @param photofile file containing photo
