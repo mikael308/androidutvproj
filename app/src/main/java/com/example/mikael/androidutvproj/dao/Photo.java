@@ -20,6 +20,9 @@ import java.util.Date;
 
 public class Photo {
 
+    /**
+     * this photo file
+     */
     private File mPhotoFile;
     /**
      * description of the content of this photo
