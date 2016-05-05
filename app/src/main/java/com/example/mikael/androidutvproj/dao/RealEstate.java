@@ -99,6 +99,9 @@ public class RealEstate extends DataAccessObject implements Comparable<RealEstat
      */
     private ArrayList<Photo> mPhotos       = new ArrayList<>();
 
+    public RealEstate(){
+        super("realestate-" + RandomString.getRandomString(20));
+    }
     /**
      * create RealEstate
      * @param id id
