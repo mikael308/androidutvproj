@@ -27,40 +27,35 @@ public class Permission {
         return ContextCompat.checkSelfPermission(activity, permission) == PackageManager.PERMISSION_GRANTED;
     }
 
-    public static boolean askPermissionIfNeeded(Activity activity, String... permission){
-        boolean allPermissionGranted = true;
-        for(String p : permission){
-            if(! askPermissionIfNeeded(activity, p))
-                allPermissionGranted = false;
-
-        }
-
-        return allPermissionGranted;
-    }
-
     /**
      * determines if app has permission, if not: permission dialog is displayed to user
      * @param activity calling activity
-     * @param permission what permission to check
-     * @return the permission value according to param permission. Returns true if permission is granted
+     * @param permissions what permissions to check
+     * @return the permission value according to param permission. Returns true if ALL permissions is granted, if n >= 1 permissions is denied: this method returns false
      */
-    public static boolean askPermissionIfNeeded(Activity activity, String permission){
-        Log.d("hal", " * PERMISSION : " + permission);
+    public static boolean askPermissionIfNeeded(Activity activity, String... permissions){
+        Log.d("hal", " * PERMISSION : " + permissions);
 
-        int permissionCheck = ContextCompat.checkSelfPermission(activity, permission);
-        boolean permGranted = permissionCheck == PackageManager.PERMISSION_GRANTED;
-
-        if(! permGranted){
-            ActivityCompat.requestPermissions(activity,
-                    new String[]{permission},
-                    200);
-            permGranted = hasPermission(activity, permission);
-            Log.d("hal", "  asked and now set to " + permGranted);
-        }else {
-            Log.d("hal", "  did not have to ask was " + permGranted);
+        boolean allPermGranted = true;
+        for(String permission : permissions){
+            if(ContextCompat.checkSelfPermission(activity, permission) != PackageManager.PERMISSION_GRANTED)
+                allPermGranted = false;
         }
 
+        if(! allPermGranted){
+            ActivityCompat.requestPermissions(activity,
+                    permissions,
+                    200);
+            for(String permission : permissions){
+                if(! hasPermission(activity, permission))
+                    allPermGranted = false;
+            }
 
-        return permGranted;
+            Log.d("hal", "  asked and now set to " + allPermGranted);
+        } else {
+            Log.d("hal", "  did not have to ask was " + allPermGranted);
+        }
+
+        return allPermGranted;
     }
 }
