@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.pm.PackageManager;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
-import android.util.Log;
 
 /**
  * handles all permissions used in activity
@@ -34,7 +33,6 @@ public class Permission {
      * @return the permission value according to param permission. Returns true if ALL permissions is granted, if n >= 1 permissions is denied: this method returns false
      */
     public static boolean askPermissionIfNeeded(Activity activity, String... permissions){
-        Log.d("hal", " * PERMISSION : " + permissions);
 
         boolean allPermGranted = true;
         for(String permission : permissions){
@@ -50,10 +48,6 @@ public class Permission {
                 if(! hasPermission(activity, permission))
                     allPermGranted = false;
             }
-
-            Log.d("hal", "  asked and now set to " + allPermGranted);
-        } else {
-            Log.d("hal", "  did not have to ask was " + allPermGranted);
         }
 
         return allPermGranted;
