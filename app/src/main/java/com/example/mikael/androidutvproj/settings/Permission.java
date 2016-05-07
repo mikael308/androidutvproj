@@ -40,6 +40,7 @@ public class Permission {
                 allPermGranted = false;
         }
 
+        // ASK USER FOR PERMISSIONS
         if(! allPermGranted){
             ActivityCompat.requestPermissions(activity,
                     permissions,
