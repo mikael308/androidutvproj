@@ -36,7 +36,7 @@ public class Permission {
 
         boolean allPermGranted = true;
         for(String permission : permissions){
-            if(ContextCompat.checkSelfPermission(activity, permission) != PackageManager.PERMISSION_GRANTED)
+            if(! hasPermission(activity, permission))
                 allPermGranted = false;
         }
 
