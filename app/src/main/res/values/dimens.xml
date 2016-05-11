@@ -33,5 +33,7 @@
 
 
     <integer name="map_latlngbounds_padding">100</integer>
+    <dimen name="map_btn_padding">50dp</dimen>
+
 
 </resources>
