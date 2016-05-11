@@ -24,13 +24,21 @@
     <dimen name="settings_listitem_info_padding_bottom">0px</dimen>
 
     <!-- REAL ESTATE LIST FRAGMENT -->
-    <dimen name="realestate_listitem_header_textsize">8sp</dimen>
-    <dimen name="realestate_listitem_info_textsize">8sp</dimen>
-    <dimen name="realestate_listitem_info_padding_left">2dp</dimen>
-    <dimen name="realestate_listitem_info_padding_top">9dp</dimen>
-    <dimen name="realestate_listitem_info_padding_right">2dp</dimen>
-    <dimen name="realestate_listitem_info_padding_bottom">16dp</dimen>
+    <dimen name="realestate_listitem_padding_left">5dp</dimen>
+    <dimen name="realestate_listitem_padding_top">5dp</dimen>
+    <dimen name="realestate_listitem_padding_right">2dp</dimen>
+    <dimen name="realestate_listitem_padding_bottom">2dp</dimen>
 
+    <!-- <dimen name="realestate_listitem_header_textsize">5sp</dimen> -->
+    <dimen name="realestate_listitem_header_padding_left">2dp</dimen>
+    <dimen name="realestate_listitem_header_padding_top">5dp</dimen>
+    <dimen name="realestate_listitem_header_padding_right">5dp</dimen>
+    <dimen name="realestate_listitem_header_padding_bottom">1dp</dimen>
+    <!-- <dimen name="realestate_listitem_info_textsize">4sp</dimen> -->
+    <dimen name="realestate_listitem_info_padding_left">5dp</dimen>
+    <dimen name="realestate_listitem_info_padding_top">0dp</dimen>
+    <dimen name="realestate_listitem_info_padding_right">5dp</dimen>
+    <dimen name="realestate_listitem_info_padding_bottom">8dp</dimen>
 
     <integer name="map_latlngbounds_padding">100</integer>
     <dimen name="map_btn_padding">50dp</dimen>
