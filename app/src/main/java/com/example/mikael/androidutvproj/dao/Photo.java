@@ -12,13 +12,19 @@ package com.example.mikael.androidutvproj.dao;
 
 
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.google.android.gms.maps.model.LatLng;
 
 import java.io.File;
 import java.util.Date;
 
 
-public class Photo {
+public class Photo extends DataAccessObject{
+
 
     /**
      * this photo file
@@ -38,6 +44,21 @@ public class Photo {
     private Date    mDate;
 
 
+    public Photo(){
+        super("photo-"+RandomString.getRandomString(20));
+    }
+
+    public Photo(String id, File photoFile) {
+        super(id);
+        mPhotoFile = photoFile;
+    }
+
+    public Photo(File photoFile){
+        super("photo-"+RandomString.getRandomString(20));
+        mPhotoFile = photoFile;
+    }
+
+
     /**
      * std ctor
      * @param photofile file containing photo
@@ -46,10 +67,14 @@ public class Photo {
      * @param date date this photo was taken
      */
     public Photo(File photofile, String description, LatLng latlng, Date date){
+        super("photo-"+RandomString.getRandomString(20));
+
         mPhotoFile      = photofile;
         mDescription    = description;
         mLatLng         = latlng;
         mDate           = date;
+    }
+
 
     }
 
@@ -86,7 +111,46 @@ public class Photo {
 
     public String toString(){
         return mPhotoFile.getName();
+
+    @Override
+    public int describeContents() {
+        return 0;
     }
 
+
+
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+        super.writeToParcel(parcel, i);
+
+        parcel.writeStringArray(new String[]{
+                getDescription(),
+                getPhotoFile().getPath()
+        });
+
+        parcel.writeParcelable(getLatLng(), 0);
+    }
+
+    protected Photo(Parcel in){
+        super(in);
+
+        String[] stringData   = new String[2];
+        in.readStringArray(stringData);
+        setDescription(stringData[0]);
+        setPhotoFile(new File(stringData[1]));
+
+        setLatLng(((LatLng) in.readParcelable(LatLng.class.getClassLoader())));
+    }
+
+
+    public static final Parcelable.Creator CREATOR = new Parcelable.Creator() {
+        public Photo createFromParcel(Parcel in) {
+            return new Photo(in);
+        }
+
+        public Photo[] newArray(int size) {
+            return new Photo[size];
+        }
+    };
 
 }
