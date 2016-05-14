@@ -106,7 +106,14 @@ public abstract class DatabaseHelper<T extends DataAccessObject> extends SQLiteO
      * @param entry entry to delete
      * @return
      */
-    public abstract long delete(T entry);
+    public long delete(T entry) {
+        String selection        = String.format("%s LIKE ?", COLUMN_ID);
+        String[] selectionArgs  = {
+                entry.getId()
+        };
+
+        return mSQLiteDatabase.delete(TABLE_NAME, selection, selectionArgs);
+    }
 
     /**
      * edit entry in database
