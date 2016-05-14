@@ -135,7 +135,9 @@ public class Photo extends DataAccessObject{
     }
 
     public String toString(){
-        return mPhotoFile.getName();
+        return mPhotoFile.getPath();
+    }
+
 
     @Override
     public int describeContents() {
