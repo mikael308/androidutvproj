@@ -25,6 +25,9 @@ public abstract class DatabaseHelper<T extends DataAccessObject> extends SQLiteO
      * this name of database table
      */
     public String TABLE_NAME;
+
+    protected static final String COLUMN_ID         = "id";
+
     protected static final String NOTNULL           = " NOT NULL ";
     protected static final String TEXT_TYPE         = " TEXT ";
     protected static final String INTEGER_TYPE      = " INTEGER ";
