@@ -20,7 +20,6 @@ import java.util.List;
 public abstract class DatabaseHelper<T extends DataAccessObject> extends SQLiteOpenHelper {
 
 
-    protected static final String COMMA_SEP         = ",";
     /**
      * this name of database table
      */
@@ -28,6 +27,7 @@ public abstract class DatabaseHelper<T extends DataAccessObject> extends SQLiteO
 
     protected static final String COLUMN_ID         = "id";
 
+    protected static final String COMMA_SEP         = " , ";
     protected static final String NOTNULL           = " NOT NULL ";
     protected static final String TEXT_TYPE         = " TEXT ";
     protected static final String INTEGER_TYPE      = " INTEGER ";
