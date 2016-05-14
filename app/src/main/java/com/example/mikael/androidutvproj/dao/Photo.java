@@ -37,11 +37,11 @@ public class Photo extends DataAccessObject{
     /**
      * destination of this photo
      */
-    private LatLng  mLatLng;
+    private LatLng  mLatLng = null;
     /**
      * date this photo was taken
      */
-    private Date    mDate;
+    private Date    mDate = null;
 
 
     public Photo(){
