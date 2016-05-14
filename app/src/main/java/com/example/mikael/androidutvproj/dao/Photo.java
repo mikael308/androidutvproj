@@ -99,8 +99,7 @@ public class Photo extends DataAccessObject{
         return mDescription;
     }
     /**
-     * gets this lattitude & Longitude as <code>LatLng</code>
-     * where this photo were taken
+     * gets this LatLng where this photo were taken
      * @return LatLng of this photo
      */
     public LatLng getLatLng(){
