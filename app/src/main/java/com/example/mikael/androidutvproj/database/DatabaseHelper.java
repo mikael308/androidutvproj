@@ -40,7 +40,7 @@ public abstract class DatabaseHelper<T extends DataAccessObject> extends SQLiteO
     /**
      * SQL create table query
      */
-    private String SQL_CREATE_TABLE = "CREATE TABLE %s ( %s )";
+    private String SQL_CREATE_TABLE = "CREATE TABLE IF NOT EXISTS %s ( %s )";
     /**
      * SQL drop table query
      */
