@@ -12,6 +12,8 @@ import com.example.mikael.androidutvproj.dao.DataAccessObject;
 import java.util.List;
 
 /**
+ *
+ * class contains attributes for column data-types
  * @author Mikael Holmbom
  * @version 1.0
  */
