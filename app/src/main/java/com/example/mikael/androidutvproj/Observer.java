@@ -3,7 +3,7 @@ package com.example.mikael.androidutvproj;
 import com.example.mikael.androidutvproj.activity.SubjectActivity;
 
 /**
- * GoF-pattern
+ * part of GoF-pattern: Observer
  * @author Mikael Holmbom
  * @version 1.0
  * @see SubjectActivity
