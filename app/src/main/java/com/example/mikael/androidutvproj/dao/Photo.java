@@ -76,6 +76,12 @@ public class Photo extends DataAccessObject{
     }
 
 
+    /**
+     * get this photofile
+     * @return  photofile
+     */
+    public Bitmap getPhotoBitmap(){
+        return BitmapFactory.decodeFile(mPhotoFile.getAbsolutePath());
     }
 
     /**
