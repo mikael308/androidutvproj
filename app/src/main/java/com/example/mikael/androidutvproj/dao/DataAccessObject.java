@@ -33,9 +33,7 @@ public abstract class DataAccessObject implements Parcelable {
     }
 
     protected DataAccessObject(Parcel in){
-        String[] stringData   = new String[0];
-        in.readStringArray(stringData);
-        setId(stringData[0]);
+        setId(in.readString());
 
     }
 
