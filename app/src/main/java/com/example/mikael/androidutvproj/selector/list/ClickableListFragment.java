@@ -17,6 +17,20 @@ import android.widget.AdapterView;
  */
 public abstract class ClickableListFragment<ApartmentListItem> extends ListFragment {
 
+    public interface OnListItemClickListener<T>{
+        /**
+         * on listitem click
+         * @param selectedItem selected item
+         */
+        void onItemClick(T selectedItem, int position);
+        /**
+         * on listitem long click
+         * @param selectedItem selected item
+         */
+        void onItemLongClick(T selectedItem, int position);
+    }
+
+
     protected OnListItemClickListener<ApartmentListItem> mListener;
 
     @Override
