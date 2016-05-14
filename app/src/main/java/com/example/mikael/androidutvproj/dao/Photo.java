@@ -114,6 +114,26 @@ public class Photo extends DataAccessObject{
         return mDate;
     }
 
+    public Photo setPhotoFile(File f){
+        mPhotoFile = f;
+        return this;
+    }
+
+    public Photo setDescription(String description){
+        mDescription = description;
+        return this;
+    }
+
+    public Photo setLatLng(LatLng latLng){
+        mLatLng = latLng;
+        return this;
+    }
+
+    public Photo setDate(Date d){
+        mDate = d;
+        return this;
+    }
+
     public String toString(){
         return mPhotoFile.getName();
 
