@@ -19,6 +19,10 @@ public abstract class DatabaseHelper<T extends DataAccessObject> extends SQLiteO
 
 
     protected static final String COMMA_SEP         = ",";
+    /**
+     * this name of database table
+     */
+    public String TABLE_NAME;
     protected static final String NOTNULL           = " NOT NULL ";
     protected static final String TEXT_TYPE         = " TEXT ";
     protected static final String INTEGER_TYPE      = " INTEGER ";
