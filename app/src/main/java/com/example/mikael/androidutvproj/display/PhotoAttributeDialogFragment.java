@@ -18,8 +18,9 @@ import com.example.mikael.androidutvproj.dao.Photo;
 /**
  * Fragment displaying editable attributes of a Photo instance<br>
  *     to preset a Photo to edit: use {@link #newInstance(int, Photo)}
- *     if used as Dialog: implementation of Runnable set in
- *     {@link #setOnPositiveClick(Runnable)} is called on positive button click
+ *     if used as Dialog: implementation of DialogButtonListener is called on clickevents,
+ *     {@link #setOnClickListener(DialogButtonListener)}
+ *
  * @author Mikael Holmbom
  * @version 1.0
  */
@@ -29,10 +30,8 @@ public class PhotoAttributeDialogFragment extends DialogFragment {
 
     private static String BUNDLEKEY_PHOTO = "photo";
 
-    /**
-     * get called on dialog positive click
-     */
-    private Runnable mOnPositiveClick;
+    private DialogButtonListener mDialogButtonListener;
+
     /**
      * current Photo
      */
@@ -65,7 +64,6 @@ public class PhotoAttributeDialogFragment extends DialogFragment {
             int titleResId = getArguments().getInt(BUNDLEKEY_TITLE);
             mTitle = getResources().getString(titleResId);
 
-
         } catch(NullPointerException e){
             mPhoto = new Photo();
             mTitle = "";
@@ -94,21 +92,40 @@ public class PhotoAttributeDialogFragment extends DialogFragment {
 
         display(rootView, mPhoto);
 
-        return new AlertDialog.Builder(getActivity())
+        final AlertDialog AD = new AlertDialog.Builder(getActivity())
                 .setTitle(R.string.photo_edit)
                 .setView(rootView)
                 .setTitle(mTitle)
-                .setPositiveButton(R.string.btn_ok,
-                        new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int whichButton) {
-                                if(mOnPositiveClick != null)
-                                    mOnPositiveClick.run();
+                .setPositiveButton(R.string.btn_ok,null) // see onShowListener
+                .setNegativeButton(R.string.btn_cancel, null) // see onShowListener
+                .create();
+        AD.setOnShowListener(new DialogInterface.OnShowListener() {
+            @Override
+            public void onShow(DialogInterface dialog) {
 
+                AD.getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        if (mDialogButtonListener != null) {
+                            if (mDialogButtonListener.onPositiveClick()) {
+                                AD.dismiss();
                             }
                         }
-                )
-                .setNegativeButton(R.string.btn_cancel, null)
-                .create();
+                    }
+                });
+                AD.getButton(AlertDialog.BUTTON_NEGATIVE).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        if (mDialogButtonListener != null){
+                            if (mDialogButtonListener.onNegativeClick()) {
+                                AD.dismiss();
+                            }
+                        }
+                    }
+                });
+            }
+        });
+        return AD;
     }
 
     /**
@@ -132,7 +149,6 @@ public class PhotoAttributeDialogFragment extends DialogFragment {
         mPhoto = photo;
 
         if(photo != null) {
-
             if (photo.getPhotoFile() != null) {
                 ImageView iv = (ImageView) rootView.findViewById(R.id.image);
                 iv.setImageBitmap(photo.getPhotoBitmap());
@@ -156,15 +172,9 @@ public class PhotoAttributeDialogFragment extends DialogFragment {
         return mPhoto;
     }
 
-    /**
-     * sets this positive click runnable. param Runnable is called on Dialog positive click
-     * @param onPositiveClick
-     * @return
-     */
-    public PhotoAttributeDialogFragment setOnPositiveClick(Runnable onPositiveClick){
-        mOnPositiveClick = onPositiveClick;
+    public PhotoAttributeDialogFragment setOnClickListener(DialogButtonListener dialogButtonListener){
+        mDialogButtonListener = dialogButtonListener;
         return this;
     }
-
 
 }
