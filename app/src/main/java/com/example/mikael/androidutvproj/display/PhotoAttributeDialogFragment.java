@@ -161,7 +161,7 @@ public class PhotoAttributeDialogFragment extends DialogFragment {
 
     /**
      * get this Photo
-     * @return
+     * @return current photo as defined by current inputviews
      */
     public Photo getPhoto(){
 
