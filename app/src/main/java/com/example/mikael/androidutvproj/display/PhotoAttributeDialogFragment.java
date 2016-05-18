@@ -32,7 +32,7 @@ public class PhotoAttributeDialogFragment extends DialogFragment {
     /**
      * this DialogButtonListener
      */
-    private DialogButtonListener mDialogButtonListener;
+    private DialogButtonListener mDialogButtonListener = new DialogButtonListener();
 
     /**
      * current Photo
@@ -108,20 +108,16 @@ public class PhotoAttributeDialogFragment extends DialogFragment {
                 AD.getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        if (mDialogButtonListener != null) {
-                            if (mDialogButtonListener.onPositiveClick()) {
-                                AD.dismiss();
-                            }
+                        if (mDialogButtonListener.onPositiveClick()) {
+                            AD.dismiss();
                         }
                     }
                 });
                 AD.getButton(AlertDialog.BUTTON_NEGATIVE).setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        if (mDialogButtonListener != null){
-                            if (mDialogButtonListener.onNegativeClick()) {
-                                AD.dismiss();
-                            }
+                        if (mDialogButtonListener.onNegativeClick()) {
+                            AD.dismiss();
                         }
                     }
                 });
@@ -183,5 +179,6 @@ public class PhotoAttributeDialogFragment extends DialogFragment {
         mDialogButtonListener = dialogButtonListener;
         return this;
     }
+
 
 }
