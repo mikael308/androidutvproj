@@ -29,7 +29,9 @@ public class PhotoAttributeDialogFragment extends DialogFragment {
     private static String BUNDLEKEY_TITLE = "title";
 
     private static String BUNDLEKEY_PHOTO = "photo";
-
+    /**
+     * this DialogButtonListener
+     */
     private DialogButtonListener mDialogButtonListener;
 
     /**
