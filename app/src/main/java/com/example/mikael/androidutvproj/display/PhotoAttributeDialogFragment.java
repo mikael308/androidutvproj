@@ -95,7 +95,6 @@ public class PhotoAttributeDialogFragment extends DialogFragment {
         display(rootView, mPhoto);
 
         final AlertDialog AD = new AlertDialog.Builder(getActivity())
-                .setTitle(R.string.photo_edit)
                 .setView(rootView)
                 .setTitle(mTitle)
                 .setPositiveButton(R.string.btn_ok,null) // see onShowListener
