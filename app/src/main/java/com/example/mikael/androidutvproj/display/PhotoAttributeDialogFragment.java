@@ -172,6 +172,11 @@ public class PhotoAttributeDialogFragment extends DialogFragment {
         return mPhoto;
     }
 
+    /**
+     * sets this clicklistener used by Dialog
+     * @param dialogButtonListener
+     * @return
+     */
     public PhotoAttributeDialogFragment setOnClickListener(DialogButtonListener dialogButtonListener){
         mDialogButtonListener = dialogButtonListener;
         return this;
