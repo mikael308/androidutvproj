@@ -41,6 +41,9 @@
     <integer name="map_latlngbounds_padding">100</integer>
     <dimen name="map_btn_padding">50dp</dimen>
 
+    <!-- DISPLAY REALESTATE -->
+    <integer name="photo_gridview_thumbnail_size">200</integer>
+
     <!-- IMAGENAVIGATOR  -->
     <integer name="swipe_movement_duration">100</integer>
     <string name="navigation_btn_alpha">0.2</string>
