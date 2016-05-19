@@ -27,7 +27,8 @@ public class Permission {
     }
 
     /**
-     * determines if app has permission, if not: permission dialog is displayed to user
+     * determines if app has permission, if not: permission dialog is displayed to user<br>
+     *     to get callback result: use {@link #ASK_PERMISSION_REQUEST_CODE}
      * @param activity calling activity
      * @param permissions what permissions to check
      * @return the permission value according to param permission. Returns true if ALL permissions is granted, if n >= 1 permissions is denied: this method returns false
@@ -35,9 +36,12 @@ public class Permission {
     public static boolean askPermissionIfNeeded(Activity activity, String... permissions){
 
         boolean allPermGranted = true;
+        // CHECK FOR PRIOR SET PERMISSIONS
         for(String permission : permissions){
-            if(! hasPermission(activity, permission))
+            if(! hasPermission(activity, permission)){
                 allPermGranted = false;
+                break;
+            }
         }
 
         // ASK USER FOR PERMISSIONS
@@ -45,12 +49,9 @@ public class Permission {
             ActivityCompat.requestPermissions(activity,
                     permissions,
                     200);
-            for(String permission : permissions){
-                if(! hasPermission(activity, permission))
-                    allPermGranted = false;
-            }
         }
 
         return allPermGranted;
     }
+
 }
