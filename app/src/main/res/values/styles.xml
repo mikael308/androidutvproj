@@ -13,4 +13,10 @@
         <attr name="decimalSeparatorSymbol"  />
 
     </declare-styleable>
+    <declare-styleable name="EditTextNumber">
+        <attr name="thousandSeparatorSymbol" />
+        <attr name="decimalSeparatorSymbol"  />
+
+    </declare-styleable>
+
 </resources>
