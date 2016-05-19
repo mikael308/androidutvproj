@@ -12,10 +12,11 @@ import android.widget.AdapterView;
  * ListFragment with callback functions according to OnListItemClickListener
  * @author Mikael Holmbom
  * @version 1.0
- * @param <ApartmentListItem> type of item stored in this list
+ * @param <ListItem> type of item stored in this list
  * @see OnListItemClickListener
  */
-public abstract class ClickableListFragment<ApartmentListItem> extends ListFragment {
+public abstract class ClickableListFragment<ListItem> extends ListFragment {
+
 
     public interface OnListItemClickListener<T>{
         /**
@@ -31,7 +32,7 @@ public abstract class ClickableListFragment<ApartmentListItem> extends ListFragm
     }
 
 
-    protected OnListItemClickListener<ApartmentListItem> mListener;
+    protected OnListItemClickListener<ListItem> mListener;
 
     @Override
     public void onAttach(Context context) {
@@ -53,17 +54,19 @@ public abstract class ClickableListFragment<ApartmentListItem> extends ListFragm
         getListView().setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                ApartmentListItem item = (ApartmentListItem) view;
+                ListItem item = (ListItem) view;
                 mListener.onItemClick(item, position);
             }
         });
         getListView().setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
-                ApartmentListItem item = (ApartmentListItem) view;
+                ListItem item = (ListItem) view;
                 mListener.onItemLongClick(item, position);
                 return true;
             }
         });
     }
+
+
 }
