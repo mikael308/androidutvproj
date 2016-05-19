@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/main_layout" >
+
+    <!-- ADDRESS -->
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="10">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="@string/realestate_std_value"
+            android:layout_weight="9"
+            android:id="@+id/realestate_address" />
+
+    </LinearLayout>
+    <!-- TYPE -->
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="3">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="@string/realestate_type_label"
+            android:gravity="left"
+            android:id="@+id/apartment_type_label" />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:text="@string/realestate_std_value"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:id="@+id/realestate_type" />
+
+    </LinearLayout>
+    <!-- CONSTRUCTYEAR -->
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="3">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="@string/realestate_constructYear_label"
+            android:gravity="left"
+            android:id="@+id/apartment_constructYear_label" />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="@string/realestate_std_value"
+            android:gravity="left"
+            android:id="@+id/realestate_constructYear" />
+
+    </LinearLayout>
+    <!-- OPEN HOUSE -->
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="3">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="@string/realestate_openHouse_label"
+            android:gravity="left"
+            android:id="@+id/apartment_openHouse_label" />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="@string/realestate_std_value"
+            android:id="@+id/realestate_openHouseDate" />
+
+    </LinearLayout>
+    <!-- STARTBID -->
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="3">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="@string/realestate_startBid_label"
+            android:id="@+id/apartment_startBid_label" />
+        <com.example.mikael.androidutvproj.TextViewNumber
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="@string/realestate_std_value"
+            app:thousandSeparatorSymbol="@string/thousand_sep"
+            app:decimalSeparatorSymbol="@string/decimal_sep"
+            android:id="@+id/realestate_startBid"  />
+
+    </LinearLayout>
+    <!-- RENT -->
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="3">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="@string/realestate_rent_label"
+            android:gravity="left"
+            android:id="@+id/apartment_rent_label" />
+        <com.example.mikael.androidutvproj.TextViewNumber
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="@string/realestate_std_value"
+            app:thousandSeparatorSymbol="@string/thousand_sep"
+            app:decimalSeparatorSymbol="@string/decimal_sep"
+            android:id="@+id/realestate_rent" />
+
+    </LinearLayout>
+    <!-- FLOOR -->
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="3">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="@string/realestate_floor_label"
+            android:gravity="left"
+            android:id="@+id/apartment_floor_label" />
+        <com.example.mikael.androidutvproj.TextViewNumber
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="@string/realestate_std_value"
+            app:thousandSeparatorSymbol="@string/thousand_sep"
+            app:decimalSeparatorSymbol="@string/decimal_sep"
+            android:id="@+id/realestate_floor" />
+
+    </LinearLayout>
+    <!-- ROOMS -->
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="3">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="@string/realestate_rooms_label"
+            android:gravity="left"
+            android:id="@+id/apartment_rooms_label" />
+        <com.example.mikael.androidutvproj.TextViewNumber
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="@string/realestate_std_value"
+            app:thousandSeparatorSymbol="@string/thousand_sep"
+            app:decimalSeparatorSymbol="@string/decimal_sep"
+            android:id="@+id/realestate_rooms" />
+
+    </LinearLayout>
+    <!-- LIVINGSPACE -->
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="3" >
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="@string/realestate_livingSpace_label"
+            android:gravity="left"
+            android:id="@+id/apartment_livingSpace_label" />
+        <com.example.mikael.androidutvproj.TextViewNumber
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="@string/realestate_std_value"
+            app:thousandSeparatorSymbol="@string/thousand_sep"
+            app:decimalSeparatorSymbol="@string/decimal_sep"
+            android:id="@+id/realestate_livingspace" />
+
+    </LinearLayout>
+    <!-- PRICE LIVINGSPACE -->
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="3">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="@string/realestate_priceLivingSpace_label"
+            android:gravity="left"
+            android:id="@+id/apartment_priceLivingSpace_label" />
+        <com.example.mikael.androidutvproj.TextViewNumber
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="@string/realestate_std_value"
+            android:gravity="left"
+            app:thousandSeparatorSymbol="@string/thousand_sep"
+            app:decimalSeparatorSymbol="@string/decimal_sep"
+            android:id="@+id/realestate_priceLivingSpace" />
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="10dp"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="@string/realestate_std_value"
+        android:id="@+id/realestate_description" />
+
+</LinearLayout>
