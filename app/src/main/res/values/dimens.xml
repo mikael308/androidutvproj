@@ -29,12 +29,10 @@
     <dimen name="realestate_listitem_padding_right">2dp</dimen>
     <dimen name="realestate_listitem_padding_bottom">2dp</dimen>
 
-    <!-- <dimen name="realestate_listitem_header_textsize">5sp</dimen> -->
     <dimen name="realestate_listitem_header_padding_left">2dp</dimen>
     <dimen name="realestate_listitem_header_padding_top">5dp</dimen>
     <dimen name="realestate_listitem_header_padding_right">5dp</dimen>
     <dimen name="realestate_listitem_header_padding_bottom">1dp</dimen>
-    <!-- <dimen name="realestate_listitem_info_textsize">4sp</dimen> -->
     <dimen name="realestate_listitem_info_padding_left">5dp</dimen>
     <dimen name="realestate_listitem_info_padding_top">0dp</dimen>
     <dimen name="realestate_listitem_info_padding_right">5dp</dimen>
