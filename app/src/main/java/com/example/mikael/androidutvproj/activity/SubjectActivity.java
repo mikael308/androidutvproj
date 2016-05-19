@@ -32,17 +32,21 @@ public abstract class SubjectActivity extends AppCompatActivity {
      * @param observer
      */
     protected void update(Observer observer){
-        observer.update();
+        synchronized (lock_observerList){
+            observer.update();
+        }
     }
 
     /**
      * Update Observer instances attached to this Subject
      */
     protected void updateAllObservers(){
-        for(Observer observer : getObservers()){
-            if (observer == null) continue;
+        synchronized(lock_observerList) {
+            for (Observer observer : getObservers()) {
+                if (observer == null) continue;
 
-            update(observer);
+                update(observer);
+            }
         }
     }
 
@@ -94,6 +98,9 @@ public abstract class SubjectActivity extends AppCompatActivity {
      * @return
      */
     protected List<Observer> getObservers(){
-        return mObservers;
+        
+        synchronized (lock_observerList){
+            return mObservers;
+        }
     }
 }
