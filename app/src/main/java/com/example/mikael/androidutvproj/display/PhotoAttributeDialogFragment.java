@@ -125,7 +125,7 @@ public class PhotoAttributeDialogFragment extends DialogFragment {
     }
 
     /**
-     * gets view from this dialog
+     * get view
      * @param viewId
      * @return
      */
