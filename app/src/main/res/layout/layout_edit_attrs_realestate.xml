@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/scrollView" >
@@ -11,161 +11,155 @@
         android:paddingTop="@dimen/activity_vertical_margin"    android:paddingBottom="@dimen/activity_vertical_margin"
         android:orientation="vertical"
         android:layout_width="match_parent" android:layout_height="match_parent" >
-
+        <!-- ADDRESS -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="0dp"
             android:layout_weight="1"
             android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="@string/apartment_address_label"
+            android:text="@string/realestate_address_label"
             android:id="@+id/title_address" />
         <EditText
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:paddingLeft="@dimen/apartment_edit_padding_left"
+            android:paddingLeft="@dimen/realestate_edit_padding_left"
             android:inputType="textPostalAddress"
             android:ems="10"
             android:id="@+id/edit_address"
-            android:layout_gravity="center_horizontal" />
-
+            android:layout_gravity="center_horizontal"
+            android:hint="@string/realestate_address_label" />
+        <!-- TYPE -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="0dp"
             android:layout_weight="1"
             android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="@string/apartment_type_label"
+            android:text="@string/realestate_type_label"
             android:id="@+id/title_type" />
-        <EditText
+        <Spinner
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="3"
-            android:inputType="text"
-            android:id="@+id/edit_type" />
-
+            android:layout_height="wrap_content"
+            android:spinnerMode="dialog"
+            android:id="@+id/edit_type"
+            android:layout_gravity="center_horizontal" />
+        <!-- CONSTRUCT YEAR -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="0dp"
             android:layout_weight="1"
             android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="@string/apartment_constructYear_label"
+            android:text="@string/realestate_constructYear_label"
             android:id="@+id/title_constructyear" />
         <EditText
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="3"
-            android:paddingLeft="@dimen/apartment_edit_padding_left"
-            android:inputType="datetime"
-            android:id="@+id/edit_constructyear" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="@string/apartment_openHouse_label"
-            android:id="@+id/title_openHouseDate" />
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="3"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:paddingLeft="@dimen/apartment_edit_padding_left"
-            android:inputType="datetime"
-            android:id="@+id/edit_openHouseDate" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="@string/apartment_startBid_label"
-            android:id="@+id/title_startBid" />
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="3"
-            android:paddingLeft="@dimen/apartment_edit_padding_left"
+            android:paddingLeft="@dimen/realestate_edit_padding_left"
             android:inputType="number"
-            android:id="@+id/edit_startBid"
-            android:numeric="integer" />
-
+            android:id="@+id/edit_constructYear"
+            android:focusable="false"
+            android:clickable="true" />
+        <!-- STARTBID -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="0dp"
             android:layout_weight="1"
             android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="@string/apartment_rent_label"
-            android:id="@+id/title_rent" />
-        <EditText
+            android:text="@string/realestate_startBid_label"
+            android:id="@+id/title_startBid" />
+        <com.example.mikael.androidutvproj.EditTextNumber
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="3"
-            android:paddingLeft="@dimen/apartment_edit_padding_left"
-            android:id="@+id/edit_rent"
-            android:numeric="integer"
-            android:inputType="numberDecimal" />
-
+            android:paddingLeft="@dimen/realestate_edit_padding_left"
+            android:inputType="numberDecimal"
+            app:thousandSeparatorSymbol="@string/thousand_sep"
+            app:decimalSeparatorSymbol="@string/decimal_sep"
+            android:id="@+id/edit_startBid" />
+        <!-- RENT -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="0dp"
             android:layout_weight="1"
             android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="@string/apartment_floor_label"
+            android:text="@string/realestate_rent_label"
+            android:id="@+id/title_rent" />
+        <com.example.mikael.androidutvproj.EditTextNumber
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="3"
+            android:paddingLeft="@dimen/realestate_edit_padding_left"
+            android:id="@+id/edit_rent"
+            app:thousandSeparatorSymbol="@string/thousand_sep"
+            app:decimalSeparatorSymbol="@string/decimal_sep"
+            android:inputType="numberDecimal" />
+        <!-- FLOOR -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="@string/realestate_floor_label"
             android:id="@+id/title_floor" />
         <EditText
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="3"
-            android:paddingLeft="@dimen/apartment_edit_padding_left"
+            android:focusable="false"
+            android:clickable="true"
+            android:paddingLeft="@dimen/realestate_edit_padding_left"
             android:id="@+id/edit_floor"
-            android:numeric="integer"
             android:inputType="numberDecimal" />
-
+        <!-- ROOMS -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="0dp"
             android:layout_weight="1"
             android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="@string/apartment_rooms_label"
+            android:text="@string/realestate_rooms_label"
             android:id="@+id/title_rooms" />
         <EditText
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="3"
-            android:paddingLeft="@dimen/apartment_edit_padding_left"
+            android:paddingLeft="@dimen/realestate_edit_padding_left"
             android:id="@+id/edit_rooms"
-            android:numeric="integer"
+            android:focusable="false"
+            android:clickable="true"
             android:inputType="numberDecimal" />
-
+        <!--LIVINGSPACE -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="0dp"
             android:layout_weight="1"
             android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="@string/apartment_livingSpace_label"
+            android:text="@string/realestate_livingSpace_label"
             android:id="@+id/title_livingspace" />
-        <EditText
+        <com.example.mikael.androidutvproj.EditTextNumber
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="3"
-            android:paddingLeft="@dimen/apartment_edit_padding_left"
+            android:paddingLeft="@dimen/realestate_edit_padding_left"
             android:id="@+id/edit_livingspace"
-            android:numeric="integer"
+            android:focusable="false"
+            android:clickable="true"
+            app:thousandSeparatorSymbol="@string/thousand_sep"
+            app:decimalSeparatorSymbol="@string/decimal_sep"
             android:inputType="numberDecimal" />
-
+        <!-- DESCRIPTION -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="0dp"
             android:layout_weight="1"
             android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="@string/apartment_description_label"
+            android:text="@string/realestate_description_label"
             android:id="@+id/title_description" />
         <EditText
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="3"
-            android:paddingLeft="@dimen/apartment_edit_padding_left"
+            android:paddingLeft="@dimen/realestate_edit_padding_left"
             android:inputType="textAutoComplete|textMultiLine"
             android:id="@+id/edit_description" />
 
