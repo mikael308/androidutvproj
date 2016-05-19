@@ -9,5 +9,10 @@ import com.example.mikael.androidutvproj.activity.SubjectActivity;
  * @see SubjectActivity
  */
 public interface Observer {
+
+    /**
+     * update this observer
+     */
     void update();
+    
 }
