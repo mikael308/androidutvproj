@@ -11,9 +11,9 @@
         android:layout_weight="1"
         android:layout_width="0dp"
         android:layout_height="match_parent"
-        layout="@layout/layout_eventlist"
+        layout="@layout/layout_selector"
         android:layout_gravity="center_horizontal"
-        android:id="@+id/fragment_listevent"/>
+        android:id="@+id/fragment_selector_list"/>
 
     <fragment android:name="com.example.mikael.androidutvproj.eventlist.EventFragment"
         android:id="@+id/fragment_event_view"
