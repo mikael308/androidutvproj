@@ -5,4 +5,7 @@
         <!-- Customize your theme here. -->
     </style>
 
+    <attr name="thousandSeparatorSymbol"    format="string"/>
+    <attr name="decimalSeparatorSymbol"     format="string"/>
+
 </resources>
