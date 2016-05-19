@@ -49,4 +49,11 @@
     <string name="navigation_btn_alpha">0.2</string>
     <string name="navigation_btn_alpha_disabled">0.0</string>
 
+    <integer name="realestate_livingspace_min">10</integer>
+    <integer name="realestate_livingspace_max">100</integer>
+    <integer name="realestate_floor_min">0</integer>
+    <integer name="realestate_floor_max">20</integer>
+    <integer name="realestate_rooms_min">0</integer>
+    <integer name="realestate_rooms_max">20</integer>
+
 </resources>
