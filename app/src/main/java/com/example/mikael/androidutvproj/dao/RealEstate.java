@@ -62,23 +62,23 @@ public class RealEstate extends DataAccessObject implements Comparable<RealEstat
     /**
      * this startbid
      */
-    private int mStartBid = 0;
+    private int mStartBid;
     /**
      * this description
      */
-    private String mDescription = "";
+    private String mDescription;
     /**
      * this livingspace
      */
-    private double mLivingSpace = 0.0;
+    private double mLivingSpace;
     /**
      * this rent
      */
-    private int mRent = 0;
+    private int mRent;
     /**
      * this amount of rooms
      */
-    private double mRooms = 0.0;
+    private double mRooms;
     /**
      * this year of construction
      */
@@ -86,7 +86,7 @@ public class RealEstate extends DataAccessObject implements Comparable<RealEstat
     /**
      * this floor number
      */
-    private double mFloor = 0.0;
+    private double mFloor;
     /**
      * this type of RealEstate
      */
