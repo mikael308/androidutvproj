@@ -8,4 +8,9 @@
     <attr name="thousandSeparatorSymbol"    format="string"/>
     <attr name="decimalSeparatorSymbol"     format="string"/>
 
+    <declare-styleable name="TextViewNumber">
+        <attr name="thousandSeparatorSymbol" />
+        <attr name="decimalSeparatorSymbol"  />
+
+    </declare-styleable>
 </resources>
