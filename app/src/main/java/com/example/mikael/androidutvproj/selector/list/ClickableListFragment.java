@@ -7,6 +7,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 
+import com.example.mikael.androidutvproj.Observer;
+
+
 /**
  *
  * ListFragment with callback functions according to OnListItemClickListener
@@ -15,7 +18,7 @@ import android.widget.AdapterView;
  * @param <ListItem> type of item stored in this list
  * @see OnListItemClickListener
  */
-public abstract class ClickableListFragment<ListItem> extends ListFragment {
+public abstract class ClickableListFragment<ListItem> extends ListFragment implements Observer {
 
 
     public interface OnListItemClickListener<T>{
