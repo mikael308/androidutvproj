@@ -76,15 +76,14 @@ public class PhotoAttributeDialogFragment extends DialogFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        if(! getShowsDialog()){
-            View rootView = inflater.inflate(R.layout.layout_edit_attrs_photo, container);
-
-            display(rootView, mPhoto);
-
-            return rootView;
-        } else {
+        if(getShowsDialog()) {
             return super.onCreateView(inflater, container, savedInstanceState);
         }
+
+        View rootView = inflater.inflate(R.layout.layout_edit_attrs_photo, container);
+        display(rootView, mPhoto);
+
+        return rootView;
     }
 
     @Override
