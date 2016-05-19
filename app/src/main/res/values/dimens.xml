@@ -41,5 +41,9 @@
     <integer name="map_latlngbounds_padding">100</integer>
     <dimen name="map_btn_padding">50dp</dimen>
 
+    <!-- IMAGENAVIGATOR  -->
+    <integer name="swipe_movement_duration">100</integer>
+    <string name="navigation_btn_alpha">0.2</string>
+    <string name="navigation_btn_alpha_disabled">0.0</string>
 
 </resources>
