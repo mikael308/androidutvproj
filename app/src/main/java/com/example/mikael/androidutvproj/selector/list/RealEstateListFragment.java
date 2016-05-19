@@ -33,6 +33,21 @@ import com.example.mikael.androidutvproj.dao.RealEstate;
  */
 public class RealEstateListFragment extends ClickableListFragment<RealEstateListItem> {
 
+    public interface RealEstateListListener extends OnListItemClickListener<RealEstate> {
+        /**
+         * called on action to create new event
+         */
+        void onNewRealEstate();
+
+        @Override
+        void onItemClick(RealEstate selectedItem, int position);
+
+        @Override
+        void onItemLongClick(RealEstate selectedItem, int position);
+    }
+
+
+
     /**
      * activity using this fragment
      */
