@@ -14,6 +14,7 @@ import android.support.v4.content.ContextCompat;
  */
 public class Permission {
 
+    public final static int ASK_PERMISSION_REQUEST_CODE = 1;
 
     /**
      * check if permission is set, returns the value according to prior set permission
@@ -48,7 +49,7 @@ public class Permission {
         if(! allPermGranted){
             ActivityCompat.requestPermissions(activity,
                     permissions,
-                    200);
+                    ASK_PERMISSION_REQUEST_CODE);
         }
 
         return allPermGranted;
