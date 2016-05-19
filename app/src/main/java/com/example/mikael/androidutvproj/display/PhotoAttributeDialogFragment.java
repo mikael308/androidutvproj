@@ -139,6 +139,7 @@ public class PhotoAttributeDialogFragment extends DialogFragment {
 
     /**
      * display Photo in View
+     * @param rootView
      * @param photo
      */
     public void display(View rootView, Photo photo){
