@@ -187,4 +187,8 @@ public class Photo extends DataAccessObject{
         }
     };
 
+    @Override
+    public String getLabel() {
+        return getPhotoFile().getAbsolutePath();
+    }
 }
