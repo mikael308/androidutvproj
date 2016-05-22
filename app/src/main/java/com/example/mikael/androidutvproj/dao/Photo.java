@@ -138,6 +138,13 @@ public class Photo extends DataAccessObject{
         return mPhotoFile.getPath();
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if(o instanceof Photo)
+            return getId().equals(((Photo) o).getId());
+
+        return false;
+    }
 
     @Override
     public int describeContents() {
