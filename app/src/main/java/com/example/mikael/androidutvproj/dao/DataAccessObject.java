@@ -37,4 +37,10 @@ public abstract class DataAccessObject implements Parcelable {
 
     }
 
+    /**
+     * get a label describing this instance
+     * @return
+     */
+    public abstract String getLabel();
+
 }
