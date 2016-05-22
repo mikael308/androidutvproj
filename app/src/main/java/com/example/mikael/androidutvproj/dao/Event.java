@@ -161,4 +161,8 @@ TODO -..
         return getId();
     }
 
+    @Override
+    public String getLabel() {
+        return getDateString(DATEFORMAT_STDFORMAT);
+    }
 }
