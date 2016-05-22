@@ -364,4 +364,9 @@ public class RealEstate extends DataAccessObject implements Comparable<RealEstat
     public int describeContents() {
         return 0;
     }
+
+    @Override
+    public String getLabel() {
+        return getAddress() + ", " + getFloor();
+    }
 }
