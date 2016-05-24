@@ -162,4 +162,13 @@ public class Event extends DataAccessObject implements Parcelable, Comparable<Ev
     public String getLabel() {
         return getDateString(DATEFORMAT_STDFORMAT);
     }
+
+    @Override
+    public Event clone() {
+        Event clone = new Event();
+        clone.setId(getId());
+        clone.setDate(getDate());
+
+        return clone;
+    }
 }
