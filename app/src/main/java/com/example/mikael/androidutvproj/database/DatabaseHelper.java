@@ -54,7 +54,7 @@ public abstract class DatabaseHelper<T extends DataAccessObject> extends SQLiteO
      */
     protected static int DATABASE_VERSION = 1;
 
-    protected SQLiteDatabase mSQLiteDatabase;
+    protected static SQLiteDatabase mSQLiteDatabase;
 
 
     /**
