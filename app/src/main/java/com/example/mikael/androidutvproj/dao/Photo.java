@@ -267,4 +267,15 @@ public class Photo extends DataAccessObject{
     public String getLabel() {
         return getPhotoFile().getAbsolutePath();
     }
+
+    @Override
+    public Photo clone() {
+        Photo clone = new Photo(getId())
+                .setDate(           getDate())
+                .setLatLng(         getLatLng())
+                .setPhotoFile(      getPhotoFile())
+                .setDescription(    getDescription());
+
+        return clone;
+    }
 }
