@@ -25,6 +25,8 @@ import com.example.mikael.androidutvproj.dao.RealEstate;
 public class RealEstateListItem extends LinearLayout {
 
     private int mSubtitleMaxLength = 20;
+
+    private int mHeaderMaxLength = 20;
     /**
      * this header
      */
@@ -80,6 +82,9 @@ public class RealEstateListItem extends LinearLayout {
      */
     public RealEstateListItem setHeader(String header) {
         if(header == null) header = "";
+        if(header.length() > mHeaderMaxLength) {
+            addMarquee(mHeader);
+        }
         mHeader.setText(header);
         return this;
     }
