@@ -91,7 +91,7 @@
             android:layout_weight="2"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:text="@string/realestate_std_value"
-            android:id="@+id/realestate_openHouseDate" />
+            android:id="@+id/realestate_showing" />
 
     </LinearLayout>
     <!-- STARTBID -->
