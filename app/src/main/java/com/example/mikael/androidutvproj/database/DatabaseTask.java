@@ -6,6 +6,7 @@ import android.content.DialogInterface;
 import android.os.AsyncTask;
 
 import com.example.mikael.androidutvproj.R;
+import com.example.mikael.androidutvproj.dao.DataAccessObject;
 
 import java.util.concurrent.CountDownLatch;
 
@@ -31,7 +32,7 @@ public abstract class DatabaseTask<T> extends AsyncTask<T, String, Boolean>{
 
     private String mProgressMessage;
 
-    private T mRollbackItem = null;
+    private DataAccessObject mRollbackItem = null;
 
 
     private final CountDownLatch mCountDownLatch = new CountDownLatch(1);
@@ -129,12 +130,16 @@ public abstract class DatabaseTask<T> extends AsyncTask<T, String, Boolean>{
         return mCountDownLatch;
     }
 
-    protected T getRollbackItem(){
+    protected DataAccessObject getRollbackItem(){
         return mRollbackItem;
     }
 
-    protected void setRollbackItem(T rollbackItem){
-        mRollbackItem = rollbackItem;
+    /**
+     * clones param rollbackItem and add to this attr
+     * @param rollbackItem
+     */
+    protected void setRollbackItem(DataAccessObject rollbackItem){
+        mRollbackItem = rollbackItem.clone();
     }
 
 
