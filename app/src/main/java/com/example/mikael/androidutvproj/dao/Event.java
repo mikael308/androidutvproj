@@ -66,25 +66,8 @@ public class Event extends DataAccessObject implements Parcelable, Comparable<Ev
         return getDate().after(now);
     }
 
-/*
-TODO -..
-    */
-/**
-     * add new photo to this photo container<br>
-     * extends MapBounds if photo is outside of MapBounds
-     * @param photo new photo to add
-     *//*
 
-    public void addPhoto(Photo photo){
-        if(mPhotos.isEmpty()){
-            mMapBounds = new LatLngBounds(photo.getLatLng(), photo.getLatLng());
-        } else {
-            mMapBounds = mMapBounds.including(photo.getLatLng());
-        }
-
-        mPhotos.add(photo);
     }
-*/
 
     /**
      * set this date
