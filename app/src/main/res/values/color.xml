@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="translucent20_yellow">#20ffff00</color>
+    <color name="translucent20_green">#2000ff00</color>
+    <color name="translucent40_green">#4000ff00</color>
+
+</resources>
