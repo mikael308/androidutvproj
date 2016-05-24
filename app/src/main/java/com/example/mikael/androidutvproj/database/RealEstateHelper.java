@@ -123,13 +123,16 @@ public class RealEstateHelper extends DatabaseHelper<RealEstate>{
     @Override
     public List<RealEstate> getAllEntries() throws SQLException {
         Cursor cursor = getAllRows();
-        if(cursor == null) return null;
+        if (cursor == null) return null;
+        cursor.moveToFirst();
+        if (cursor.isAfterLast()) return null;
 
         ArrayList<RealEstate> realEstates       = new ArrayList<>(cursor.getCount());
 
         do{
             RealEstate realEstate = parse(cursor);
             realEstates.add(realEstate);
+
         } while(cursor.moveToNext());
         cursor.close();
 
