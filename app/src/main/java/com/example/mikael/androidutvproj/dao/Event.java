@@ -5,6 +5,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 
 /**
@@ -66,6 +67,17 @@ public class Event extends DataAccessObject implements Parcelable, Comparable<Ev
         return getDate().after(now);
     }
 
+    /**
+     * determine if this Event date is today
+     * @return true if Event is today
+     */
+    public boolean isToday(){
+        Calendar today = Calendar.getInstance();
+        today.setTime(new Date());
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(getDate());
+        return (cal.get(Calendar.YEAR) == today.get(Calendar.YEAR)
+            && cal.get(Calendar.DAY_OF_YEAR) == today.get(Calendar.DAY_OF_YEAR));
 
     }
 
