@@ -77,23 +77,22 @@ public class RealEstateHelper extends DatabaseHelper<RealEstate>{
     public RealEstate parse(Cursor c) {
         if(c.isAfterLast()) return null;
 
-        RealEstate a = new RealEstate(c.getString(c.getColumnIndex( COLUMN_ID)));
-        a.setAddress(c.getString(c.getColumnIndex(                  COLUMN_ADDRESS)));
-        a.setLatLng(new LatLng(
+        RealEstate re = new RealEstate(c.getString(c.getColumnIndex(COLUMN_ID)));
+        re.setAddress(c.getString(c.getColumnIndex(                 COLUMN_ADDRESS)));
+        re.setLatLng(new LatLng(
                 c.getDouble(c.getColumnIndex(                       COLUMN_LAT)),
                 c.getDouble(c.getColumnIndex(                       COLUMN_LNG))));
-        a.setType(RealEstate.Type.newType(c.getInt(c.getColumnIndex(COLUMN_TYPE))));
-        a.setRent(c.getInt(c.getColumnIndex(                        COLUMN_RENT)));
-        a.setConstructYear(c.getLong(c.getColumnIndex(              COLUMN_CONSTRUCTYEAR)));
-        a.setFloor(c.getDouble(c.getColumnIndex(                    COLUMN_FLOOR)));
-        a.setRooms(c.getDouble(c.getColumnIndex(                    COLUMN_ROOMS)));
-        a.setLivingSpace(c.getDouble(c.getColumnIndex(              COLUMN_LIVINGSPACE)));
-        a.setStartBid(c.getInt(c.getColumnIndex(                    COLUMN_STARTBID)));
-        a.setDescription(c.getString(c.getColumnIndex(              COLUMN_DESCRIPTION)));
+        re.setType(RealEstate.Type.newType(c.getInt(c.getColumnIndex(COLUMN_TYPE))));
+        re.setRent(c.getInt(c.getColumnIndex(                       COLUMN_RENT)));
+        re.setConstructYear(c.getLong(c.getColumnIndex(             COLUMN_CONSTRUCTYEAR)));
+        re.setFloor(c.getDouble(c.getColumnIndex(                   COLUMN_FLOOR)));
+        re.setRooms(c.getDouble(c.getColumnIndex(                   COLUMN_ROOMS)));
+        re.setLivingSpace(c.getDouble(c.getColumnIndex(             COLUMN_LIVINGSPACE)));
+        re.setStartBid(c.getInt(c.getColumnIndex(                   COLUMN_STARTBID)));
+        re.setDescription(c.getString(c.getColumnIndex(             COLUMN_DESCRIPTION)));
 
-        return a;
+        return re;
     }
-
 
     @Override
     public Cursor getAllRows() {
