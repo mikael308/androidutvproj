@@ -101,10 +101,6 @@ public abstract class DatabaseTask<T> extends AsyncTask<T, String, Boolean>{
 
         mDialog.dismiss();
         mCountDownLatch.countDown();
-
-        post();
-        mDialog.dismiss();
-        mCountDownLatch.countDown();
     }
 
     @Override
