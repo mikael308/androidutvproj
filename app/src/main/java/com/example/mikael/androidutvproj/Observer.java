@@ -10,9 +10,11 @@ import com.example.mikael.androidutvproj.activity.SubjectActivity;
  */
 public interface Observer {
 
+    String getObserverId();
+
     /**
      * update this observer
      */
     void update();
-    
+
 }
