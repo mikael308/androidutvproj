@@ -48,6 +48,11 @@ public class SettingsListFragment extends ListFragment {
      */
     private SettingsListInfoItem        mListitem_photosrc;
     /**
+     * listitem : show dates<br>
+     * key: Settings.SHAREDPREFKEY_SHOWDATES
+     */
+    private SettingsListSwitchItem      mListItem_showDates;
+    /**
      * this shared preferences<br>
      * key: Settings.SHAREDPREFKEY_SETTINGS
      */
@@ -62,6 +67,7 @@ public class SettingsListFragment extends ListFragment {
         List<SettingsListItem> listitems = new ArrayList<>();
         listitems.add(mListitem_lang);
         listitems.add(mListitem_photosrc);
+        listitems.add(mListItem_showDates);
 
         ListView listView = new ListView(getActivity());
         mListAdapter = new SettingsListAdapter(getActivity(), listView.getId());
@@ -141,8 +147,27 @@ public class SettingsListFragment extends ListFragment {
                 dialog_photoSource().show();
             }
         });
-    }
 
+        // SHOW DATES
+        ////////////////////////////////////
+        mListItem_showDates = new SettingsListSwitchItem(getActivity(),
+                getResources().getString(R.string.settings_listitem_showdates_header));
+        mListItem_showDates.setChecked(mSharedPref.getBoolean(Settings.SHAREDPREFKEY_SHOWDATES, false));
+
+        final SettingsListSwitchItem SHOWDATES = mListItem_showDates;
+        mListItem_showDates.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                boolean newCheckedValue = SHOWDATES.isChecked();
+
+                mSharedPref.edit()
+                        .putBoolean(Settings.SHAREDPREFKEY_SHOWDATES, newCheckedValue)
+                        .apply();
+
+            }
+        });
+
+    }
 
     /**
      * settings dialog set app language
