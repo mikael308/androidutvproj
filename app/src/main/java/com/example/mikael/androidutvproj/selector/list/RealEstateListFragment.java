@@ -117,6 +117,12 @@ public class RealEstateListFragment extends ClickableListFragment<RealEstateList
         return super.onOptionsItemSelected(item);
     }
 
+
+    @Override
+    public String getObserverId() {
+        return getClass().toString();
+    }
+
     @Override
     public void update() {
         ((RealEstateListAdapter) getListAdapter()).notifyDataSetChanged();
