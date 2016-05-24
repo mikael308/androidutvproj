@@ -110,13 +110,21 @@ public abstract class DatabaseTask<T> extends AsyncTask<T, String, Boolean>{
     }
 
     /**
-     * main runPostponedUITask with database
+     * main runPostponedUITask with database<br>
+     *     will run {@link #onSuccess()} or {@link #onRollback()} depending on the return result from this
+     *     method<br>
+     * If this method return true: {@link #onSuccess()} is called. If this method return false:
+     * {@link #onRollback()} is called
+     *
      * @param items
+     * @return if databsework was successful return true,
+     * if unsuccessful and need to onRollback return false
      */
     public abstract boolean databaseWork(T... items);
 
     /**
-     * runs on UI thread after {@link #databaseWork(Object[])}
+     * runs on UI thread after {@link #databaseWork(Object[])} if return value is false<br>
+     *     to get rollbackitem from last used item in past task, use {@link #getRollbackItem()}
      */
     public abstract void onRollback();
 
@@ -125,6 +133,12 @@ public abstract class DatabaseTask<T> extends AsyncTask<T, String, Boolean>{
      */
     public abstract void onSuccess();
 
+    /**
+     * get this CountDownLatch<br>
+     * CountDownLatch will call countdown when this DatabaseTask is finished,
+     * regardless of the task result
+     * @return
+     */
     public CountDownLatch getCountDownLatch(){
         return mCountDownLatch;
     }
