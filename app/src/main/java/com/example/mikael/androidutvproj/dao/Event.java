@@ -125,9 +125,7 @@ public class Event extends DataAccessObject implements Parcelable, Comparable<Ev
     public void writeToParcel(Parcel parcel, int i) {
         super.writeToParcel(parcel, i);
 
-        parcel.writeLongArray(new long[]{
-                getDate().getTime()
-        });
+        parcel.writeLong(getDate().getTime());
 
     }
 
@@ -138,13 +136,10 @@ public class Event extends DataAccessObject implements Parcelable, Comparable<Ev
     protected Event(Parcel in){
         super(in);
 
-        RealEstate realEstate =  in.readParcelable(RealEstate.class.getClassLoader());
-
-        long[] longData = new long[1];
-        in.readLongArray(longData);
-        mDate = new Date(longData[0]);
-
+        mDate = new Date(in.readLong());
     }
+
+
 
     /**
      * comparison is made on evnts RealEstate address<br>
