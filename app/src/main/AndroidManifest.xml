@@ -39,6 +39,10 @@
 
         </activity>
         <activity android:name=".activity.DisplayPhotoActivity"
+        <activity android:name=".activity.RealEstateDetailActivity"
+            android:label="@string/realestatedetails_activity" >
+
+        </activity>
             android:label="@string/displayphoto_activity">
 
         </activity>
