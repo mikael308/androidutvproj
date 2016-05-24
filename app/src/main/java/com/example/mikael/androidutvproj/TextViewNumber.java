@@ -65,4 +65,8 @@ public class TextViewNumber extends TextView {
         String content = getText().toString();
         return ThousandSeparator.unFormat(content, getContext().getString(R.string.decimal_sep));
     }
+
+    public void setText(double val){
+        super.setText(String.valueOf(val));
+    }
 }
