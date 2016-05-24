@@ -16,7 +16,7 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/main_menu_btn_continue"
+        android:text="@string/realestate_activity"
         android:id="@+id/menu_btn_events"
         android:layout_weight="1"
         android:layout_gravity="center_horizontal" />
