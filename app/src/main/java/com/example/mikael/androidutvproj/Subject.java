@@ -1,9 +1,6 @@
-package com.example.mikael.androidutvproj.activity;
+package com.example.mikael.androidutvproj;
 
 
-import android.support.v7.app.AppCompatActivity;
-
-import com.example.mikael.androidutvproj.Observer;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,23 +12,23 @@ import java.util.List;
  * @version 1.0
  * @see Observer
  */
-public abstract class SubjectActivity extends AppCompatActivity {
+public abstract class Subject {
 
     /**
      * list of attached Observer instances<br>
      * is synchronized with {@link #lock_observerList}
      */
-    private List<Observer> mObservers = new ArrayList<>();
+    private static List<Observer> mObservers = new ArrayList<>();
     /**
      * lock used when accessing {@link #mObservers}
      */
-    private Object lock_observerList = new Object();
+    private static Object lock_observerList = new Object();
 
     /**
      * update observer instance
      * @param observer
      */
-    protected void update(Observer observer){
+    protected static void update(Observer observer){
         synchronized (lock_observerList){
             observer.update();
         }
@@ -40,7 +37,7 @@ public abstract class SubjectActivity extends AppCompatActivity {
     /**
      * Update Observer instances attached to this Subject
      */
-    protected void updateAllObservers(){
+    protected static void updateAllObservers(){
         synchronized(lock_observerList) {
             for (Observer observer : getObservers()) {
                 if (observer == null) continue;
@@ -50,16 +47,39 @@ public abstract class SubjectActivity extends AppCompatActivity {
         }
     }
 
+    protected static boolean containObserver(Observer observer){
+        synchronized (lock_observerList){
+            for(Observer o : getObservers()){
+                if(o!= null
+                        && o.getObserverId().equals(observer.getObserverId()))
+                    return true;
+            }
+        }
+        return false;
+    }
+
+    protected static void setObservers(Observer... observers){
+        synchronized (lock_observerList){
+            ArrayList<Observer> obs = new ArrayList<>();
+            for(Observer o : observers){
+                obs.add(o);
+            }
+
+            mObservers = obs;
+        }
+    }
+
     /**
      * attach Observer to this Subject
      * @param observer
      */
-    protected void attach(Observer observer){
+    protected static void attach(Observer observer){
+        if(observer == null) return;
 
         synchronized(lock_observerList){
-            if(! getObservers().contains(observer)){
-                getObservers().add(observer);
-            }
+            if (containObserver(observer))    return; // already added
+
+            getObservers().add(observer);
         }
     }
 
@@ -67,16 +87,17 @@ public abstract class SubjectActivity extends AppCompatActivity {
      * attach list of Observer to this Subject
      * @param observers
      */
-    protected void attach(Observer... observers){
+    protected static void attach(Observer... observers){
         for (Observer observer : observers)
             attach(observer);
+
     }
 
     /**
      * detach list of Observer from this Subject
      * @param observers
      */
-    protected void detach(Observer... observers){
+    protected static void detach(Observer... observers){
         for (Observer observer : observers)
             detach(observer);
     };
@@ -86,7 +107,7 @@ public abstract class SubjectActivity extends AppCompatActivity {
      * @param observer
      * @return
      */
-    protected boolean detach(Observer observer){
+    protected static boolean detach(Observer observer){
 
         synchronized (lock_observerList){
             return getObservers().remove(observer);
@@ -97,7 +118,7 @@ public abstract class SubjectActivity extends AppCompatActivity {
      * get list of current attached Observer instances
      * @return
      */
-    protected List<Observer> getObservers(){
+    protected static List<Observer> getObservers(){
         
         synchronized (lock_observerList){
             return mObservers;
