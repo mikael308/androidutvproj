@@ -20,7 +20,6 @@ import java.util.List;
  */
 public class RealEstateHelper extends DatabaseHelper<RealEstate>{
 
-    private static final String TABLE_NAME              = "realestate";
 
     // database attributes
     public static final String COLUMN_ID                = TABLE_NAME + "id";
@@ -51,7 +50,7 @@ public class RealEstateHelper extends DatabaseHelper<RealEstate>{
             + COLUMN_DESCRIPTION    + TEXT_TYPE;
 
     public RealEstateHelper(Context context) {
-        super(context, TABLE_NAME, SQL_TABLE_ATTRS);
+        super(context, "realestate", SQL_TABLE_ATTRS);
     }
 
     @Override
