@@ -12,14 +12,22 @@ package com.example.mikael.androidutvproj.dao;
 
 
 
+import android.app.Activity;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.os.Environment;
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.util.Log;
 
+import com.example.mikael.androidutvproj.R;
+import com.example.mikael.androidutvproj.database.DataMapper;
+import com.example.mikael.androidutvproj.settings.Settings;
 import com.google.android.gms.maps.model.LatLng;
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.FileOutputStream;
 import java.util.Date;
 
 
@@ -161,23 +169,32 @@ public class Photo extends DataAccessObject{
     public void writeToParcel(Parcel parcel, int i) {
         super.writeToParcel(parcel, i);
 
-        parcel.writeStringArray(new String[]{
-                getDescription(),
-                getPhotoFile().getPath()
-        });
+        parcel.writeString(getDescription());
+        if (getPhotoFile() != null){
+            parcel.writeString(getPhotoFile().getAbsolutePath());
+        }
 
-        parcel.writeParcelable(getLatLng(), 0);
+        if(getDate() != null)
+            parcel.writeLong(getDate().getTime());
+        else
+            parcel.writeLong(0);
+
+        parcel.writeTypedObject(getLatLng(), 0);
+
     }
 
     protected Photo(Parcel in){
         super(in);
 
-        String[] stringData   = new String[2];
-        in.readStringArray(stringData);
-        setDescription(stringData[0]);
-        setPhotoFile(new File(stringData[1]));
+        setDescription(in.readString());
+        setPhotoFile(new File(in.readString()));
 
-        setLatLng(((LatLng) in.readParcelable(LatLng.class.getClassLoader())));
+        long datetime = in.readLong();
+        if(datetime > 0)
+            setDate(new Date(datetime));
+
+        LatLng latLng = in.readTypedObject(LatLng.CREATOR);
+        setLatLng(latLng);
     }
 
 
