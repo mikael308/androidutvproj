@@ -155,7 +155,7 @@ public class Event extends DataAccessObject implements Parcelable, Comparable<Ev
 
     @Override
     public String toString(){
-        return getId();
+        return getDateString(DATEFORMAT_STDFORMAT);
     }
 
     @Override
