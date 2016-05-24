@@ -1,6 +1,7 @@
 package com.example.mikael.androidutvproj.selector.list;
 
 import android.content.Context;
+import android.content.res.Resources;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.LinearLayout;
@@ -59,11 +60,17 @@ public class RealEstateListItem extends LinearLayout {
      * initialize this Layout
      */
     private void init(){
-        View item           = LinearLayout.inflate(getContext(), R.layout.layout_eventlist_item, null);
-        mHeader             = (TextView) item.findViewById(R.id.header);
-        mSubtitle           = (TextView) item.findViewById(R.id.subtitle);
+        Resources res = getResources();
+        View rootView   = LinearLayout.inflate(getContext(), R.layout.layout_realestate_listitem, null);
+        rootView.setPadding(res.getDimensionPixelSize(R.dimen.realestate_listitem_padding_left), res.getDimensionPixelSize(R.dimen.realestate_listitem_padding_top), res.getDimensionPixelSize(R.dimen.realestate_listitem_padding_right), res.getDimensionPixelSize(R.dimen.realestate_listitem_padding_bottom));
 
-        addView(item);
+        mHeader     = (TextView) rootView.findViewById(R.id.header);
+        mHeader     .setPadding(res.getDimensionPixelSize(R.dimen.realestate_listitem_header_padding_left), res.getDimensionPixelSize(R.dimen.realestate_listitem_header_padding_top), res.getDimensionPixelSize(R.dimen.realestate_listitem_header_padding_right), res.getDimensionPixelSize(R.dimen.realestate_listitem_header_padding_bottom));
+
+        mSubtitle   = (TextView) rootView.findViewById(R.id.subtitle);
+        mSubtitle   .setPadding(res.getDimensionPixelSize(R.dimen.realestate_listitem_info_padding_left), res.getDimensionPixelSize(R.dimen.realestate_listitem_info_padding_top), res.getDimensionPixelSize(R.dimen.realestate_listitem_info_padding_right), res.getDimensionPixelSize(R.dimen.realestate_listitem_info_padding_bottom));
+
+        addView(rootView);
     }
 
     /**
