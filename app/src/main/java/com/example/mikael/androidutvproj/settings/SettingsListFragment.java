@@ -46,7 +46,7 @@ public class SettingsListFragment extends ListFragment {
      * listitem : photo source<br>
      * key: Settings.SHAREDPREFKEY_PHOTOSRC
      */
-    private SettingsListItem        mListitem_photosrc;
+    private SettingsListInfoItem        mListitem_photosrc;
     /**
      * this shared preferences<br>
      * key: Settings.SHAREDPREFKEY_SETTINGS
@@ -131,10 +131,10 @@ public class SettingsListFragment extends ListFragment {
 
         // PHOTO SOURCE
         ////////////////////////////////////
-        String photosrc_header = getResources().getString(R.string.settings_listitem_photosrc_header);
-        String photosrc_info = mSharedPref.getString(Settings.SHAREDPREFKEY_PHOTOSRC, Settings.PHOTOSRC_DEFAULT);
-        mListitem_photosrc  = new SettingsListItem(getActivity(), photosrc_header, photosrc_info);
-        mListitem_photosrc  .setInfo(photosrc_info);
+        String info_photosrc = mSharedPref.getString(Settings.SHAREDPREFKEY_PHOTOSOURCE, Settings.PHOTOSRC_DEFAULT);
+        mListitem_photosrc  = new SettingsListInfoItem(getActivity(),
+                getResources().getString(R.string.settings_listitem_photosrc_header),
+                info_photosrc);
         mListitem_photosrc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
