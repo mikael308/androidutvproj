@@ -22,7 +22,6 @@ public class RealEstateHelper extends DatabaseHelper<RealEstate>{
 
 
     // database attributes
-    public static final String COLUMN_ID                = TABLE_NAME + "id";
     public static final String COLUMN_ADDRESS           = "address";
     public static final String COLUMN_LAT               = "lat";
     public static final String COLUMN_LNG               = "lng";
