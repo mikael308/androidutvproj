@@ -79,6 +79,7 @@ public class RealEstateListItem extends LinearLayout {
      * @return
      */
     public RealEstateListItem setHeader(String header) {
+        if(header == null) header = "";
         mHeader.setText(header);
         return this;
     }
