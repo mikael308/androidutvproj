@@ -138,6 +138,26 @@ public abstract class DatabaseHelper<T extends DataAccessObject> extends SQLiteO
     public abstract Cursor getAllRows() throws SQLException;
 
     /**
+     * get Cursor equal to entry
+     * @param entry
+     * @return Cursor to specified entry<br>return null if entry is not found
+     */
+    public Cursor getRow(T entry){
+        Cursor c = getAllRows();
+        c.moveToFirst();
+        if (c.isAfterLast()) return null;
+
+        do {
+            if (c.getString(c.getColumnIndex(COLUMN_ID)).equals(entry.getId())){
+                return c;
+            }
+
+        } while(c.moveToNext());
+
+        return null;
+    }
+
+    /**
      * get entries read from database table
      * @return entries
      * @throws SQLException
