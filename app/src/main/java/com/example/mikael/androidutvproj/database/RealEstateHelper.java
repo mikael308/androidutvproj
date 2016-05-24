@@ -73,18 +73,7 @@ public class RealEstateHelper extends DatabaseHelper<RealEstate>{
         return mSQLiteDatabase.insert(TABLE_NAME, null, values);
     }
 
-    @Override
-    public long delete(RealEstate entry) {
-        String selection        = String.format("%s LIKE ?", COLUMN_ID);
-        String[] selectionArgs  = { entry.getId() };
 
-        return mSQLiteDatabase.delete(TABLE_NAME, selection, selectionArgs);
-    }
-
-    @Override
-    public void edit(RealEstate oldEntry, RealEstate newEntry) {
-
-    }
 
     @Override
     public RealEstate parse(Cursor c) {
