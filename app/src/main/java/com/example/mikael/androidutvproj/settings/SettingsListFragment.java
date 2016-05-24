@@ -41,7 +41,7 @@ public class SettingsListFragment extends ListFragment {
      * listitem : language settigns<br>
      * key: Settings.SHAREDPREFKEY_LANGUAGE
      */
-    private SettingsListItem        mListitem_lang;
+    private SettingsListInfoItem        mListitem_lang;
     /**
      * listitem : photo source<br>
      * key: Settings.SHAREDPREFKEY_PHOTOSRC
@@ -118,10 +118,10 @@ public class SettingsListFragment extends ListFragment {
 
         // LANGUAGE
         ////////////////////////////////////
-        String lang_header  = getResources().getString(R.string.settings_listitem_language_header);
         String langCode     = mSharedPref.getString(Settings.SHAREDPREFKEY_LANGUAGE, Settings.LANGUAGE_DEFAULT);
-        mListitem_lang      = new SettingsListItem(getActivity(), lang_header, lang_info);
-        mListitem_lang      .setInfo(lang_info);
+        mListitem_lang      = new SettingsListInfoItem(getActivity(),
+                getResources().getString(R.string.settings_listitem_language_header),
+                Lang.getByLangCode(langCode).getName());
         mListitem_lang.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
