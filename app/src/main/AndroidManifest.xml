@@ -38,11 +38,11 @@
             android:label="@string/realestate_activity">
 
         </activity>
-        <activity android:name=".activity.DisplayPhotoActivity"
         <activity android:name=".activity.RealEstateDetailActivity"
             android:label="@string/realestatedetails_activity" >
 
         </activity>
+        <activity android:name=".activity.PhotoDetailActivity"
             android:label="@string/displayphoto_activity">
 
         </activity>
