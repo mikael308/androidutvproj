@@ -120,7 +120,10 @@ public abstract class DatabaseHelper<T extends DataAccessObject> extends SQLiteO
      * @param oldEntry old entry
      * @param editEntry edited entry
      */
-    public abstract void edit(T oldEntry, T editEntry);
+    public long edit(T entry){
+        delete(entry);
+        return persist(entry);
+    }
 
     /**
      * parse from Cursor to DataAccessObject T
