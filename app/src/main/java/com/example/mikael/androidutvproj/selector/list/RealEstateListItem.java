@@ -86,7 +86,7 @@ public class RealEstateListItem extends LinearLayout {
     /**
      * set name of this ListTripItem
      * @param header new header value
-     * @return
+     * @return this RealEstateListItem
      */
     public RealEstateListItem setHeader(String header) {
         if(header == null) header = "";
@@ -101,7 +101,7 @@ public class RealEstateListItem extends LinearLayout {
      *
      * set subtitle of this ListTripItem
      * @param subtitle new value
-     * @return this EventListItem
+     * @return this RealEstateListItem
      */
     public RealEstateListItem setSubtitle(String subtitle){
         if(subtitle == null) subtitle = "";
