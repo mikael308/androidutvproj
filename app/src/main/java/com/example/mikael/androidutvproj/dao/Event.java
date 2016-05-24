@@ -150,7 +150,7 @@ public class Event extends DataAccessObject implements Parcelable, Comparable<Ev
     @Override
     public int compareTo(Event another) {
 
-        return getId().compareTo(another.getId());
+        return getId().toLowerCase().compareTo(another.getId().toLowerCase());
     }
 
     @Override
