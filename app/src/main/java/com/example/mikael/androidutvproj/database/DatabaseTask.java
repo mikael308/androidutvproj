@@ -89,10 +89,10 @@ public abstract class DatabaseTask<T> extends AsyncTask<T, String, Boolean>{
 
 
     @Override
-    protected void onPostExecute(Boolean aBoolean) {
-        super.onPostExecute(aBoolean);
+    protected void onPostExecute(Boolean databaseWorkSuccess) {
+        super.onPostExecute(databaseWorkSuccess);
 
-        if(aBoolean){ // databaseWork finished successfully
+        if(databaseWorkSuccess){ // databaseWork finished successfully
             onSuccess();
 
         } else {
