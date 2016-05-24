@@ -37,6 +37,9 @@ public class Event extends DataAccessObject implements Parcelable, Comparable<Ev
     public static final String DATEFORMAT_STDFORMAT = "yyyy-MM-dd HH:mm";
 
 
+    public Event(){
+        super("event-"+RandomString.getRandomString(20));
+    }
     public Event(String id){
         super(id);
     }
