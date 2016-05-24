@@ -31,6 +31,8 @@ public abstract class DatabaseTask<T> extends AsyncTask<T, String, Boolean>{
 
     private String mProgressMessage;
 
+    private T mRollbackItem = null;
+
 
     private final CountDownLatch mCountDownLatch = new CountDownLatch(1);
 
@@ -125,6 +127,14 @@ public abstract class DatabaseTask<T> extends AsyncTask<T, String, Boolean>{
 
     public CountDownLatch getCountDownLatch(){
         return mCountDownLatch;
+    }
+
+    protected T getRollbackItem(){
+        return mRollbackItem;
+    }
+
+    protected void setRollbackItem(T rollbackItem){
+        mRollbackItem = rollbackItem;
     }
 
 
