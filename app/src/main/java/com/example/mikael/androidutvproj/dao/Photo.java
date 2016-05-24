@@ -48,6 +48,10 @@ public class Photo extends DataAccessObject{
         super("photo-"+RandomString.getRandomString(20));
     }
 
+    public Photo(String id){
+        super(id);
+    }
+
     public Photo(String id, File photoFile) {
         super(id);
         mPhotoFile = photoFile;
