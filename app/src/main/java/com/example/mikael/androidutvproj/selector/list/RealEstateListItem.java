@@ -91,6 +91,7 @@ public class RealEstateListItem extends LinearLayout {
      */
     public RealEstateListItem setSubtitle(String subtitle){
         if(subtitle.length() > mSubtitleMaxLength) {
+        if(subtitle == null) subtitle = "";
             addMarquee(mSubtitle);
         }
         mSubtitle.setText(subtitle);
