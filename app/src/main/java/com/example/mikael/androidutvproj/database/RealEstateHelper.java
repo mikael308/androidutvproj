@@ -4,7 +4,6 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.SQLException;
-import android.util.Log;
 
 import com.example.mikael.androidutvproj.dao.RealEstate;
 import com.google.android.gms.maps.model.LatLng;
