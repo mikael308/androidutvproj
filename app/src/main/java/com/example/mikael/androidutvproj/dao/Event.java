@@ -142,7 +142,7 @@ public class Event extends DataAccessObject implements Parcelable, Comparable<Ev
 
 
     /**
-     * comparison is made on evnts RealEstate address<br>
+     * comparison is made on Events RealEstate address<br>
      *     comparison is not case-sensitive
      * @param another
      * @return
