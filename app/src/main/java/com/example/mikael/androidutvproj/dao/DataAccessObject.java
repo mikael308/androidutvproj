@@ -37,6 +37,14 @@ public abstract class DataAccessObject implements Parcelable {
 
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if(o instanceof DataAccessObject)
+            return getId().equals(((DataAccessObject) o).getId());
+
+        return false;
+    }
+
     /**
      * get a label describing this instance
      * @return
