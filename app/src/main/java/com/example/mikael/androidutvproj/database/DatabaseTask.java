@@ -13,7 +13,7 @@ import java.util.concurrent.CountDownLatch;
 /**
  * extended AsyncTask that shows a progressdialog during work<br>
  *     work with database should be done in method {@link #databaseWork(Object[])}<br>
- *     on post execution, abstract {@link #post()} is called on UI thread<br>
+ *     on post execution, abstract {@link #onSuccess()} is called on UI thread<br>
  *     to set the progress dialog message, use {@link #publishProgress(Object[])} with message string argument in {@link #databaseWork(Object[])}<br>
  * local CountDownLatch countdowns on postexecute, when database work is finished. To access attr use {@link #getCountDownLatch()}
  *
@@ -52,7 +52,7 @@ public abstract class DatabaseTask<T> extends AsyncTask<T, String, Boolean>{
         DialogInterface.OnClickListener cancel = new DialogInterface.OnClickListener(){
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                rollback();
+                onRollback();
                 mDialog.dismiss();
             }
         };
@@ -93,10 +93,10 @@ public abstract class DatabaseTask<T> extends AsyncTask<T, String, Boolean>{
         super.onPostExecute(aBoolean);
 
         if(aBoolean){ // databaseWork finished successfully
-            post();
+            onSuccess();
 
         } else {
-            rollback();
+            onRollback();
         }
 
         mDialog.dismiss();
@@ -110,10 +110,8 @@ public abstract class DatabaseTask<T> extends AsyncTask<T, String, Boolean>{
     @Override
     protected void onCancelled() {
         super.onCancelled();
-        rollback();
+        onRollback();
     }
-
-    public abstract void rollback();
 
     /**
      * main runPostponedUITask with database
@@ -124,7 +122,12 @@ public abstract class DatabaseTask<T> extends AsyncTask<T, String, Boolean>{
     /**
      * runs on UI thread after {@link #databaseWork(Object[])}
      */
-    public abstract void post();
+    public abstract void onRollback();
+
+    /**
+     * runs on UI thread after {@link #databaseWork(Object[])} if return value is true
+     */
+    public abstract void onSuccess();
 
     public CountDownLatch getCountDownLatch(){
         return mCountDownLatch;
