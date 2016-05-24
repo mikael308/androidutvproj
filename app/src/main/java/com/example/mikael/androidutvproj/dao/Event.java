@@ -62,9 +62,13 @@ public class Event extends DataAccessObject implements Parcelable, Comparable<Ev
         return sdf.format(getDate());
     }
 
-    public boolean isProspective(){
+    /**
+     * determine if this Event has past date
+     * @return
+     */
+    public boolean isPast(){
         Date now = new Date();
-        return getDate().after(now);
+        return getDate().before(now);
     }
 
     /**
