@@ -37,10 +37,6 @@ public abstract class DatabaseHelper<T extends DataAccessObject> extends SQLiteO
     protected static final String REAL_TYPE         = " REAL ";
 
     /**
-     * this name of database table
-     */
-    public static String TABLE_NAME;
-    /**
      * SQL create table query
      */
     private String SQL_CREATE_TABLE = "CREATE TABLE IF NOT EXISTS %s ( %s )";
@@ -120,8 +116,7 @@ public abstract class DatabaseHelper<T extends DataAccessObject> extends SQLiteO
 
     /**
      * edit entry in database
-     * @param oldEntry old entry
-     * @param editEntry edited entry
+     * @param entry
      */
     public long edit(T entry){
         delete(entry);
@@ -129,14 +124,16 @@ public abstract class DatabaseHelper<T extends DataAccessObject> extends SQLiteO
     }
 
     /**
-     * parse from Cursor to DataAccessObject T
-     * @param c Cursor to parse from
+     * format from Cursor to DataAccessObject T
+     * @param c Cursor to format from
      * @return instance of T
      */
     public abstract T parse(Cursor c);
 
     /**
      * get all rows of database entries
+     * @return Cursor to first entry
+     * @throws SQLException
      */
     public abstract Cursor getAllRows() throws SQLException;
 
@@ -162,7 +159,7 @@ public abstract class DatabaseHelper<T extends DataAccessObject> extends SQLiteO
 
     /**
      * get entries read from database table
-     * @return entries
+     * @return entries list of entries, if no entries found: empty list is returned
      * @throws SQLException
      */
     public abstract List<T> getAllEntries() throws SQLException;
