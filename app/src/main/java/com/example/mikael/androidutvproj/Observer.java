@@ -1,6 +1,7 @@
 package com.example.mikael.androidutvproj;
 
 import com.example.mikael.androidutvproj.activity.Subject;
+import com.example.mikael.androidutvproj.dao.DataAccessObject;
 
 /**
  * part of GoF-pattern: Observer
@@ -8,7 +9,7 @@ import com.example.mikael.androidutvproj.activity.Subject;
  * @version 1.0
  * @see Subject
  */
-public interface Observer {
+public interface Observer<T extends DataAccessObject> {
 
     String getObserverId();
 
