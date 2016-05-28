@@ -89,7 +89,15 @@ public abstract class DatabaseTask<T> extends AsyncTask<T, String, Boolean>{
 
     @Override
     protected Boolean doInBackground(T... items) {
-        return databaseWork(items);
+        boolean databaseWorkSuccess = databaseWork(items);
+        if (! databaseWorkSuccess && ! isCancelled()){
+            onRollback();
+        }
+
+        if (isCancelled())
+            return false;
+
+        return databaseWorkSuccess;
     }
 
 
