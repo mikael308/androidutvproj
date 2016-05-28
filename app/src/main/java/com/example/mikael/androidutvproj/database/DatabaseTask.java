@@ -31,7 +31,9 @@ public abstract class DatabaseTask<T> extends AsyncTask<T, String, Boolean>{
     private Context mContext;
 
     private String mProgressMessage;
-
+    /**
+     * current Entry used
+     */
     private DataAccessObject mRollbackItem = null;
 
 
