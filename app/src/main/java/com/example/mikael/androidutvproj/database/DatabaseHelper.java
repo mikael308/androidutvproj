@@ -9,7 +9,10 @@ import android.util.Log;
 
 import com.example.mikael.androidutvproj.dao.DataAccessObject;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  *
@@ -175,6 +178,31 @@ public abstract class DatabaseHelper<T extends DataAccessObject> extends SQLiteO
         }
     }
 
+
+    /**
+     * get all rows grouped by specific database column
+     * @param matchColumn
+     * @return map with keyes of matchColumn values, pointing to collection of Entries matching key column
+     */
+    public Map<String, ArrayList<T>> getRowsGroupByColumn(String matchColumn){
+        Cursor c = getAllRows();
+        if (c == null || c.getCount() == 0) return null;
+
+        Map<String, ArrayList<T>> resList = new HashMap<>();
+        do {
+            String itemFK = c.getString(c.getColumnIndex(matchColumn));
+            ArrayList<T> tmpEntryList;
+            if ((tmpEntryList = resList.get(itemFK)) == null){ // if FK was new value
+                tmpEntryList = new ArrayList<>(2);
+                resList.put(itemFK, tmpEntryList);
+            }
+
+            tmpEntryList.add(parse(c));
+
+        } while (c.moveToNext());
+
+        return resList;
+    }
 
 
 }
