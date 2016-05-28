@@ -32,9 +32,14 @@ public abstract class DatabaseTask<T> extends AsyncTask<T, String, Boolean>{
 
     private String mProgressMessage;
     /**
-     * current Entry used
+     * current Entry used<br>
+     * on access, use synchronized on {@link #lock_rollbackItem}
      */
     private DataAccessObject mRollbackItem = null;
+    /**
+     * lock used on accessing {@link #mRollbackItem}
+     */
+    private Object lock_rollbackItem = new Object();
 
 
     private final CountDownLatch mCountDownLatch = new CountDownLatch(1);
@@ -146,7 +151,9 @@ public abstract class DatabaseTask<T> extends AsyncTask<T, String, Boolean>{
     }
 
     protected DataAccessObject getRollbackItem(){
-        return mRollbackItem;
+        synchronized (lock_rollbackItem){
+            return mRollbackItem;
+        }
     }
 
     /**
@@ -154,8 +161,11 @@ public abstract class DatabaseTask<T> extends AsyncTask<T, String, Boolean>{
      * @param rollbackItem
      */
     protected void setRollbackItem(DataAccessObject rollbackItem){
-        mRollbackItem = rollbackItem.clone();
+        synchronized(lock_rollbackItem){
+            mRollbackItem = rollbackItem.clone();
+        }
     }
+
 
 
 }
