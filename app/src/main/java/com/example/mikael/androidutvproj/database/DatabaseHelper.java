@@ -69,8 +69,11 @@ public abstract class DatabaseHelper<T extends DataAccessObject> extends SQLiteO
         SQL_CREATE_TABLE    = String.format(SQL_CREATE_TABLE, tablename, entries);
         SQL_DROP_TABLE      = String.format(SQL_DROP_TABLE, TABLE_NAME);
 
-        mSQLiteDatabase = this.getWritableDatabase();
+    }
 
+    public void init(){
+        mSQLiteDatabase = this.getWritableDatabase();
+        createTable();
     }
 
 
