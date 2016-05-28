@@ -56,19 +56,17 @@ public abstract class DatabaseTask<T> extends AsyncTask<T, String, Boolean>{
 
     private void initProgressDialog(){
 
-        DialogInterface.OnClickListener cancel = new DialogInterface.OnClickListener(){
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                onRollback();
-                mDialog.dismiss();
-            }
-        };
-
         mDialog = new ProgressDialog(mContext);
         mDialog.setMessage(mContext.getString(R.string.database_loading_msg));
         mDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
         mDialog.setCancelable(true);
-        mDialog.setButton(ProgressDialog.BUTTON_NEGATIVE, mContext.getString(R.string.btn_cancel), cancel);
+        mDialog.setButton(ProgressDialog.BUTTON_NEGATIVE, mContext.getString(R.string.btn_cancel),
+                new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                cancel(true);
+            }
+        });
 
     }
 
