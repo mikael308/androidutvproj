@@ -79,8 +79,12 @@ public abstract class DatabaseHelper<T extends DataAccessObject> extends SQLiteO
 
     @Override
     public void onCreate(SQLiteDatabase db) {
+        try {
+            db.execSQL(SQL_CREATE_TABLE);
 
-        db.execSQL(SQL_CREATE_TABLE);
+        } catch(SQLException e){
+            Log.e("hal", "SQL EXCEPTION : \n" + e.getMessage() + "\n" + e.getStackTrace());
+        }
     }
 
     @Override
