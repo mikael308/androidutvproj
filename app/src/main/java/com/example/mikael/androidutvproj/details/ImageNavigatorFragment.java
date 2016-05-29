@@ -1,4 +1,4 @@
-package com.example.mikael.androidutvproj.display;
+package com.example.mikael.androidutvproj.details;
 
 import android.app.Activity;
 import android.content.Context;

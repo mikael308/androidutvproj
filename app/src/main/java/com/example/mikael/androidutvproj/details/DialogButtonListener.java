@@ -1,4 +1,4 @@
-package com.example.mikael.androidutvproj.display;
+package com.example.mikael.androidutvproj.details;
 
 /**
  * Listener class with callback methods to override when used for Dialog button clicklisteners<br>
