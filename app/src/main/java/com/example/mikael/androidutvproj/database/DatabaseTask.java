@@ -13,7 +13,7 @@ import java.util.concurrent.CountDownLatch;
 /**
  * extended AsyncTask that shows a progressdialog during work<br>
  *     work with database should be done in method {@link #databaseWork(Object[])}<br>
- *     on post execution, abstract {@link #onSuccess()} is called on UI thread<br>
+ *     on post execution, abstract {@link #onFeedbackPost(boolean)} is called on UI thread<br>
  *     to set the progress dialog message, use {@link #publishProgress(Object[])} with message string argument in {@link #databaseWork(Object[])}<br>
  * local CountDownLatch countdowns on postexecute, when database work is finished. To access attr use {@link #getCountDownLatch()}
  *
@@ -25,11 +25,15 @@ import java.util.concurrent.CountDownLatch;
  */
 public abstract class DatabaseTask<T> extends AsyncTask<T, String, Boolean>{
 
-
+    /**
+     * Dialog to display current processing to user
+     */
     private ProgressDialog mDialog;
 
     private Context mContext;
-
+    /**
+     * message to display to user using {@link #mDialog}
+     */
     private String mProgressMessage;
     /**
      * current Entry used<br>
@@ -40,8 +44,10 @@ public abstract class DatabaseTask<T> extends AsyncTask<T, String, Boolean>{
      * lock used on accessing {@link #mRollbackItem}
      */
     private Object lock_rollbackItem = new Object();
-
-
+    /**
+     * CountDownLatch that will countdown when all databasework is finished<br>
+     *     can be accessed outside with {@link #getCountDownLatch()}
+     */
     private final CountDownLatch mCountDownLatch = new CountDownLatch(1);
 
 
@@ -135,10 +141,10 @@ public abstract class DatabaseTask<T> extends AsyncTask<T, String, Boolean>{
     }
 
     /**
-     * main runPostponedUITask with database<br>
-     *     will run {@link #onSuccess()} or {@link #onRollback()} depending on the return result from this
-     *     method<br>
-     * If this method return true: {@link #onSuccess()} is called. If this method return false:
+     * main workerthread<br>
+     * will run {@link #onFeedbackPost(boolean)} or {@link #onRollback()} depending on the return result from this
+     * method<br>
+     * If this method return true: {@link #onFeedbackPost(boolean)} is called. If this method return false:
      * {@link #onRollback()} is called
      *
      * @param items
@@ -148,13 +154,15 @@ public abstract class DatabaseTask<T> extends AsyncTask<T, String, Boolean>{
     public abstract boolean databaseWork(T... items);
 
     /**
-     * runs on UI thread after {@link #databaseWork(Object[])} if return value is false<br>
-     *     to get rollbackitem from last used item in past task, use {@link #getRollbackItem()}
+     * runs on worker thread after {@link #databaseWork(Object[])} if return value is false<br>
+     * to get rollbackitem from last used item in past task, use {@link #getRollbackItem()}<br>
+     * this method is called on this {@link #cancel(boolean)}
      */
     public abstract void onRollback();
 
     /**
      * runs on UI thread after {@link #databaseWork(Object[])} if return value is true
+     * @param databaseWorkSuccess if databasework was successful
      */
     public abstract void onSuccess();
 
@@ -168,6 +176,11 @@ public abstract class DatabaseTask<T> extends AsyncTask<T, String, Boolean>{
         return mCountDownLatch;
     }
 
+
+    /**
+     *
+     * @return
+     */
     protected DataAccessObject getRollbackItem(){
         synchronized (lock_rollbackItem){
             return mRollbackItem;
