@@ -50,11 +50,14 @@ public abstract class DatabaseTask<T> extends AsyncTask<T, String, Boolean>{
      */
     private final CountDownLatch mCountDownLatch = new CountDownLatch(1);
 
+    private boolean mDatabaseWorkSuccess = false;
+
 
     public DatabaseTask(Context context, int progressString){
         mContext = context;
         mProgressMessage = mContext.getResources().getString(progressString);
     }
+
     public DatabaseTask(Context context, String progressString){
         mContext = context;
         mProgressMessage = progressString;
@@ -110,6 +113,7 @@ public abstract class DatabaseTask<T> extends AsyncTask<T, String, Boolean>{
     @Override
     protected void onPostExecute(Boolean databaseWorkSuccess) {
         super.onPostExecute(databaseWorkSuccess);
+        mDatabaseWorkSuccess = databaseWorkSuccess;
 
         if(databaseWorkSuccess){ // databaseWork finished successfully
             onSuccess();
@@ -176,6 +180,13 @@ public abstract class DatabaseTask<T> extends AsyncTask<T, String, Boolean>{
         return mCountDownLatch;
     }
 
+    /**
+     * Determine if databasework was successful
+     * @return
+     */
+    public boolean getDatabaseWorkSuccess(){
+        return mDatabaseWorkSuccess;
+    }
 
     /**
      *
