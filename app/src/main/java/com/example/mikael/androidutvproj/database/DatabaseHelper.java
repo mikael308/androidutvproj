@@ -122,10 +122,10 @@ public abstract class DatabaseHelper<T extends DataAccessObject> extends SQLiteO
     }
 
     /**
-     * edit entry in database
+     * update entry in database
      * @param entry
      */
-    public long edit(T entry){
+    public long update(T entry){
         delete(entry);
         return persist(entry);
     }
