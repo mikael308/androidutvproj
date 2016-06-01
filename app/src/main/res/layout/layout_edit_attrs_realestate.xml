@@ -161,6 +161,7 @@
             android:layout_weight="3"
             android:paddingLeft="@dimen/realestate_edit_padding_left"
             android:inputType="textAutoComplete|textMultiLine"
+            android:hint="@string/realestate_description_label"
             android:id="@+id/edit_description" />
 
     </LinearLayout>
