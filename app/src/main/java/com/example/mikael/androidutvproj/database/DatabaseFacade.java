@@ -144,21 +144,21 @@ import java.util.Map;
     }
 
     /**
-     * replace entry in database with same id as param entry
-     * @param entry entry to replace
+     * update entry in database with same id as param entry
+     * @param entry entry to update
      * @return true if entry was successfully replaced
      */
     public static boolean replace(DataAccessObject entry){
         long res = -1;
 
         if (entry instanceof RealEstate){
-            res = mRealEstateHelper.replace((RealEstate) entry);
+            res = mRealEstateHelper.update((RealEstate) entry);
 
         } else if (entry instanceof Photo){
-            res = mPhotoHelper.replace((Photo) entry);
+            res = mPhotoHelper.update((Photo) entry);
 
         } else if (entry instanceof Event){
-            res = mEventHelper.replace((Event) entry);
+            res = mEventHelper.update((Event) entry);
         }
 
         return res >= 0;
