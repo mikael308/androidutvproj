@@ -15,8 +15,8 @@
         android:layout_gravity="center_horizontal"
         android:id="@+id/fragment_selector_list"/>
 
-    <fragment android:name="com.example.mikael.androidutvproj.display.DisplayFragment"
-        android:id="@+id/fragment_display_view"
+    <fragment android:name="com.example.mikael.androidutvproj.details.RealEstateDetailsFragment"
+        android:id="@+id/fragment_details_view"
         android:layout_weight="2"
         android:layout_width="0dp"
         android:layout_height="match_parent" />
