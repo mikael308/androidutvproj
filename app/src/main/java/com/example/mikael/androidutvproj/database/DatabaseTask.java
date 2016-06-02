@@ -116,15 +116,19 @@ public abstract class DatabaseTask<T> extends AsyncTask<T, String, Boolean>{
         super.onPostExecute(databaseWorkSuccess);
         mDatabaseWorkSuccess = databaseWorkSuccess;
 
-        if(databaseWorkSuccess){ // databaseWork finished successfully
-            onSuccess();
-
-        } else {
+        if(! databaseWorkSuccess)
             onRollback();
-        }
 
         mDialog.dismiss();
         mCountDownLatch.countDown();
+
+        if (! isCancelled()){ // databaseWork finished successfully and was not cancelled
+
+            onFeedbackPost(databaseWorkSuccess);
+
+        }
+
+
     }
 
     @Override
