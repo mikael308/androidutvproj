@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:weightSum="10"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ViewSwitcher
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:id="@+id/viewSwitcher"
+        android:layout_weight="9"
+        android:layout_gravity="center_horizontal">
+
+        <LinearLayout
+            android:id="@+id/switcherlayout_list"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <fragment android:name="com.example.mikael.androidutvproj.selector.list.RealEstateListFragment"
+                android:id="@+id/fragment_selector_list"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/switcherlayout_map"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <fragment android:name="com.example.mikael.androidutvproj.selector.map.RealEstateMapFragment"
+                android:id="@+id/fragment_selector_map"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageButton
+                    android:id="@+id/btn_showAll"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right|bottom"
+                    android:padding="@dimen/map_btn_padding"
+                    android:background="@drawable/ic_visibility_black_24dp" />
+
+            </fragment>
+
+        </LinearLayout>
+
+    </ViewSwitcher>
+
+    <!-- BUTTON PANEL -->
+    <LinearLayout
+        android:orientation="horizontal"
+        android:id="@+id/buttonPanel"
+        android:layout_weight="1"
+        android:layout_gravity="right"
+        android:layout_width="match_parent"
+        android:layout_height="0dp">
+
+        <ImageButton
+            android:id="@+id/btn_add"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:background="@drawable/ic_add_circle_outline_black_24dp" />
+
+        <ToggleButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="New ToggleButton"
+            android:id="@+id/toggleButton"
+            android:layout_gravity="right"
+            android:textOff="@string/realestate_selector_map"
+            android:textOn="@string/realestate_selector_list" />
+
+    </LinearLayout>
+
+</LinearLayout>
