@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.os.AsyncTask;
+import android.os.Looper;
 
 import com.example.mikael.androidutvproj.R;
 import com.example.mikael.androidutvproj.dao.DataAccessObject;
