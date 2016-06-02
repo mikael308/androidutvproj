@@ -169,7 +169,7 @@ public abstract class DatabaseTask<T> extends AsyncTask<T, String, Boolean>{
      * runs on UI thread after {@link #databaseWork(Object[])} if return value is true
      * @param databaseWorkSuccess if databasework was successful
      */
-    public abstract void onSuccess();
+    public abstract void onFeedbackPost(boolean databaseWorkSuccess);
 
     /**
      * get this CountDownLatch<br>
