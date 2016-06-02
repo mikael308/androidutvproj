@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="listitem_fadein">200</integer>
+    <integer name="listitem_fadein_startdelay">200</integer>
+    <integer name="listitem_fadeout">200</integer>
+    <integer name="listitem_fadeout_startdelay">200</integer>
+
+    <integer name="update_fade_startdelay">200</integer>
+    <integer name="update_fade_duration">200</integer>
+
+</resources>
