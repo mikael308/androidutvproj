@@ -1,5 +1,6 @@
 package com.example.mikael.androidutvproj.settings;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
@@ -56,5 +57,10 @@ public class Settings {
 
     }
 
+
+    public static String getPhotoSource(Activity activity){
+        return activity.getSharedPreferences(SHAREDPREFKEY_SETTINGS, activity.MODE_PRIVATE)
+                .getString(SHAREDPREFKEY_PHOTOSOURCE, PHOTOSRC_DEFAULT);
+    }
 
 }
