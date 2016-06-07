@@ -102,7 +102,7 @@ public class PhotoFile extends File {
         String stdImgDir    = Settings.getPhotoSource();
         String imgDir       = activity.getSharedPreferences(Settings.SHAREDPREFKEY_SETTINGS, activity.MODE_PRIVATE).getString(Settings.SHAREDPREFKEY_PHOTOSOURCE, stdImgDir);
 
-        File f = getNewFile(imgDir);
+        File f = createNonexistingFile(imgDir);
         try{
             if(f.createNewFile()){
                 ByteArrayOutputStream bos = new ByteArrayOutputStream();
