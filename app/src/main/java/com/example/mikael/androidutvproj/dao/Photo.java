@@ -190,7 +190,10 @@ public class Photo extends ChildDataAccessObject{
         else
             parcel.writeLong(0);
 
-        parcel.writeTypedObject(getLatLng(), 0);
+        if (getLatLng() != null) {
+            parcel.writeDouble(getLatLng().latitude);
+            parcel.writeDouble(getLatLng().longitude);
+        }
 
     }
 
