@@ -302,7 +302,18 @@ public class RealEstateDetailsFragment extends Fragment implements Observer {
             gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                    startPhotoDisplayActivity(realEstate, photos.get(position));
+                    final Photo photo = photos.get(position);
+                    if(photo.getPhotoFile() != null && photo.getPhotoFile().exists()){
+                        startPhotoDisplayActivity(realEstate, photo);
+                    } else {
+                        //TODO add dialog msg
+                        Dialog.question(getActivity(), "photo not found, delete this?", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                DataMapper.delete(getActivity(), photo);
+                            }
+                        }).create().show();
+                    }
                 }
             });
             gridView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
