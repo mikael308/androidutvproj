@@ -46,16 +46,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        //TODO tmp
-        btn_realestates.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View v) {
-                Log.d("hal", "delete database " + DatabaseHelper.DATABASE_NAME);
-                getApplicationContext().deleteDatabase(DatabaseHelper.DATABASE_NAME);
-
-                return true;
-            }
-        });
     }
 
     @Override
