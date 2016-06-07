@@ -134,7 +134,6 @@ public abstract class DatabaseTask<T> extends AsyncTask<T, String, Boolean>{
     @Override
     protected void onCancelled() {
         super.onCancelled();
-        Log.d("databasetask", "onCancelled.onRollback");
 
         if (Looper.myLooper() == Looper.getMainLooper()){ // if UI-thread
             new Thread(new Runnable(){
