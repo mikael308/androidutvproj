@@ -54,6 +54,9 @@ public class Settings {
     public static final String PHOTOSRC_DEFAULT = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM).toString();
 
 
+    private static SharedPreferences mSharedPrefs;
+
+
 
     private Settings(){
 
