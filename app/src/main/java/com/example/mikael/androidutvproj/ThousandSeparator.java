@@ -151,6 +151,10 @@ public class ThousandSeparator implements TextWatcher{
             s = s.substring(0, firstDec);
         }
 
+        if(unitSymbol != null && ! unitSymbol.isEmpty()){
+            s = String.format(FORMAT_DIGIT_UNIT, s, unitSymbol);
+        }
+
         return format(s, thousandSeparator) + decimals;
     }
 
