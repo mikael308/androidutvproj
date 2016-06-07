@@ -17,6 +17,7 @@ public class ThousandSeparator implements TextWatcher{
     private final static String REGEX_DIGITS_ONLY = "[^(0-9)%s]";
 
     private String THOUSAND_SEP;
+    private final static String FORMAT_DIGIT_UNIT = "%s %s";
 
     private String DECIMAL_SEP;
 
@@ -29,9 +30,23 @@ public class ThousandSeparator implements TextWatcher{
     }
 
     public ThousandSeparator(TextView textView, String thousandSeparator, String decimalSeparator){
-        mTextView = textView;
-        THOUSAND_SEP = thousandSeparator;
-        DECIMAL_SEP = decimalSeparator;
+        mTextView       = textView;
+        THOUSAND_SEP    = thousandSeparator;
+        DECIMAL_SEP     = decimalSeparator;
+    }
+
+    /**
+     * to use without unit symbol, set as null
+     * @param textView
+     * @param thousandSeparator
+     * @param decimalSeparator
+     * @param unitSymbol set as null to display value without symbol
+     */
+    public ThousandSeparator(TextView textView, String thousandSeparator, String decimalSeparator, String unitSymbol){
+        mTextView       = textView;
+        THOUSAND_SEP    = thousandSeparator;
+        DECIMAL_SEP     = decimalSeparator;
+        UNIT_SYMBOL     = unitSymbol;
     }
 
     @Override
