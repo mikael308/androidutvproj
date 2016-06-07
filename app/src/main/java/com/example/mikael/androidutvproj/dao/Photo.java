@@ -1,12 +1,4 @@
-/**
-* @author Mikael Holmbom - miho1202
-* @version 1.0 
-* class used for holding information about a Photo
-* containing information : 
-*	- content description
-*	- destination of photo
-*	- date photo was taken
-*/
+
 
 package com.example.mikael.androidutvproj.dao;
 
@@ -30,7 +22,15 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.util.Date;
 
-
+/**
+ * @author Mikael Holmbom - miho1202
+ * @version 1.0
+ * class used for holding information about a Photo
+ * containing information :
+ *	- content description
+ *	- destination of photo
+ *	- date photo was taken
+ */
 public class Photo extends ChildDataAccessObject{
 
 
