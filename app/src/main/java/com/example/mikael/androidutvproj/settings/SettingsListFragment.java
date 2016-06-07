@@ -63,7 +63,7 @@ public class SettingsListFragment extends ListFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         init();
 
-        // add items to adapter
+        // persist items to adapter
         List<SettingsListItem> listitems = new ArrayList<>();
         listitems.add(mListitem_lang);
         listitems.add(mListitem_photosrc);
