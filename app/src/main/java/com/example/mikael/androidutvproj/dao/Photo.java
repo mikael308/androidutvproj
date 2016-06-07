@@ -231,11 +231,12 @@ public class Photo extends ChildDataAccessObject{
 
     @Override
     public Photo clone() {
-        Photo clone = new Photo(getId())
+        Photo clone = new Photo(    getId())
                 .setDate(           getDate())
                 .setLatLng(         getLatLng())
                 .setPhotoFile(      getPhotoFile())
-                .setDescription(    getDescription());
+                .setDescription(    getDescription())
+                .setForeignKey(     getForeignKey());
 
         return clone;
     }
