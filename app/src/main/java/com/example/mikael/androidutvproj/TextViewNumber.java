@@ -13,6 +13,9 @@ import android.widget.TextView;
  */
 public class TextViewNumber extends TextView {
 
+
+    private ThousandSeparator mThousandSeparator;
+
     /**
      * text/symbol used for thousand seperating
      */
@@ -58,6 +61,7 @@ public class TextViewNumber extends TextView {
      */
     private void initListeners(){
         mThousandSeparator = new ThousandSeparator(this, mThousand_sep, mDecimal_sep, mUnitSymbol);
+        addTextChangedListener(mThousandSeparator);
     }
 
     /**
