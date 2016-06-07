@@ -24,7 +24,7 @@ import java.util.Date;
  * @see RealEstate
  * @see Photo
  */
-public class Event extends DataAccessObject implements Parcelable, Comparable<Event>{
+public class Event extends ChildDataAccessObject implements Parcelable, Comparable<Event>{
 
 	/**
 	* date of this event
