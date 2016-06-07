@@ -41,8 +41,8 @@ public class PhotoFile extends File {
 
         File f;
         while(true) {
-            String filename = String.format("img_%s_%s" + fileExt,
             String fileNum = String.format("%03d", DataMapper.getCurrentRealEstate().getPhotos().size() + nExtra);
+            String filename = String.format("img_%s_%s",
                     DataMapper.getCurrentRealEstate().toString(),
                     fileNum);
 
