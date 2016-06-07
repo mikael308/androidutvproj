@@ -157,11 +157,6 @@ public class Photo extends ChildDataAccessObject{
         return this;
     }
 
-    public Photo setThumbNail(Bitmap thumbnail){
-        mThumbnail = thumbnail;
-        return this;
-    }
-
     public String toString(){
         return mPhotoFilePath;
     }
