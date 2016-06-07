@@ -3,6 +3,7 @@ package com.example.mikael.androidutvproj.dao;
 import android.os.Parcel;
 
 import com.example.mikael.androidutvproj.R;
+import com.example.mikael.androidutvproj.tool.RandomString;
 import com.google.android.gms.maps.model.LatLng;
 
 import java.text.SimpleDateFormat;
@@ -100,7 +101,7 @@ public class RealEstate extends ParentDataAccessObject implements Comparable<Rea
     private ArrayList<Photo> mPhotos       = new ArrayList<>();
 
     public RealEstate(){
-        super("realestate-" + RandomString.getRandomString(20));
+        super("realestate-" + RandomString.getRandomAlphaString(20));
     }
     /**
      * create RealEstate
