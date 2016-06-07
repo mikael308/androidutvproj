@@ -29,6 +29,13 @@ public class Animators {
     }
 
 
+    public static ViewPropertyAnimator anim_fadeIn(View v, int dur, int delay){
+        v.animate().alpha(0);
+        return v.animate()
+                .alpha(1)
+                .setStartDelay(delay)
+                .setDuration(dur);
+    }
 
     public static ViewPropertyAnimator anim_fadeOut(View v, int dur, int delay){
         v.animate().alpha(1);
