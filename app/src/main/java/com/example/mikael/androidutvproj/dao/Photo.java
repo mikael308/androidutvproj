@@ -4,22 +4,16 @@ package com.example.mikael.androidutvproj.dao;
 
 
 
-import android.app.Activity;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.os.Environment;
 import android.os.Parcel;
 import android.os.Parcelable;
-import android.util.Log;
 
-import com.example.mikael.androidutvproj.R;
-import com.example.mikael.androidutvproj.database.DataMapper;
-import com.example.mikael.androidutvproj.settings.Settings;
+import com.example.mikael.androidutvproj.PhotoFile;
+import com.example.mikael.androidutvproj.tool.RandomString;
 import com.google.android.gms.maps.model.LatLng;
 
-import java.io.ByteArrayOutputStream;
 import java.io.File;
-import java.io.FileOutputStream;
 import java.util.Date;
 
 /**
