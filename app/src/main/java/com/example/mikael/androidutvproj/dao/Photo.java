@@ -37,7 +37,8 @@ public class Photo extends DataAccessObject{
     /**
      * this photo file
      */
-    private File mPhotoFile;
+    private String mPhotoFilePath;
+
     /**
      * description of the content of this photo
      * */
@@ -62,14 +63,14 @@ public class Photo extends DataAccessObject{
 
     public Photo(String id, File photoFile) {
         super(id);
-        mPhotoFile = photoFile;
+        mPhotoFilePath = photoFile.getAbsolutePath();
     }
 
     public Photo(File photoFile){
-        mPhotoFile = photoFile;
         super("photo-"+RandomString.getRandomAlphaString(20));
+        mPhotoFilePath = photoFile.getAbsolutePath();
     }
-
+    
 
     /**
      * std ctor
@@ -81,7 +82,7 @@ public class Photo extends DataAccessObject{
     public Photo(File photofile, String description, LatLng latlng, Date date){
         super("photo-"+RandomString.getRandomAlphaString(20));
 
-        mPhotoFile      = photofile;
+        mPhotoFilePath  = photofile.getAbsolutePath();
         mDescription    = description;
         mLatLng         = latlng;
         mDate           = date;
@@ -93,16 +94,27 @@ public class Photo extends DataAccessObject{
      * @return  photofile
      */
     public Bitmap getPhotoBitmap(){
-        return BitmapFactory.decodeFile(mPhotoFile.getAbsolutePath());
+        return BitmapFactory.decodeFile(mPhotoFilePath);
     }
 
     /**
      * get this photofile
      * @return  photofile
      */
-    public File getPhotoFile(){
-        return mPhotoFile;
+    public PhotoFile getPhotoFile(){
+
+        PhotoFile f = new PhotoFile(mPhotoFilePath);
+        if(f.exists())
+            return f;
+        else
+            return null;
+
     }
+
+    public String getPhotoPath(){
+        return mPhotoFilePath;
+    }
+
     /**
      * get this description
      * @return description
@@ -127,7 +139,12 @@ public class Photo extends DataAccessObject{
     }
 
     public Photo setPhotoFile(File f){
-        mPhotoFile = f;
+        mPhotoFilePath = f.getAbsolutePath();
+        return this;
+    }
+
+    public Photo setPhotoFile(String filepath){
+        mPhotoFilePath = filepath;
         return this;
     }
 
@@ -146,8 +163,13 @@ public class Photo extends DataAccessObject{
         return this;
     }
 
+    public Photo setThumbNail(Bitmap thumbnail){
+        mThumbnail = thumbnail;
+        return this;
+    }
+
     public String toString(){
-        return mPhotoFile.getPath();
+        return mPhotoFilePath;
     }
 
     @Override
