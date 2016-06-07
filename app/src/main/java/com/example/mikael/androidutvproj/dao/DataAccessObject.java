@@ -52,4 +52,10 @@ public abstract class DataAccessObject implements Parcelable {
      */
     public abstract String getLabel();
 
+    /**
+     * Clones this DataAccessObject
+     * @return clone of this DataAccessObject
+     */
+    public abstract DataAccessObject clone();
+
 }
