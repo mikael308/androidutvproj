@@ -226,17 +226,24 @@ public class Photo extends ChildDataAccessObject{
 
     @Override
     public String getLabel() {
-        return getPhotoFile().getAbsolutePath();
+        if(getPhotoFile() != null)
+            return getPhotoFile().getAbsolutePath();
+        else
+            return "nullphoto";
     }
 
     @Override
     public Photo clone() {
         Photo clone = new Photo(    getId())
-                .setDate(           getDate())
-                .setLatLng(         getLatLng())
-                .setPhotoFile(      getPhotoFile())
                 .setDescription(    getDescription())
                 .setForeignKey(     getForeignKey());
+
+        if(getDate() != null)
+            clone.setDate(          getDate());
+        if(getLatLng() != null)
+            clone.setLatLng(        getLatLng());
+        if(getPhotoFile() != null)
+            clone.setPhotoFile(     getPhotoFile());
 
         return clone;
     }
