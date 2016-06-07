@@ -138,6 +138,10 @@ public class ThousandSeparator implements TextWatcher{
      * @return
      */
     public static String format(String s, String thousandSeparator, String decimalSeparator){
+        return format(s, thousandSeparator, decimalSeparator, null);
+    }
+
+    public static String format(String s, String thousandSeparator, String decimalSeparator, String unitSymbol){
         String dec_sep = decimalSeparator;
 
         String decimals = "";
