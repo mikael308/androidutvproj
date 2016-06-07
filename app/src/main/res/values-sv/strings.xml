@@ -1,104 +1,163 @@
 <resources>
-    <!-- ACTIVITIES -->
-    <string name="app_name">AndrutvProj</string>
-    <string name="realestate_activity">Bostäder</string>
-    <string name="settings_activity">Inställningar</string>
 
-    <!-- STD BUTTONS -->
-    <string name="btn_ok">OK</string>
-    <string name="btn_cancel">Cancel</string>
+        <!-- ACTIVITIES -->
+        <string name="app_name">AndrutvProj</string>
+        <string name="realestate_activity">fastigheter</string>
+        <string name="settings_activity">inställningar</string>
+        <string name="displayphoto_activity">visa foto</string>
 
-    <string name="entrydialog_newevent_title">Ny visning</string>
-    <string name="entrydialog_newevent_created">Ny visning skapades</string>
-    <string name="entrydialog_newevent_createdError">visning kunde inte skapas</string>
-    <string name="entrydialog_newevent_incorrectOpenHouseDate">Inkorrekt datum</string>
-    <string name="entrydialog_newevent_incorrectAddress">Inkorrekt adress</string>
+        <!-- STD BUTTONS -->
+        <string name="btn_ok">ok</string>
+        <string name="btn_cancel">cancel</string>
 
-    <string name="entrydialog_newrealestate_title">Ny bostad</string>
-    <string name="entrydialog_newrealestate_created">Ny bostad skapad</string>
-    <string name="entrydialog_newrealestate_createdError">Ny bostad kunde inte skapas</string>
+        <string name="showing_title">visning</string>
+        <string name="showing_delete">ta bort visning</string>
+        <string name="showing_edit">redigera visning</string>
+        <string name="entrydialog_newshowing_title">ny visning</string>
+        <string name="entrydialog_newshowing_created">ny visning skapades</string>
+        <string name="entrydialog_newshowing_createdError">visning kunde inte skapas</string>
+
+        <string name="entrydialog_newrealestate_title">ny bostad</string>
+        <string name="entrydialog_newrealestate_created">ny bostad skapad</string>
+        <string name="entrydialog_newrealestate_createdError">ny bostad kunde inte skapas</string>
+        <string name="realEstate_notSelected">ingen vald fastighet funnen</string>
+        <string name="confirm">godkänn</string>
+
+        <string name="no_camera_msg">enheten har ingen kamera</string>
 
 
-    <!-- ACTIONBAR MENU MAIN -->
-    <string name="actionbar_settings_title">Inställningar</string>
-    <string name="actionbar_about_title">Om appen</string>
-    <!-- ACTIONBAR MENU EVENT -->
-    <string name="actionbar_edit_title">Ändra</string>
-    <string name="actionbar_delete_title">Ta bort</string>
-    <!-- ACTIONBAR MENU EVENTLIST -->
-    <string name="actionbar_new_title">Ny</string>
+        <!-- ACTIONBAR MENU MAIN -->
+        <string name="actionbar_settings_title">inställningar</string>
+        <string name="actionbar_about_title">om appen</string>
+        <!-- ACTIONBAR MENU EVENT -->
+        <string name="actionbar_edit_title">ändra</string>
+        <string name="actionbar_delete_title">ta bort</string>
+        <!-- ACTIONBAR MENU EVENTLIST -->
+        <string name="actionbar_new_title">ny</string>
 
-    <!-- MAIN ABOUT MESSAGE -->
-    <string name="about_title">Om appen</string>
-    <string name="about_message_appDescription">klaatu barada nikto</string><!-- TODO write about message -->
-    <string name="about_message_refIcons">Graphics provided by Google material design icons under Creative Common Attribution 4.0 International License (CC-BY 4.0)</string>
+        <!-- MAIN ABOUT MESSAGE -->
+        <string name="about_title">om appen</string>
+        <string name="about_message_appDescription">app skapad för kursen "Applikationsutveckling i Android, 7.5hp, Mittuniversitet. Av Mikael Holmbom - miho1202</string>
+        <string name="about_message_refIcons">Graphics provided by Google material design icons under Creative Common Attribution 4.0 International License (CC-BY 4.0)</string>
 
-    <!-- SETTINGS ACTIVITY -->
-    <string name="settings_listitem_language_header">Språk</string>
-    <string name="settings_listitem_photosrc_header">Foto-källa</string>
-    <string name="settings_listitem_showdates_haeder">Visa datum</string>
+        <!-- SETTINGS ACTIVITY -->
+        <string name="settings_listitem_language_header">språk</string>
+        <string name="settings_listitem_photosrc_header">foto-källa</string>
+        <string name="settings_listitem_showdates_header">visa datum</string>
 
-    <string name="settings_delete_title">Ta bort</string>
-    <string name="settings_delete_message">Godkänn ta bort</string>
+        <string name="settings_delete_title">ta bort</string>
+        <string name="settings_delete_message">godkänn ta bort</string>
 
-    <string name="externalstorage_notmounted">extern lagring ej funnen</string>
-    <string name="settings_langauge_new_correct">Nytt språk angett korrekt</string>
-    <string name="settings_langauge_new_incorrect">Nytt språk kunde inte anges</string>
-    <string name="settings_photosource_notfound">photosource not found</string>
+        <string name="externalstorage_notmounted">extern lagring ej funnen</string>
+        <string name="settings_langauge_new_correct">nytt språk angett korrekt</string>
+        <string name="settings_langauge_new_incorrect">nytt språk kunde inte anges</string>
+        <string name="settings_photosource_notfound">fotokälla kunde ej finnas</string>
 
-    <!-- EVENT ACTIVITY -->
-    <string name="realestate_btn_addApartment">Lägg till visning</string>
-    <string name="realestate_btn_addPhoto">Lägg till foto</string>
+        <!-- REAL ESTATE ACTIVITY -->
+        <string name="realestate_btn_addShowing">lägg till visning</string>
+        <string name="realestate_btn_addPhoto">lägg till foto</string>
 
-    <string name="realestate_address_label">Adress</string>
-    <string name="realestate_description_label">Beskrivning</string>
-    <string name="realestate_type_label">Bostadstyp</string>
-    <string name="realestate_openHouse_label">Visning</string>
-    <string name="realestate_startBid_label">Startbud</string>
-    <string name="realestate_floor_label">Våning</string>
-    <string name="realestate_priceLivingSpace_label">Pris/Boyta</string>
-    <string name="realestate_rent_label">Avgift</string>
-    <string name="realestate_livingSpace_label">Boarea</string>
-    <string name="realestate_rooms_label">Rum</string>
-    <string name="realestate_constructYear_label">Byggnadsår</string>
-    <string name="realestate_couldNotRead">Could not read event data</string>
-    <string name="realestate_std_value">-</string>
+        <string name="realestate_address_label">adress</string>
+        <string name="realestate_description_label">beskrivning</string>
+        <string name="realestate_type_label">bostadstyp</string>
+        <string name="realestate_openHouse_label">visning</string>
+        <string name="realestate_startBid_label">startbud</string>
+        <string name="realestate_floor_label">våning</string>
+        <string name="realestate_priceLivingSpace_label">pris/boyta</string>
+        <string name="realestate_rent_label">avgift</string>
+        <string name="realestate_livingSpace_label">boarea</string>
+        <string name="realestate_rooms_label">rum</string>
+        <string name="realestate_constructYear_label">byggnadsår</string>
+        <string name="realestate_couldNotRead">could not read event data</string>
+        <string name="realestate_std_value">-</string>
 
-    <string name="realestate_startbid_unit">kr</string>
-    <string name="realestate_rent_unit">kr/mån</string>
-    <string name="realestate_floor_unit">tr</string>
-    <string name="realestate_room_unit">st</string>
-    <string name="realestate_livingSpace_unit">kvm</string>
-    <string name="realestate_priceLivingSpace_unit">kr/kvm</string>
+        <string name="realestate_startbid_unit">sek</string>
+        <string name="realestate_rent_unit">sek/mån</string>
+        <string name="realestate_floor_unit">tr</string>
+        <string name="realestate_rooms_unit">rok</string>
+        <string name="realestate_livingSpace_unit">m\u00B2</string>
+        <string name="realestate_priceLivingSpace_unit">sek/m\u00B2</string>
 
-    <string name="database_empty">Inga bostäder funna</string>
-    <string name="database_task_label_add">Ny</string>
-    <string name="database_task_label_edit">Redigerar</string>
-    <string name="database_task_label_delete">Ta bort</string>
-    <string name="database_loading_msg">Laddar...</string>
+        <string name="database_empty">Inga bostäder funna</string>
+        <string name="database_task_label_add">Ny</string>
+        <string name="database_task_label_edit">Redigera</string>
+        <string name="database_task_label_delete">Ta bort</string>
+        <string name="database_loading_msg">Laddar...</string>
 
-    <string name="realestate_selector_map">Karta</string>
-    <string name="realestate_selector_list">Lista</string>
+        <string name="realestate_selector_map">Karta</string>
+        <string name="realestate_selector_list">Lista</string>
 
-    <!-- EVENTLIST DIALOG -->
-    <string name="list_click_header">Visning</string>
-    <string name="list_edit_title">Ändra</string>
-    <string name="delete_title">Ta bort</string>
+        <!-- EVENTLIST DIALOG -->
+        <string name="list_click_header">visning</string>
+        <string name="list_edit_title">ändra</string>
 
-    <!-- APARTMENT TYPE NAME -->
-    <string name="realestate_type_condominium">Bostadsrätt</string>
-    <string name="realestate_type_house">Villa</string>
-    <string name="realestate_type_townhouse">Radhus</string>
-    <string name="realestate_type_holidayhouse">Fritidshus</string>
-    <string name="realestate_type_ground_plot">Tomt</string>
-    <string name="realestate_type_woodland_site">Gård/skog</string>
-    <string name="realestate_type_other">Övrigt</string>
+        <string name="delete_title">ta bort</string>
+        <string name="edit_title">redigera</string>
+        <string name="new_title">ny</string>
+        <string name="addShowing_title">lägg till visning</string>
 
-    <string name="newphoto_title">Nytt foto</string>
-    <string name="newphoto_description_label">Beskrivning</string>
+        <!-- APARTMENT TYPE NAME -->
+        <string name="realestate_type_condominium">bostadsrätt</string>
+        <string name="realestate_type_house">villa</string>
+        <string name="realestate_type_townhouse">radhus</string>
+        <string name="realestate_type_holidayhouse">fritidshus</string>
+        <string name="realestate_type_ground_plot">tomt</string>
+        <string name="realestate_type_woodland_site">gård/skog</string>
+        <string name="realestate_type_other">övrigt</string>
 
-    <!-- EDIT -->
-    <string name="edit_title">Edit entry</string>
-    <string name="edit_success">Entry was edited sucessfully</string>
+        <string name="newphoto_title">nytt foto</string>
+        <string name="newphoto_description_label">beskrivning</string>
+        <string name="newphoto_add_success">nytt foto sparat</string>
+        <string name="newphoto_add_unsuccess">nytt foto kunde ej sparas</string>
+
+        <!-- EDIT -->
+        <string name="edit_success">redigering utförd</string>
+
+
+        <!-- DISPLAY PHOTO ACTIVITY -->
+        <string name="index_header">foto nr</string>
+
+        <string name="actionbar_displayphoto_new_title">nytt foto</string>
+        <string name="actionbar_displayphoto_delete_title">ta bort</string>
+
+        <!-- VALID DAO -->
+        <string name="invalid_description">ogiltig beskrivning: kan ej vara tom</string>
+    <string name="invalid_date">ogiltigt datum: kan ej vara tom</string>
+        <string name="invalid_photopath">ogiltig fotosökväg: kan inte hitta foto</string>
+        <string name="invalid_address">ogiltig address: kan ej vara tom</string>
+
+        <!-- ACTIVITIES -->
+        <string name="realestatedetails_activity">fastighet detaljer</string>
+
+        <!-- STD BUTTONS -->
+        <string name="btn_yes">ja</string>
+        <string name="btn_no">nej</string>
+        <string name="btn_create">skapa</string>
+
+        <string name="database_publish_init">läser från databas</string>
+        <string name="database_task_label_init">initierar</string>
+
+        <string name="realEstate_notFound">ingen fastighet kunde hittas</string>
+
+        <string name="showings_notFound">ingen visning kunde hittas</string>
+        <string name="photos_notFound">inget foto kunde hittas</string>
+
+        <string name="realestate_title">fastighet</string>
+
+        <string name="photo_title">foto</string>
+        <string name="photo_new">nytt foto</string>
+        <string name="photo_delete">ta bort foto</string>
+        <string name="photo_edit">redigera foto</string>g>
+
+        <string name="delete_file">Ta bort fil från lagringsenhet</string>
+
+        <!-- TODO DUPLICATE OF poto_delete phtoo_edit etc här ovan.. -->
+        <string name="delete_realestate">ta bort fastighet</string>
+        <string name="delete_photo">ta bort foto</string>
+        <string name="delete_event">ta bort visnin</string>
+
+        <string name="thousand_sep">\u0020</string>
+        <string name="decimal_sep">.</string>
+
 
 </resources>
