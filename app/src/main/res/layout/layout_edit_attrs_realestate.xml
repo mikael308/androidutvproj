@@ -76,6 +76,7 @@
             android:inputType="numberDecimal"
             app:thousandSeparatorSymbol="@string/thousand_sep"
             app:decimalSeparatorSymbol="@string/decimal_sep"
+            app:valueUnit="@string/realestate_startbid_unit"
             android:id="@+id/edit_startBid" />
         <!-- RENT -->
         <TextView
@@ -93,6 +94,7 @@
             android:id="@+id/edit_rent"
             app:thousandSeparatorSymbol="@string/thousand_sep"
             app:decimalSeparatorSymbol="@string/decimal_sep"
+            app:valueUnit="@string/realestate_rent_unit"
             android:inputType="numberDecimal" />
         <!-- FLOOR -->
         <TextView
@@ -102,7 +104,7 @@
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:text="@string/realestate_floor_label"
             android:id="@+id/title_floor" />
-        <EditText
+        <com.example.mikael.androidutvproj.EditTextNumber
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="3"
@@ -110,6 +112,9 @@
             android:clickable="true"
             android:paddingLeft="@dimen/realestate_edit_padding_left"
             android:id="@+id/edit_floor"
+            app:thousandSeparatorSymbol="@string/thousand_sep"
+            app:decimalSeparatorSymbol="@string/decimal_sep"
+            app:valueUnit="@string/realestate_floor_unit"
             android:inputType="numberDecimal" />
         <!-- ROOMS -->
         <TextView
@@ -119,7 +124,7 @@
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:text="@string/realestate_rooms_label"
             android:id="@+id/title_rooms" />
-        <EditText
+        <com.example.mikael.androidutvproj.EditTextNumber
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="3"
@@ -127,6 +132,9 @@
             android:id="@+id/edit_rooms"
             android:focusable="false"
             android:clickable="true"
+            app:thousandSeparatorSymbol="@string/thousand_sep"
+            app:decimalSeparatorSymbol="@string/decimal_sep"
+            app:valueUnit="@string/realestate_rooms_unit"
             android:inputType="numberDecimal" />
         <!--LIVINGSPACE -->
         <TextView
@@ -146,6 +154,7 @@
             android:clickable="true"
             app:thousandSeparatorSymbol="@string/thousand_sep"
             app:decimalSeparatorSymbol="@string/decimal_sep"
+            app:valueUnit="@string/realestate_livingSpace_unit"
             android:inputType="numberDecimal" />
         <!-- DESCRIPTION -->
         <TextView
