@@ -3,6 +3,7 @@ package com.example.mikael.androidutvproj.details;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.DialogFragment;
@@ -156,6 +157,13 @@ public class PhotoAttributeDialogFragment extends DialogFragment {
         }
     }
 
+    private Bitmap getScaledBitmap(final Photo photo){
+        final int ivW = getResources().getInteger(R.integer.photo_dialog_editattrs_thumbnail_size);
+        final int ivH = getResources().getInteger(R.integer.photo_dialog_editattrs_thumbnail_size);
+
+        return photo.getPhotoFile().scaleToFit(ivW, ivH);
+
+    }
     /**
      * get this Photo
      * @return current photo as defined by current inputviews
