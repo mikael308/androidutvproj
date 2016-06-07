@@ -115,7 +115,7 @@ public class ThousandSeparator implements TextWatcher{
     }
 
     /**
-     * format a integer, whole number to thousand separator format
+     * format a integer, whole number, to thousand separator format
      * @param s text to format
      * @param thousandSeparator symbol
      * @return
