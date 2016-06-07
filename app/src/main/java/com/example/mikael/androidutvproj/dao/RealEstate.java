@@ -300,11 +300,10 @@ public class RealEstate extends ParentDataAccessObject implements Comparable<Rea
     }
 
     public boolean hasComingShowings(){
-        boolean futureshowings = false;
         for(Event showing : mShowings){
-            if(showing.isProspective()) futureshowings = true;
+            if (! showing.isPast()) return true;
         }
-        return futureshowings;
+        return false;
     }
 
     @Override
