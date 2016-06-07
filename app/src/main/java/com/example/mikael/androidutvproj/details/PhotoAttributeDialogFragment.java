@@ -1,5 +1,6 @@
 package com.example.mikael.androidutvproj.details;
 
+import android.Manifest;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
@@ -15,6 +16,7 @@ import android.widget.ImageView;
 
 import com.example.mikael.androidutvproj.R;
 import com.example.mikael.androidutvproj.dao.Photo;
+import com.example.mikael.androidutvproj.settings.Permission;
 
 /**
  * Fragment displaying editable attributes of a Photo instance<br>
@@ -61,6 +63,11 @@ public class PhotoAttributeDialogFragment extends DialogFragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        if(! Permission.askPermissionIfNeeded(getActivity(),
+                Manifest.permission.WRITE_EXTERNAL_STORAGE)){
+            return ;
+        }
 
         try {
             mPhoto = getArguments().getParcelable(BUNDLEKEY_PHOTO);
