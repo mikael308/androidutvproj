@@ -1,4 +1,4 @@
-package com.example.mikael.androidutvproj;
+package com.example.mikael.androidutvproj.tool;
 
 import android.app.Activity;
 import android.util.Log;
