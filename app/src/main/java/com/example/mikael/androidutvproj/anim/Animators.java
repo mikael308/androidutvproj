@@ -30,6 +30,13 @@ public class Animators {
 
 
 
+    public static ViewPropertyAnimator anim_fadeOut(View v, int dur, int delay){
+        v.animate().alpha(1);
+        return v.animate()
+                .alpha(0)
+                .setStartDelay(delay)
+                .setDuration(dur);
+    }
     public final static int DIRECTION_RIGHT     = 0;
     public final static int DIRECTION_LEFT      = 1;
 
