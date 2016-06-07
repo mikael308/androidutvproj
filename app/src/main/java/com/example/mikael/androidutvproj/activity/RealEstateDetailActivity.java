@@ -51,6 +51,10 @@ public class RealEstateDetailActivity extends AppCompatActivity  {
     }
 
 
+    private RealEstateDetailsFragment getDetailsFragment(){
+        return (RealEstateDetailsFragment) getSupportFragmentManager().findFragmentById(R.id.fragment_details_view);
+    }
+
     /**
      * determine if current orientation is landscape
      * @return true if current orientation is landscape
