@@ -88,7 +88,8 @@ public class RealEstateListFragment extends ClickableListFragment<RealEstateList
     public void onResume() {
         super.onResume();
 
-        ((RealEstateListAdapter) getListAdapter()).updateSettings();
+        RealEstateListAdapter listAdapter = (RealEstateListAdapter) getListAdapter();
+        listAdapter.updateSettings();
     }
 
     private void initListeners(){
