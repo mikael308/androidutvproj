@@ -57,6 +57,21 @@ public class Animators {
                 context.getResources().getInteger(R.integer.update_fade_startdelay));
     }
 
+    public static ViewPropertyAnimator fadeInOut(final View v, final int dur, final int delay, final int durOutfaded, final Runnable onOutfaded){
+        final int halfdur = dur / 2;
+        return anim_fadeOut(v, halfdur, delay)
+                .withEndAction(new Runnable() {
+                    @Override
+                    public void run() {
+                        if(onOutfaded != null)
+                            onOutfaded.run();
+
+                        anim_fadeIn(v, halfdur, durOutfaded)
+                                .start();
+                    }
+                });
+    }
+
     public final static int DIRECTION_RIGHT     = 0;
     public final static int DIRECTION_LEFT      = 1;
 
