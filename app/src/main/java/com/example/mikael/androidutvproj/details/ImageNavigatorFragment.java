@@ -18,6 +18,7 @@ import com.example.mikael.androidutvproj.OnSwipeListener;
 import com.example.mikael.androidutvproj.PhotoFile;
 import com.example.mikael.androidutvproj.R;
 import com.example.mikael.androidutvproj.anim.Animators;
+import com.example.mikael.androidutvproj.dao.Photo;
 
 /**
  * displays ImageView, uses callback methods on swipe left or right.<br>
@@ -209,6 +210,10 @@ public class ImageNavigatorFragment extends DialogFragment {
         int w = mImageDisplay.getLayoutParams().width;
         int h = mImageDisplay.getLayoutParams().height;
         display(photofile.scaleToFit(w, h));
+    }
+
+    public void display(Photo photo){
+        display(photo.getPhotoFile());
     }
 
     /**
