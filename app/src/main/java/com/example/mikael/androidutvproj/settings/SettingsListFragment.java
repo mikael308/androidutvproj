@@ -221,11 +221,11 @@ public class SettingsListFragment extends ListFragment {
     }
 
     /**
-     * recursive method<br>
-     * get list of file f subdirectories
+     * get list of file eventlistFragment subdirectories<br>
+     *     method is used recursive
      * @param paths current list of subdirectory paths
      * @param f rootfile
-     * @return list of file f subdirectories
+     * @return list of file eventlistFragment subdirectories
      */
     private List<String> getSubDirectoryPaths(List<String> paths, File f){
         if (f.isDirectory())   paths.add(f.getAbsolutePath());
