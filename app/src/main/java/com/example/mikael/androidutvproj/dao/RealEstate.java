@@ -1,6 +1,7 @@
 package com.example.mikael.androidutvproj.dao;
 
 import android.os.Parcel;
+import android.os.Parcelable;
 
 import com.example.mikael.androidutvproj.R;
 import com.example.mikael.androidutvproj.tool.RandomString;
@@ -337,60 +338,66 @@ public class RealEstate extends ParentDataAccessObject implements Comparable<Rea
     public void writeToParcel(Parcel parcel, int i) {
         super.writeToParcel(parcel, i);
 
-        parcel.writeStringArray(new String[]{
-                getId(),
-                getAddress(),
-                getDescription()
-        });
-        parcel.writeLongArray(new long[]{
-                getConstructYear().getTime()
-        });
-        parcel.writeIntArray(new int[]{
-                getStartBid(),
-                getRent(),
-                getType().getId()
-        });
-        parcel.writeDoubleArray(new double[]{
-                getFloor(),
-                getRooms(),
-                getLivingSpace()
-        });
+        parcel.writeString(getAddress());
+        parcel.writeString(getDescription());
 
-        parcel.writeParcelableArray((Event[]) getShowings().toArray(), 0); //TODO kolla upp, vad är åparcelableflag??? 0..
-        parcel.writeParcelable(getLatLng(), 0);
+        Date constrYear = getConstructYear();
+        if (constrYear != null)
+            parcel.writeLong(constrYear.getTime());
+
+        parcel.writeInt(getStartBid());
+        parcel.writeInt(getRent());
+        parcel.writeInt(getType().getId());
+
+        parcel.writeDouble(getFloor());
+        parcel.writeDouble(getRooms());
+        parcel.writeDouble(getLivingSpace());
+
+        Event[] showings = new Event[getShowings().size()];
+        for(int j = 0; j < getShowings().size(); j++)
+            showings[j] = getShowings().get(j);
+
+        parcel.writeTypedArray(showings, 0);
+
+        parcel.writeParcelable(getLatLng(), PARCELABLE_WRITE_RETURN_VALUE);
     }
 
     protected RealEstate(Parcel in){
         super(in);
 
-        String[] stringData   = new String[4];
-        in.readStringArray(stringData);
-        setAddress(stringData[1]);
-        setDescription(stringData[2]);
+        setAddress(in.readString());
+        setDescription(in.readString());
 
-        long[] longData = new long[1];
-        in.readLongArray(longData);
-        setConstructYear(new Date(longData[1]));
+        setConstructYear(in.readLong());
 
-        int[] intData = new int[3];
-        in.readIntArray(intData);
-        setStartBid(intData[0]);
-        setRent(intData[1]);
-        setType(Type.newType(intData[2]));
+        setStartBid(in.readInt());
+        setRent(in.readInt());
+        setType(Type.newType(in.readInt()));
 
-        double[] doubleData = new double[3];
-        in.readDoubleArray(doubleData);
-        setFloor(doubleData[0]);
-        setRooms(doubleData[1]);
-        setLivingSpace(doubleData[2]);
+        setFloor(in.readDouble());
+        setRooms(in.readDouble());
+        setLivingSpace(in.readDouble());
 
-        for(Event showing : (Event[]) in.readParcelableArray(Event.class.getClassLoader())){
+        Event[] showingArr = in.createTypedArray(Event.CREATOR);
+        for (Event showing : showingArr) {
             getShowings().add(showing);
         }
 
-        setLatLng(((LatLng) in.readParcelable(LatLng.class.getClassLoader())));
+        LatLng latLng = in.readParcelable(LatLng.class.getClassLoader());
+        setLatLng(latLng);
+
 
     }
+
+    public static final Parcelable.Creator CREATOR = new Parcelable.Creator() {
+        public RealEstate createFromParcel(Parcel in) {
+            return new RealEstate(in);
+        }
+
+        public RealEstate[] newArray(int size) {
+            return new RealEstate[size];
+        }
+    };
 
     @Override
     public int describeContents() {
