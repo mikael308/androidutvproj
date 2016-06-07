@@ -64,6 +64,10 @@ public abstract class Dialog {
     }
 
     public static AlertDialog.Builder question(Activity activity, int msgResId, DialogInterface.OnClickListener onPositiveClick){
+        return question(activity, activity.getString(msgResId), onPositiveClick);
+    }
+
+    public static AlertDialog.Builder question(Activity activity, String msgResId, DialogInterface.OnClickListener onPositiveClick){
         return new AlertDialog.Builder(activity)
                 .setTitle(activity.getResources().getString(R.string.confirm))
                 .setMessage(msgResId)
