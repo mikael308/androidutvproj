@@ -238,32 +238,34 @@ public class PhotoDetailActivity extends AppCompatActivity
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if (resultCode != RESULT_OK) return;
-
-        Log.d("photodetailactivity", "resultcode == OK, requestcode : " + requestCode);
-
         switch (requestCode){
             case RealEstateDetailsFragment.CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE:
+                final String photopath = mPhotoPath;
+                if (resultCode == RESULT_OK){
+                    PhotoFile photofile = new PhotoFile(photopath);
 
-                String photopath = mPhotoPath;
-                Log.d("redetailfrag", "photopath : "+ photopath);
+                    if (photofile.exists()) {
 
-                PhotoFile photofile = new PhotoFile(photopath);
+                        DatabaseDialog.savePhoto(this, getCurrentRealEstate(), photofile, new DatabaseDialog.OnPost() {
+                            @Override
+                            public void run(Photo photo) {
 
-                if (photofile.exists()) {
-                    Log.d("redetilsfrag", "my tmp file  : " + photofile.getAbsolutePath());
-
-                    DatabaseDialog.savePhoto(this, getCurrentRealEstate(), photofile, new DatabaseDialog.OnPost() {
+                            }
+                        }).show(getSupportFragmentManager(), "savePhotoDialog");
+                    }
+                } else { // ! RESULT_OK
+                    Log.d("phtoodetact", "rm file : " + mPhotoPath);
+                    new Thread(new Runnable() {
                         @Override
-                        public void run(Photo photo) {
-                            display(photo);
-                            updateNavigator();
+                        public void run() {
+                            File f = new File(photopath);
+                            if(f.exists())
+                                f.delete();
                         }
-                    })
-                            .show(getSupportFragmentManager(), "savePhotoDialog");
+                    }).start();
+
                 }
                 break;
-
         }
     }
 
