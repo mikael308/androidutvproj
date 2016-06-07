@@ -15,6 +15,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 
 import com.example.mikael.androidutvproj.OnSwipeListener;
+import com.example.mikael.androidutvproj.PhotoFile;
 import com.example.mikael.androidutvproj.R;
 import com.example.mikael.androidutvproj.anim.Animators;
 
@@ -202,6 +203,12 @@ public class ImageNavigatorFragment extends DialogFragment {
      */
     public void display(Bitmap bitmap){
         mImageDisplay.setImageBitmap(bitmap);
+    }
+
+    public void display(final PhotoFile photofile){
+        int w = mImageDisplay.getLayoutParams().width;
+        int h = mImageDisplay.getLayoutParams().height;
+        display(photofile.scaleToFit(w, h));
     }
 
     /**
