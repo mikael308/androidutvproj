@@ -25,13 +25,14 @@ public class PhotoFile extends File {
         super(path);
     }
 
+
     /**
      * generate a file with unique filename within directory param, file is created in directory and returned
      * @param directoryPath what directory to add file
      * @return created file
      */
-    public static File getNewFile(String directoryPath){
         int nExtra = 0;
+    public static File createNonexistingFile(String directoryPath){
         String fileExt = ".jpg";
         File dir = new File(directoryPath);
         if(! dir.exists() || !dir.isDirectory()){
