@@ -34,12 +34,12 @@ public class Animators {
     public final static int DIRECTION_LEFT      = 1;
 
     public static ViewPropertyAnimator reganRoll(final Context context, final View v, int direction, final Runnable betweenAnimationAction){
-        final float[] xVals = direction == DIRECTION_LEFT ?
+        final float[] xMov = direction == DIRECTION_LEFT ?
                 new float[]{-400f, 400f}:
                 new float[]{400f, -400f};
 
         return v.animate()
-                .x(xVals[0])
+                .x(xMov[0])
                 .alpha(0)
                 .setDuration(context.getResources().getInteger(R.integer.swipe_movement_duration))
                 .withEndAction(new Runnable() {
@@ -48,7 +48,7 @@ public class Animators {
                         betweenAnimationAction.run();
 
                         v.animate()
-                                .x(xVals[1])
+                                .x(xMov[1])
                                 .setDuration(0)
                                 .withEndAction(new Runnable() {
                                     @Override
