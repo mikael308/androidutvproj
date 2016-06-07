@@ -76,4 +76,9 @@ public class TextViewNumber extends TextView {
     public void setText(double val){
         super.setText(String.valueOf(val));
     }
+    public void setText(String s){
+        removeTextChangedListener(mThousandSeparator);
+        super.setText(s);
+        addTextChangedListener(mThousandSeparator);
+    }
 }
