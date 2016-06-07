@@ -412,14 +412,17 @@ public class RealEstate extends ParentDataAccessObject implements Comparable<Rea
     @Override
     public RealEstate clone() {
         RealEstate clone = new RealEstate(getId())
-                .setAddress(getAddress())
-                .setType(getType())
-                .setConstructYear(getConstructYear())
-                .setStartBid(getStartBid())
-                .setRent(getRent())
-                .setRooms(getRooms())
-                .setLivingSpace(getLivingSpace())
-                .setDescription(getDescription());
+                .setAddress(            getAddress())
+                .setStartBid(           getStartBid())
+                .setRent(               getRent())
+                .setRooms(              getRooms())
+                .setLivingSpace(        getLivingSpace())
+                .setDescription(        getDescription());
+
+        if(getConstructYear() != null)
+            clone.setConstructYear(     getConstructYear());
+        if(getType() != null)
+            clone.setType(              getType());
 
         clone.getShowings().addAll(     getShowings());
         clone.getPhotos().addAll(       getPhotos());
