@@ -322,24 +322,34 @@ public class RealEstateDetailsFragment extends Fragment implements Observer {
 
                     //TODO flytta detta till photoadapter ??
                     final Photo CLICK_PHOTO = photos.get(position);
-                    Dialog.optionMenu(getActivity(),
-                            getResources().getString(R.string.photo_title),
-                            new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
-                                    switch (which) {
-                                        case 0:
-                                            DatabaseDialog.delete(getActivity(), CLICK_PHOTO, null).show();
-                                            break;
-                                        case 1:
-                                            DatabaseDialog.edit(getActivity(), CLICK_PHOTO)
-                                                    .show(getActivity().getSupportFragmentManager(), "update");
-                                            break;
+                    if(CLICK_PHOTO.getPhotoFile() != null && CLICK_PHOTO.getPhotoFile().exists()) {
+                        Dialog.optionMenu(getActivity(),
+                                getResources().getString(R.string.photo_title),
+                                new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        switch (which) {
+                                            case 0:
+                                                DatabaseDialog.delete(getActivity(), CLICK_PHOTO, null).show();
+                                                break;
+                                            case 1:
+                                                DatabaseDialog.edit(getActivity(), CLICK_PHOTO)
+                                                        .show(getActivity().getSupportFragmentManager(), "update");
+                                                break;
+                                        }
                                     }
-                                }
-                            },
-                            getResources().getString(R.string.delete_title), getResources().getString(R.string.edit_title)
-                    ).create().show();
+                                },
+                                getResources().getString(R.string.delete_title), getResources().getString(R.string.edit_title)
+                        ).create().show();
+                    } else {
+                        //TODO add dialog msg
+                        Dialog.question(getActivity(), "photo not found, delete this?", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                DataMapper.delete(getActivity(), CLICK_PHOTO);
+                            }
+                        }).create().show();
+                    }
 
                     return true;
                 }
