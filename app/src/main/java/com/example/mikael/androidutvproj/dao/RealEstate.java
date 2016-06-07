@@ -408,4 +408,22 @@ public class RealEstate extends ParentDataAccessObject implements Comparable<Rea
     public String getLabel() {
         return getAddress() + ", " + getFloor();
     }
+
+    @Override
+    public RealEstate clone() {
+        RealEstate clone = new RealEstate(getId())
+                .setAddress(getAddress())
+                .setType(getType())
+                .setConstructYear(getConstructYear())
+                .setStartBid(getStartBid())
+                .setRent(getRent())
+                .setRooms(getRooms())
+                .setLivingSpace(getLivingSpace())
+                .setDescription(getDescription());
+
+        clone.getShowings().addAll(     getShowings());
+        clone.getPhotos().addAll(       getPhotos());
+
+        return clone;
+    }
 }
