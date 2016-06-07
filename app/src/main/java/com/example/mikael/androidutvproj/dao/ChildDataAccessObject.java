@@ -45,8 +45,9 @@ public abstract class ChildDataAccessObject extends DataAccessObject {
      * set this foreign key
      * @param foreignKey
      */
-    public void setForeignKey(String foreignKey){
+    public <T extends ChildDataAccessObject> T setForeignKey(String foreignKey){
         mForeignKey = foreignKey;
+        return (T) this;
     }
 
 
