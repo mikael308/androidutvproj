@@ -117,15 +117,16 @@ public class SettingsListFragment extends ListFragment {
                         }
 
                         break;
+                    case Settings.SHAREDPREFKEY_PHOTOSOURCE:
+                        mListitem_photosrc.setInfo(sharedPreferences.getString(Settings.SHAREDPREFKEY_PHOTOSOURCE, ""));
 
                         break;
-                    case Settings.SHAREDPREFKEY_PHOTOSRC:
-                        mListitem_photosrc.setInfo(sharedPreferences.getString(key, ""));
                         break;
                 }
             }
         });
     }
+
 
     /**
      * initialize this listitems<br>
