@@ -224,60 +224,6 @@ public class Photo extends ChildDataAccessObject{
     };
 
 
-    /**
-     * generate a file with unique filename within directory param, file is created in directory and returned
-     * @param directory what directory to add file
-     * @return created file
-     */
-    private static File getNewFile(Activity activity, String directory){
-        int nExtra = 0;
-        File f;
-        while(true) {
-            String fileNum = String.format("%03d", DataMapper.getCurrentRealEstate().getPhotos().size() + 1 + nExtra);
-            String filename = String.format("img_%s_%s_%s.jpg",
-                    activity.getString(R.string.app_name),
-                    DataMapper.getCurrentRealEstate().toString(),
-                    fileNum);
-
-            f = new File(directory, filename);
-
-            if(f.exists())
-                nExtra++;
-            else
-                return f;
-        }
-    }
-
-    /**
-     * Save Bitmap to file
-     * @param bm
-     * @return
-     */
-    public static File saveToFile(Activity activity, Bitmap bm){
-        String stdImgDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM).toString();
-        String imgDir = activity.getSharedPreferences(Settings.SHAREDPREFKEY_SETTINGS, activity.MODE_PRIVATE).getString(Settings.SHAREDPREFKEY_PHOTOSOURCE, stdImgDir);
-
-        File f = getNewFile(activity, imgDir);
-        try{
-            if(f.createNewFile()){
-                ByteArrayOutputStream bos = new ByteArrayOutputStream();
-                bm.compress(Bitmap.CompressFormat.PNG, 0, bos);
-                byte[] bitmapdata = bos.toByteArray();
-
-                FileOutputStream fos = new FileOutputStream(f);
-                fos.write(bitmapdata);
-                fos.flush();
-                fos.close();
-                return f;
-            }
-
-        } catch(Exception e){
-            Log.e("error", "exception : " + e.getMessage());
-        }
-
-        return null;
-    }
-
     @Override
     public String getLabel() {
         return getPhotoFile().getAbsolutePath();
