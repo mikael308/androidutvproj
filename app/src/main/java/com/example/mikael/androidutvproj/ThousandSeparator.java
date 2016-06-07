@@ -126,6 +126,9 @@ public class ThousandSeparator implements TextWatcher{
     public static String format(int integer, String thousandSeparator){
         return format(String.valueOf(integer), thousandSeparator);
     }
+    public static String format(int integer, String thousandSeparator, String unitSymbol){
+        return format(String.valueOf(integer), thousandSeparator, unitSymbol);
+    }
 
     /**
      * format a decimal number to thousand separator format
