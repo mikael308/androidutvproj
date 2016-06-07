@@ -53,7 +53,7 @@ public class Photo extends DataAccessObject{
 
 
     public Photo(){
-        super("photo-"+RandomString.getRandomString(20));
+        super("photo-"+ RandomString.getRandomAlphaString(20));
     }
 
     public Photo(String id){
@@ -66,8 +66,8 @@ public class Photo extends DataAccessObject{
     }
 
     public Photo(File photoFile){
-        super("photo-"+RandomString.getRandomString(20));
         mPhotoFile = photoFile;
+        super("photo-"+RandomString.getRandomAlphaString(20));
     }
 
 
@@ -79,7 +79,7 @@ public class Photo extends DataAccessObject{
      * @param date date this photo was taken
      */
     public Photo(File photofile, String description, LatLng latlng, Date date){
-        super("photo-"+RandomString.getRandomString(20));
+        super("photo-"+RandomString.getRandomAlphaString(20));
 
         mPhotoFile      = photofile;
         mDescription    = description;
