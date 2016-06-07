@@ -313,7 +313,12 @@ public class RealEstate extends ParentDataAccessObject implements Comparable<Rea
 
     @Override
     public String toString() {
-        return getAddress() + ":" + getFloor();
+        StringBuilder sb = new StringBuilder();
+
+        sb.append(getAddress() == null? "N/A": getAddress())
+                .append(":")
+                .append(getFloor() == Double.MIN_VALUE? "N/A":getFloor());
+        return sb.toString();
     }
 
     @Override
