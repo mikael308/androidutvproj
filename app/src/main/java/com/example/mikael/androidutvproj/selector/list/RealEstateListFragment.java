@@ -124,7 +124,32 @@ public class RealEstateListFragment extends ClickableListFragment<RealEstateList
     }
 
     @Override
-    public void update() {
-        ((RealEstateListAdapter) getListAdapter()).notifyDataSetChanged();
+    public void updateData() {
+        //TODO ta bort alla dessa updateData...
+
+    }
+
+    @Override
+    public void updateResetView() {
+        Log.d("listfragment", "resetView");
+
+        RealEstateListAdapter listadapter = (RealEstateListAdapter) getListAdapter();
+
+        listadapter.notifyDataSetChanged();
+
+    }
+
+    @Override
+    public void updateAdd(DataAccessObject item) {
+
+        getListView()
+                .smoothScrollToPosition(
+                        DataMapper.getRealEstateList().indexOf(item));
+
+    }
+
+    @Override
+    public void updateDelete(DataAccessObject item) {
+
     }
 }
