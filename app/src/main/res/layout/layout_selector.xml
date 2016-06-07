@@ -39,7 +39,7 @@
                     android:id="@+id/btn_showAll"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="right|bottom"
+                    android:layout_gravity="right"
                     android:padding="@dimen/map_btn_padding"
                     android:background="@drawable/ic_visibility_black_24dp" />
 
