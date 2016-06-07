@@ -289,6 +289,16 @@ public class RealEstate extends ParentDataAccessObject implements Comparable<Rea
         return this;
     }
 
+    /**
+     * determines if this RealEstate has showings today
+     * @return true if >= 1 showing is today
+     */
+    public boolean hasShowingToday(){
+        for(Event showing : mShowings)
+            if(showing.isToday() && ! showing.isPast()) return true;
+        return false;
+    }
+
     public boolean hasComingShowings(){
         boolean futureshowings = false;
         for(Event showing : mShowings){
