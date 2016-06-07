@@ -6,6 +6,7 @@ import android.graphics.BitmapFactory;
 import android.os.Environment;
 import android.util.Log;
 
+import com.example.mikael.androidutvproj.dao.RealEstate;
 import com.example.mikael.androidutvproj.database.DataMapper;
 import com.example.mikael.androidutvproj.settings.Settings;
 
@@ -66,6 +67,28 @@ public class PhotoFile extends File {
         }
     }
 
+    public static String getNonExistingFilepath(String directoryPath, RealEstate re){
+        int nExtra = 1;
+        String fileExt = ".jpg";
+        File dir = new File(directoryPath);
+        if(! dir.exists() || !dir.isDirectory()){
+            return null;
+        }
+
+        File f;
+        while(true) {
+            String fileNum = String.format("%03d", re.getPhotos().size() + nExtra);
+            String filename = String.format("img_%s_%s",
+                    DataMapper.getCurrentRealEstate().toString(),
+                    fileNum);
+
+            f = new File(directoryPath, filename + fileExt);
+
+            if (f.exists()){
+                nExtra++;
+            } else {
+                return f.getAbsolutePath();
+            }
         }
     }
 
