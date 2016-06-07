@@ -37,6 +37,8 @@ public class Settings {
      */
     public static final String SHAREDPREFKEY_PHOTOSRC = "SHAREDPREFKEY_PHOTOSRC";
 
+    public static final String SHAREDPREFKEY_SHOWDATES = "SHAREDPREFKEY_SHOWDATES";
+
 
     ///////////////////
     // DEFAULT VALUES
