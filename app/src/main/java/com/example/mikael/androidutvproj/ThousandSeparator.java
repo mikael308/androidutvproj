@@ -24,6 +24,7 @@ public class ThousandSeparator implements TextWatcher{
 
     private String UNIT_SYMBOL = null;
 
+    private TextView mTextView = null;
 
 
     public ThousandSeparator(TextView textView, String separatorSymbol){
