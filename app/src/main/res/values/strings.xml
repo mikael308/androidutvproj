@@ -2,23 +2,35 @@
     <!-- ACTIVITIES -->
     <string name="app_name">AndrutvProj</string>
     <string name="realestate_activity">Real Estate</string>
+    <string name="realestatedetails_activity">Real Estate details</string>
     <string name="settings_activity">Settings</string>
+    <string name="displayphoto_activity">Display photo</string>
 
     <!-- STD BUTTONS -->
     <string name="btn_ok">OK</string>
     <string name="btn_cancel">Cancel</string>
+    <string name="btn_yes">Yes</string>
+    <string name="btn_no">No</string>
+    <string name="btn_create">Create</string>
 
-    <string name="entrydialog_newevent_title">New event</string>
-    <string name="entrydialog_newevent_created">New event was created successfully</string>
-    <string name="entrydialog_newevent_createdError">New event incorrect</string>
+    <string name="database_publish_init">Reading from database</string>
+    <string name="database_task_label_init">Initiate</string>
 
-    <string name="entrydialog_newevent_incorrectOpenHouseDate">Open house date incorrect, use blank for start now</string>
-    <string name="entrydialog_newevent_incorrectAddress">Address incorrect</string>
+    <string name="entrydialog_newshowing_title">New showing</string>
+    <string name="entrydialog_newshowing_created">New showing was created successfully</string>
+    <string name="entrydialog_newshowing_createdError">New showing incorrect</string>
 
     <string name="entrydialog_newrealestate_title">New realEstate</string>
     <string name="entrydialog_newrealestate_created">New realEstate was created successfully</string>
     <string name="entrydialog_newrealestate_createdError">New realEstate incorrect</string>
 
+    <string name="realEstate_notSelected">No real estate was selected</string>
+    <string name="realEstate_notFound">No real estate was found</string>
+
+    <string name="showings_notFound">No showings was found</string>
+    <string name="photos_notFound">No photos was found</string>
+
+    <string name="no_camera_msg">Device has no camera</string>
 
     <!-- ACTIONBAR MENU MAIN -->
     <string name="actionbar_settings_title">Settings</string>
@@ -31,7 +43,7 @@
 
     <!-- MAIN ABOUT MESSAGE -->
     <string name="about_title">About</string>
-    <string name="about_message_appDescription">klaatu barada nikto</string><!-- TODO write about message -->
+    <string name="about_message_appDescription">App created for course: Applikationsutveckling i android 7.5hp, Mittuniversitetet. By Mikael Holmbom - miho1202</string>
     <string name="about_message_refIcons">Graphics provided by Google material design icons under Creative Common Attribution 4.0 International License (CC-BY 4.0)</string>
 
     <!-- SETTINGS ACTIVITY -->
@@ -41,14 +53,16 @@
 
     <string name="settings_delete_title">Delete entry</string>
     <string name="settings_delete_message">Confirm delete</string>
+    <string name="confirm">Confirm</string>
 
     <string name="settings_langauge_new_correct">New Language set successfully</string>
     <string name="settings_langauge_new_incorrect">New Language could not be set</string>
     <string name="externalstorage_notmounted">external storage is not mounted</string>
     <string name="settings_photosource_notfound">photosource not found</string>
 
-    <!-- EVENT ACTIVITY -->
-    <string name="realestate_btn_addApartment">Add event</string>
+
+    <!-- REAL ESTATE ACTIVITY -->
+    <string name="realestate_btn_addShowing">Add event</string>
     <string name="realestate_btn_addPhoto">Add photo</string>
     <string name="realestate_address_label">Address</string>
     <string name="realestate_description_label">Description</string>
@@ -64,12 +78,12 @@
     <string name="realestate_couldNotRead">Could not read data</string>
     <string name="realestate_std_value">-</string>
 
-    <string name="realestate_startbid_unit"></string>
-    <string name="realestate_rent_unit">rentunit</string>
+    <string name="realestate_startbid_unit">dollar</string>
+    <string name="realestate_rent_unit">dollar</string>
     <string name="realestate_floor_unit">floor</string>
-    <string name="realestate_room_unit"></string>
-    <string name="realestate_livingSpace_unit"></string>
-    <string name="realestate_priceLivingSpace_unit"></string>
+    <string name="realestate_rooms_unit">rooms</string>
+    <string name="realestate_livingSpace_unit">m\u00B2</string>
+    <string name="realestate_priceLivingSpace_unit">dollar/m\u00B2</string>
 
     <string name="database_empty">No items found</string>
     <string name="database_task_label_add">New</string>
@@ -80,6 +94,17 @@
 
     <string name="delete_title">Delete</string>
     <string name="edit_title">Edit</string>
+    <string name="new_title">New</string>
+    <string name="addShowing_title">Add showing</string>
+    <string name="realestate_title">Real Estate</string>
+
+    <string name="photo_title">Photo</string>
+    <string name="photo_new">New photo</string>
+    <string name="photo_delete">Delete photo</string>
+    <string name="photo_edit">Edit photo</string>
+    <string name="showing_title">Showing</string>
+    <string name="showing_delete">Delete showing</string>
+    <string name="showing_edit">Edit showing</string>
 
     <string name="realestate_selector_map">Map</string>
     <string name="realestate_selector_list">List</string>
@@ -95,9 +120,31 @@
 
     <string name="newphoto_title">New photo</string>
     <string name="newphoto_description_label">Description</string>
+    <string name="newphoto_add_success">New photo added successfully</string>
+    <string name="newphoto_add_unsuccess">New photo was not added</string>
 
+    <string name="delete_file">Remove file from storage</string>
+
+    <string name="delete_realestate">delete real estate</string>
+    <string name="delete_photo">delete photo</string>
+    <string name="delete_event">delete event</string>
     <!-- EDIT -->
     <string name="edit_success">Entry was edited sucessfully</string>
+
+    <!-- DISPLAY PHOTO ACTIVITY -->
+    <string name="index_header">Photo no</string>
+    <string name="actionbar_displayphoto_new_title">New photo</string>
+    <string name="actionbar_displayphoto_delete_title">Delete</string>
+
+    <string name="thousand_sep">\u0020</string>
+    <string name="decimal_sep">.</string>
+
+
+    <!-- VALID DAO -->
+    <string name="invalid_description">invalid description: cannot be empty</string>
+    <string name="invalid_date">invalid date: cannot be empty</string>
+    <string name="invalid_photopath">invalid photopath: could not find photo</string>
+    <string name="invalid_address">invalid address: cannot be empty</string>
 
 
 </resources>
