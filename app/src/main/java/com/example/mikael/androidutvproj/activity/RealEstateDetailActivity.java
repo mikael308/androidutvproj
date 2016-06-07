@@ -15,6 +15,10 @@ import com.example.mikael.androidutvproj.display.RealEstateDetailsFragment;
  */
 public class RealEstateDetailActivity extends AppCompatActivity  {
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        return super.onOptionsItemSelected(item);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
