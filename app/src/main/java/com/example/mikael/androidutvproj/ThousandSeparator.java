@@ -16,12 +16,14 @@ public class ThousandSeparator implements TextWatcher{
 
     private final static String REGEX_DIGITS_ONLY = "[^(0-9)%s]";
 
-    private String THOUSAND_SEP;
     private final static String FORMAT_DIGIT_UNIT = "%s %s";
 
-    private String DECIMAL_SEP;
+    private String THOUSAND_SEP = null;
 
-    private TextView mTextView;
+    private String DECIMAL_SEP = null;
+
+    private String UNIT_SYMBOL = null;
+
 
 
     public ThousandSeparator(TextView textView, String separatorSymbol){
