@@ -4,7 +4,7 @@ package com.example.mikael.androidutvproj.settings;
  * @author Mikael Holmbom
  * @version 1.0
  */
-enum Lang{
+public enum Lang{
     ENGLISH("English", "en"),
     SWEDISH("Swedish", "sv");
     private String mName;
