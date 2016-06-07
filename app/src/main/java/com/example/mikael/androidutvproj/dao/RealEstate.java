@@ -9,6 +9,7 @@ import com.google.android.gms.maps.model.LatLng;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 /**
  * //TODO denna behöver inte id?? gör composition med eventID+address
@@ -129,6 +130,10 @@ public class RealEstate extends ParentDataAccessObject implements Comparable<Rea
         if(mConstructYear == null) return "";
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy");
         return sdf.format(mConstructYear);
+    }
+
+    public List<Photo> getPhotos(){
+        return mPhotos;
     }
 
     /**
