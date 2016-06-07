@@ -164,6 +164,15 @@ public class RealEstate extends ParentDataAccessObject implements Comparable<Rea
     public double getLivingSpace(){
         return mLivingSpace;
     }
+
+    /**
+     * get this price per livingspace<br>
+     *     that is:  startbid / livingspace
+     * @return
+     */
+    public double getPriceLivingSpace(){
+        return getStartBid() / getLivingSpace();
+    }
     /**
      * get this rent
      * @return this rent
