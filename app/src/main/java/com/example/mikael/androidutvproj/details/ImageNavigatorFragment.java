@@ -9,6 +9,7 @@ import android.support.v4.app.DialogFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewPropertyAnimator;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -186,6 +187,13 @@ public class ImageNavigatorFragment extends DialogFragment {
                 mImageNavigatorListener.onNavigateLeft();
             }
         }).start();
+    }
+
+    public ViewPropertyAnimator getNavigateLeftAnimation(Runnable postAnim){
+        return Animators.reganRoll(getActivity(), mImageDisplay, Animators.DIRECTION_RIGHT, postAnim);
+    }
+    public ViewPropertyAnimator getNavigateRightAnimation(Runnable postAnim){
+        return Animators.reganRoll(getActivity(), mImageDisplay, Animators.DIRECTION_LEFT, postAnim);
     }
 
     /**
