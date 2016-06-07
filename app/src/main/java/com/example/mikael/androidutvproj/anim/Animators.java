@@ -15,20 +15,6 @@ import com.example.mikael.androidutvproj.R;
  */
 public class Animators {
 
-    public static ViewPropertyAnimator anim_remove(Context context, View v){
-        return v.animate()
-                .alpha(0)
-                .setStartDelay(context.getResources().getInteger(R.integer.update_fade_startdelay))
-                .setDuration(context.getResources().getInteger(R.integer.update_fade_duration));
-    }
-    public static ViewPropertyAnimator anim_add(Context context, View v){
-        return v.animate()
-                .alpha(1)
-                .setStartDelay(context.getResources().getInteger(R.integer.update_fade_startdelay))
-                .setDuration(context.getResources().getInteger(R.integer.update_fade_duration));
-    }
-
-
     public static ViewPropertyAnimator anim_fadeIn(View v, int dur, int delay){
         v.animate().alpha(0);
         return v.animate()
