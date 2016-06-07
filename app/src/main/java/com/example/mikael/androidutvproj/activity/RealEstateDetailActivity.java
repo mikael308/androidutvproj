@@ -3,10 +3,13 @@ package com.example.mikael.androidutvproj.activity;
 
 import android.content.res.Configuration;
 import android.os.Bundle;
+import android.os.PersistableBundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.example.mikael.androidutvproj.R;
+import com.example.mikael.androidutvproj.dao.RealEstate;
 import com.example.mikael.androidutvproj.database.DataMapper;
 import com.example.mikael.androidutvproj.details.RealEstateDetailsFragment;
 
