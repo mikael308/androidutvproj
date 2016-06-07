@@ -12,7 +12,7 @@ import android.widget.Button;
 import com.example.mikael.androidutvproj.R;
 
 /**
- * main activity : app starts
+ * main activity : Launcher
  *
  * @author Mikael Holmbom
  * @version 1.0
