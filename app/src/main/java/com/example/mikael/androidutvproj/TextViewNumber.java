@@ -22,6 +22,8 @@ public class TextViewNumber extends TextView {
      */
     private String mDecimal_sep = "";
 
+    private String mUnitSymbol = "";
+
     public TextViewNumber(Context context) {
         super(context);
         initListeners();
@@ -47,6 +49,7 @@ public class TextViewNumber extends TextView {
 
         mThousand_sep   = ta.getString(R.styleable.TextViewNumber_thousandSeparatorSymbol);
         mDecimal_sep    = ta.getString(R.styleable.TextViewNumber_decimalSeparatorSymbol);
+        mUnitSymbol     = ta.getString(R.styleable.TextViewNumber_valueUnit);
 
         ta.recycle();
     }
@@ -54,7 +57,7 @@ public class TextViewNumber extends TextView {
      * init changeListener
      */
     private void initListeners(){
-        addTextChangedListener(new ThousandSeparator(this, mThousand_sep, mDecimal_sep));
+        mThousandSeparator = new ThousandSeparator(this, mThousand_sep, mDecimal_sep, mUnitSymbol);
     }
 
     /**
@@ -63,7 +66,7 @@ public class TextViewNumber extends TextView {
      */
     public String getRawText(){
         String content = getText().toString();
-        return ThousandSeparator.unFormat(content, getContext().getString(R.string.decimal_sep));
+        return ThousandSeparator.unFormat(content, getContext().getString(R.string.decimal_sep), mUnitSymbol);
     }
 
     public void setText(double val){
