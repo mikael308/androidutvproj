@@ -4,7 +4,6 @@ import android.content.Context;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.example.mikael.androidutvproj.R;
 
 /**
  * list item used in SettingsListAdapter<br>
@@ -40,17 +39,9 @@ class SettingsListItem extends LinearLayout {
      * initialize this object
      */
     protected void init(){
-        this.setOrientation(VERTICAL);
-
-        LinearLayout headerLayout = new LinearLayout(getContext());
-        headerLayout.setOrientation(HORIZONTAL);
+        setOrientation(VERTICAL);
 
         mHeader = new TextView(getContext());
-        mHeader.setTextAppearance(R.style.TextAppearance_AppCompat_Medium);
-        //TODO fixa så header blir MEDIUM TEXTVIEW
-        //mHeader.setTextSize(getResources().getDimension(R.dimen.settings_listitem_header_textsize));
-
-
         addView(mHeader);
     }
 
@@ -71,6 +62,5 @@ class SettingsListItem extends LinearLayout {
         mHeader.setText(newHeader);
         return this;
     }
-
 
 }
