@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.mikael.androidutvproj.R;
+import com.example.mikael.androidutvproj.settings.Settings;
 
 /**
  * main activity : Launcher
