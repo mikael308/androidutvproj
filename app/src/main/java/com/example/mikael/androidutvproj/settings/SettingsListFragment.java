@@ -121,6 +121,8 @@ public class SettingsListFragment extends ListFragment {
                         mListitem_photosrc.setInfo(sharedPreferences.getString(Settings.SHAREDPREFKEY_PHOTOSOURCE, ""));
 
                         break;
+                    case Settings.SHAREDPREFKEY_SHOWDATES:
+
                         break;
                 }
             }
