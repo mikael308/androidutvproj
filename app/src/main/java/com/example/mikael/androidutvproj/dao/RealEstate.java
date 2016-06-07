@@ -16,7 +16,7 @@ import java.util.Date;
  * @author Mikael Holmbom
  * @version 1.0
  */
-public class RealEstate extends DataAccessObject implements Comparable<RealEstate>{
+public class RealEstate extends ParentDataAccessObject implements Comparable<RealEstate>{
 
     /**
      * Type of RealEstate
