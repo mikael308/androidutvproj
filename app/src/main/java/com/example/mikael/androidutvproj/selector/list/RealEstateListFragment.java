@@ -78,7 +78,7 @@ public class RealEstateListFragment extends ClickableListFragment<RealEstateList
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        RealEstateListAdapter listadapter = new RealEstateListAdapter(getActivity(), R.id.fragment_settingslist);
+        RealEstateListAdapter listadapter = new RealEstateListAdapter(getActivity());
         setListAdapter(listadapter);
 
         initListeners();
