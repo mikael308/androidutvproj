@@ -51,6 +51,12 @@ public class Animators {
                 context.getResources().getInteger(R.integer.update_fade_startdelay));
     }
 
+    public static ViewPropertyAnimator anim_add(final Context context, final View v){
+        return anim_fadeIn(v,
+                context.getResources().getInteger(R.integer.update_fade_duration),
+                context.getResources().getInteger(R.integer.update_fade_startdelay));
+    }
+
     public final static int DIRECTION_RIGHT     = 0;
     public final static int DIRECTION_LEFT      = 1;
 
