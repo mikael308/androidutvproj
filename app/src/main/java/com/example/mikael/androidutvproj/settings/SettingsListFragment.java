@@ -104,7 +104,19 @@ public class SettingsListFragment extends ListFragment {
                 switch (key) {
                     case Settings.SHAREDPREFKEY_LANGUAGE:
                         String newLangCode = sharedPreferences.getString(key, Settings.LANGUAGE_DEFAULT);
+                        if(isAdded()) {
+                            String toastmsg = "";
+                            if (Settings.setLanguage(getActivity(), newLangCode)) {
+                                mListitem_lang.setInfo(Lang.getByLangCode(newLangCode).getName());
+                                toastmsg = getString(R.string.settings_langauge_new_correct);
+                            } else {
+                                toastmsg = getString(R.string.settings_langauge_new_incorrect);
+                            }
+                            Toast.makeText(getActivity(), toastmsg, Toast.LENGTH_SHORT).show();
+                            getActivity().recreate();
+                        }
 
+                        break;
 
                         break;
                     case Settings.SHAREDPREFKEY_PHOTOSRC:
