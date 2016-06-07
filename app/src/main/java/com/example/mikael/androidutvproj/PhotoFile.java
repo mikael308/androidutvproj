@@ -2,6 +2,7 @@ package com.example.mikael.androidutvproj;
 
 import android.app.Activity;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Environment;
 import android.util.Log;
 
@@ -76,6 +77,25 @@ public class PhotoFile extends File {
         }
 
         return null;
+    }
+
+    public Bitmap scaleToFit(int width, int height){
+        if (getAbsolutePath() == null || getAbsolutePath().isEmpty())
+            return null;
+
+        BitmapFactory.Options bmOptions = new BitmapFactory.Options();
+        bmOptions.inJustDecodeBounds = true;
+        BitmapFactory.decodeFile(getAbsolutePath(), bmOptions);
+        int photoW = bmOptions.outWidth;
+        int photoH = bmOptions.outHeight;
+
+        int scaleFactor = Math.min(photoW/width, photoH/height);
+
+        bmOptions.inJustDecodeBounds = false;
+        bmOptions.inSampleSize = scaleFactor;
+
+        return BitmapFactory.decodeFile(getAbsolutePath(), bmOptions);
+
     }
 
 }
