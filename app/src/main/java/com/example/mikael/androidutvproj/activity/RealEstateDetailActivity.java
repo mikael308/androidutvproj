@@ -8,7 +8,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.example.mikael.androidutvproj.database.DataMapper;
-import com.example.mikael.androidutvproj.display.RealEstateDetailsFragment;
+import com.example.mikael.androidutvproj.details.RealEstateDetailsFragment;
+
 
 /**
  * Activity displays RealEstateDetailsFragment<br>
