@@ -44,6 +44,10 @@
     <!-- DISPLAY REALESTATE -->
     <integer name="photo_gridview_thumbnail_size">200</integer>
 
+    <!-- PHOTO ATTR DIALOG FRAGMENT -->
+    <integer name="photo_dialog_editattrs_thumbnail_size">220</integer>
+    <integer name="photo_dialog_database_thumbnail_size">220</integer>
+
     <!-- IMAGENAVIGATOR  -->
     <integer name="swipe_movement_duration">100</integer>
     <string name="navigation_btn_alpha">0.2</string>
