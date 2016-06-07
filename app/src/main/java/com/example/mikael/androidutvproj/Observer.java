@@ -16,7 +16,7 @@ public interface Observer<T extends DataAccessObject> {
 
     void updateData();
     /**
-     * update this observer
+     * updateResetView this observer
      */
     void updateResetView();
 
