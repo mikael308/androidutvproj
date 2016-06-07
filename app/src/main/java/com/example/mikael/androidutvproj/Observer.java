@@ -13,6 +13,8 @@ public interface Observer<T extends DataAccessObject> {
 
     String getObserverId();
 
+
+    void updateData();
     /**
      * update this observer
      */
