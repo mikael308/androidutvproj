@@ -4,6 +4,8 @@ package com.example.mikael.androidutvproj.dao;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import com.example.mikael.androidutvproj.tool.RandomString;
+
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -39,8 +41,9 @@ public class Event extends ChildDataAccessObject implements Parcelable, Comparab
 
 
     public Event(){
-        super("event-"+RandomString.getRandomString(20));
+        super("event-"+ RandomString.getRandomAlphaString(20));
     }
+
     public Event(String id){
         super(id);
     }
