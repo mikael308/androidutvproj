@@ -22,4 +22,6 @@ public interface Observer<T extends DataAccessObject> {
 
     void updateAdd(T item);
 
+    void updateDelete(T item);
+
 }
