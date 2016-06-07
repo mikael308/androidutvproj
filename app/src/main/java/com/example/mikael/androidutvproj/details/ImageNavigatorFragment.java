@@ -33,12 +33,12 @@ public class ImageNavigatorFragment extends DialogFragment {
          * called between animations when user navigates left
          *     navigate left implies decreasing index of items
          */
-        void navigateLeft();
+        void onNavigateLeft();
         /**
          * called between animations when user navigates right<br>
          *     navigate right implies increasing index of items
          */
-        void navigateRight();
+        void onNavigateRight();
 
     }
 
