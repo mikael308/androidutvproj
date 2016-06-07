@@ -5,6 +5,7 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.graphics.Bitmap;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.DialogFragment;
@@ -14,9 +15,11 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageView;
 
+import com.example.mikael.androidutvproj.PhotoFile;
 import com.example.mikael.androidutvproj.R;
 import com.example.mikael.androidutvproj.dao.Photo;
 import com.example.mikael.androidutvproj.settings.Permission;
+import com.example.mikael.androidutvproj.tool.PostponedUITask2;
 
 /**
  * Fragment displaying editable attributes of a Photo instance<br>
@@ -150,15 +153,32 @@ public class PhotoAttributeDialogFragment extends DialogFragment {
      * @param rootView
      * @param photo
      */
-    public void display(View rootView, Photo photo){
+    public void display(View rootView, final Photo photo){
         mPhoto = photo;
 
         if(photo != null) {
-            if (photo.getPhotoFile() != null) {
-                ImageView iv = (ImageView) rootView.findViewById(R.id.image);
-                iv.setImageBitmap(photo.getPhotoBitmap());
-            }
+            final PhotoFile photofile = photo.getPhotoFile();
 
+            if (photofile != null && photofile.exists()) {
+
+                final ImageView iv = (ImageView) rootView.findViewById(R.id.image);
+                iv.setBackgroundResource(R.drawable.ic_hourglass_empty_black_24dp);
+
+                new PostponedUITask2(getActivity()){
+                    private Bitmap bitmap;
+                    @Override
+                    public void onWorkerThread() {
+                        bitmap = getScaledBitmap(photo);
+                    }
+
+                    @Override
+                    public void onUIThread() {
+                        iv.setBackgroundColor(Color.TRANSPARENT);
+                        iv.setImageBitmap(bitmap);
+                    }
+                }.start();
+
+            }
             EditText edit_description = (EditText) rootView.findViewById(R.id.edit_description);
             edit_description.setText(photo.getDescription());
         }
