@@ -181,7 +181,7 @@ public class PhotoAttributeDialogFragment extends DialogFragment {
      */
     public Photo getPhoto(){
 
-        String description = ((EditText) getView(R.id.edit_description)).getText().toString();
+        String description = getInput(R.id.edit_description);
 
         mPhoto.setDescription(description);
 
