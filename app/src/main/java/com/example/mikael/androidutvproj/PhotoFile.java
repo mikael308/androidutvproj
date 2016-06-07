@@ -31,8 +31,8 @@ public class PhotoFile extends File {
      * @param directoryPath what directory to add file
      * @return created file
      */
-        int nExtra = 0;
     public static File createNonexistingFile(String directoryPath){
+        int nExtra = 1;
         String fileExt = ".jpg";
         File dir = new File(directoryPath);
         if(! dir.exists() || !dir.isDirectory()){
