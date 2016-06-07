@@ -99,7 +99,7 @@ public class PhotoFile extends File {
      * @return
      */
     public static File saveToFile(Activity activity, Bitmap bm){
-        String stdImgDir    = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM).toString();
+        String stdImgDir    = Settings.getPhotoSource();
         String imgDir       = activity.getSharedPreferences(Settings.SHAREDPREFKEY_SETTINGS, activity.MODE_PRIVATE).getString(Settings.SHAREDPREFKEY_PHOTOSOURCE, stdImgDir);
 
         File f = getNewFile(imgDir);
