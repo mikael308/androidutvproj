@@ -24,8 +24,9 @@ public abstract class DataAccessObject implements Parcelable {
     public String getId(){
         return mId;
     }
-    protected void setId(String id){
+    protected DataAccessObject setId(String id){
         mId = id;
+        return this;
     }
 
     public void writeToParcel(Parcel parcel, int i){
