@@ -526,24 +526,33 @@ public class RealEstateDetailsFragment extends Fragment implements Observer {
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if (resultCode != getActivity().RESULT_OK) return;
-
         switch (requestCode){
             case RealEstateDetailsFragment.CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE:
+                final String photopath = mPhotoPath;
+                if (resultCode == getActivity().RESULT_OK){
+                    PhotoFile photofile = new PhotoFile(photopath);
 
-                String photopath = mPhotoPath;
+                    if (photofile.exists()) {
 
-                PhotoFile photofile = new PhotoFile(photopath);
+                        DatabaseDialog.savePhoto(getActivity(), getCurrentRealEstate(), photofile, new DatabaseDialog.OnPost() {
+                            @Override
+                            public void run(Photo photo) {
 
-                if (photofile.exists()) {
-
-                    DatabaseDialog.savePhoto(getActivity(), getCurrentRealEstate(), photofile, new DatabaseDialog.OnPost() {
+                            }
+                        }).show(getActivity().getSupportFragmentManager(), "savePhotoDialog");
+                    }
+                } else {
+                    new Thread(new Runnable() {
                         @Override
-                        public void run(Photo photo) {
-
+                        public void run() {
+                            File f = new File(photopath);
+                            if(f.exists())
+                                f.delete();
                         }
-                    }).show(getActivity().getSupportFragmentManager(), "savePhotoDialog");
+                    }).start();
+
                 }
+
                 break;
 
         }
