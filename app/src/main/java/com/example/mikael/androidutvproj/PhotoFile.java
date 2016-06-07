@@ -12,6 +12,7 @@ import com.example.mikael.androidutvproj.settings.Settings;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.IOException;
 
 /**
  * @author Mikael Holmbom
@@ -32,6 +33,11 @@ public class PhotoFile extends File {
     public static File getNewFile(String directoryPath){
         int nExtra = 0;
         String fileExt = ".jpg";
+        File dir = new File(directoryPath);
+        if(! dir.exists() || !dir.isDirectory()){
+            return null;
+        }
+
         File f;
         while(true) {
             String fileNum = String.format("%03d", DataMapper.getCurrentRealEstate().getPhotos().size() + 1 + nExtra);
@@ -39,12 +45,26 @@ public class PhotoFile extends File {
                     DataMapper.getCurrentRealEstate().toString(),
                     fileNum);
 
-            f = new File(directoryPath, filename);
+            f = new File(directoryPath, filename + fileExt);
 
-            if(f.exists())
+            if (f.exists()){
                 nExtra++;
-            else
-                return f;
+            } else {
+                try{
+                    f = new File(dir, filename + fileExt);
+                    if(f.createNewFile())
+                        return f;
+                    else
+                        return null;
+
+                } catch(IOException e) {
+                    Log.e("photofile", "error : " + e.getMessage());
+                    nExtra++;
+                }
+            }
+        }
+    }
+
         }
     }
 
