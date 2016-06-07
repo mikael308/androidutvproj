@@ -32,38 +32,21 @@ public class PhotoFile extends File {
      * @return created file
      */
     public static File createNonexistingFile(String directoryPath){
-        int nExtra = 1;
-        String fileExt = ".jpg";
-        File dir = new File(directoryPath);
-        if(! dir.exists() || !dir.isDirectory()){
-            return null;
+
+        String path = getNonExistingFilepath(directoryPath, DataMapper.getCurrentRealEstate());
+
+        File f = new File(path);
+        try{
+            f.createNewFile();
+
+            Log.d("photofile", "creating file : " + path);
+            return f;
+
+        } catch(IOException e){
+
         }
 
-        File f;
-        while(true) {
-            String fileNum = String.format("%03d", DataMapper.getCurrentRealEstate().getPhotos().size() + nExtra);
-            String filename = String.format("img_%s_%s",
-                    DataMapper.getCurrentRealEstate().toString(),
-                    fileNum);
-
-            f = new File(directoryPath, filename + fileExt);
-
-            if (f.exists()){
-                nExtra++;
-            } else {
-                try{
-                    f = new File(dir, filename + fileExt);
-                    if(f.createNewFile())
-                        return f;
-                    else
-                        return null;
-
-                } catch(IOException e) {
-                    Log.e("photofile", "error : " + e.getMessage());
-                    nExtra++;
-                }
-            }
-        }
+        return null;
     }
 
     public static String getNonExistingFilepath(String directoryPath, RealEstate re){
