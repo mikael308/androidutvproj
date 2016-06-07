@@ -3,11 +3,13 @@ package com.example.mikael.androidutvproj.details;
 import android.app.Activity;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
+import android.graphics.drawable.Drawable;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.example.mikael.androidutvproj.tool.PostponedUITask2;
 import com.example.mikael.androidutvproj.database.DataMapper;
@@ -23,6 +25,8 @@ import com.example.mikael.androidutvproj.dao.Photo;
 public class PhotoAdapter extends BaseAdapter {
 
 
+
+    private int std_photonotfound = R.drawable.ic_report_black_24dp;
 
     private Activity mActivity;
 
@@ -78,15 +82,26 @@ public class PhotoAdapter extends BaseAdapter {
         final ImageView IV = imageView;
 
         new PostponedUITask2(mActivity){
-            Bitmap bitmap;
+            private Bitmap bitmap = null;
             @Override
             public void onWorkerThread() {
-                bitmap = photo.getPhotoFile().scaleToFit(width, height);
+                try{
+                    bitmap = photo.getPhotoFile().scaleToFit(width, height);
+                } catch(NullPointerException e){
+
+                }
             }
 
             @Override
             public void onUIThread() {
-                IV.setImageBitmap(bitmap);
+                if(bitmap != null){
+                    IV.setImageBitmap(bitmap);
+                } else {
+                    //TODO add toastmsg
+                    Toast.makeText(mActivity, "photo " + photo.getPhotoPath() + " could not be found", Toast.LENGTH_SHORT);
+
+                    IV.setBackgroundResource(std_photonotfound);
+                }
             }
 
         }.start();
