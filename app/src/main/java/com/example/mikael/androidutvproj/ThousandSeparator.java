@@ -27,10 +27,6 @@ public class ThousandSeparator implements TextWatcher{
     private TextView mTextView = null;
 
 
-    public ThousandSeparator(TextView textView, String separatorSymbol){
-        mTextView = textView;
-        THOUSAND_SEP = separatorSymbol;
-    }
 
     public ThousandSeparator(TextView textView, String thousandSeparator, String decimalSeparator){
         mTextView       = textView;
