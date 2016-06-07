@@ -51,7 +51,7 @@ public class Settings {
     /**
      * default preference value : photosource
      */
-    public static final String PHOTOSRC_DEFAULT = Environment.DIRECTORY_DCIM;
+    public static final String PHOTOSRC_DEFAULT = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM).toString();
 
 
 
