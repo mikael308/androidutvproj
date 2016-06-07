@@ -171,6 +171,10 @@ public class PhotoAttributeDialogFragment extends DialogFragment {
         return photo.getPhotoFile().scaleToFit(ivW, ivH);
 
     }
+    public String getInput(int viewId){
+        return ((EditText) getView(viewId)).getText().toString();
+    }
+
     /**
      * get this Photo
      * @return current photo as defined by current inputviews
