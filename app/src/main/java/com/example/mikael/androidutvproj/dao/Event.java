@@ -143,7 +143,7 @@ public class Event extends ChildDataAccessObject implements Parcelable, Comparab
     protected Event(Parcel in){
         super(in);
 
-        mDate = new Date(in.readLong());
+        setDate(   in.readLong());
     }
 
 
