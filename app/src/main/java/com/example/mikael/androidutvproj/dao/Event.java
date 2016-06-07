@@ -172,9 +172,9 @@ public class Event extends ChildDataAccessObject implements Parcelable, Comparab
 
     @Override
     public Event clone() {
-        Event clone = new Event();
-        clone.setId(getId());
-        clone.setDate(getDate());
+        Event clone = new Event(getId())
+                .setDate(getDate())
+                .setForeignKey(getForeignKey());
 
         return clone;
     }
