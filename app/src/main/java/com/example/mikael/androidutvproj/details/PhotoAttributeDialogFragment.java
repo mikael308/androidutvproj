@@ -20,7 +20,7 @@ import com.example.mikael.androidutvproj.settings.Permission;
 
 /**
  * Fragment displaying editable attributes of a Photo instance<br>
- *     to preset a Photo to edit: use {@link #newInstance(int, Photo)}
+ *     to preset a Photo to update: use {@link #newInstance(int, Photo)}
  *     if used as Dialog: implementation of DialogButtonListener is called on clickevents,
  *     {@link #setOnClickListener(DialogButtonListener)}
  *
