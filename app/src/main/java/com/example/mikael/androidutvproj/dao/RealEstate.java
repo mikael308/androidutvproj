@@ -101,7 +101,7 @@ public class RealEstate extends ParentDataAccessObject implements Comparable<Rea
     /**
      * collection of photos of this Event
      */
-    private ArrayList<Photo> mPhotos       = new ArrayList<>();
+    private ArrayList<Photo> mPhotos       = new ArrayList<>(0);
 
     public RealEstate(){
         super("realestate-" + RandomString.getRandomAlphaString(20));
