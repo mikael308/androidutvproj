@@ -18,4 +18,6 @@ public interface Observer<T extends DataAccessObject> {
      */
     void update();
 
+    void updateAdd(T item);
+
 }
