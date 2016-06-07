@@ -330,7 +330,7 @@ public class RealEstate extends ParentDataAccessObject implements Comparable<Rea
 
     @Override
     public int compareTo(RealEstate another) {
-        return getAddress().compareTo(another.getAddress());
+        return getAddress().toLowerCase().compareTo(another.getAddress().toLowerCase());
     }
 
     @Override
