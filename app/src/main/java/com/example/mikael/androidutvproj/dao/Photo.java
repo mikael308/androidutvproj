@@ -31,7 +31,7 @@ import java.io.FileOutputStream;
 import java.util.Date;
 
 
-public class Photo extends DataAccessObject{
+public class Photo extends ChildDataAccessObject{
 
 
     /**
