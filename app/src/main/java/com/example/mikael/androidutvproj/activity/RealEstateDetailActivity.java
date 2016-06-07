@@ -39,7 +39,16 @@ public class RealEstateDetailActivity extends AppCompatActivity  {
             finish();
         }
 
-        RealEstateDetailsFragment realEstateDetailsFragment = new RealEstateDetailsFragment();
+        setContentView(R.layout.activity_realestate_details_port);
+
+        RealEstateDetailsFragment realEstateDetailsFragment = getDetailsFragment();
+        DataMapper.attach(realEstateDetailsFragment);
+
+        RealEstate re = DataMapper.getCurrentRealEstate();
+        realEstateDetailsFragment.setView(re);
+
+    }
+
 
         DataMapper.attach(
                 realEstateDetailsFragment
