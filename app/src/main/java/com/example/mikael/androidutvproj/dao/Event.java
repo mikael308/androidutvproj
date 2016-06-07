@@ -96,6 +96,10 @@ public class Event extends ChildDataAccessObject implements Parcelable, Comparab
         mDate = date;
         return this;
     }
+    public Event setDate(long datetime){
+        setDate(new Date(datetime));
+        return this;
+    }
 
 
     @Override
