@@ -28,8 +28,10 @@ public class Animators {
                 .setDuration(context.getResources().getInteger(R.integer.update_fade_duration));
     }
 
-    public final static int DIRECTION_RIGHT = 0;
-    public final static int DIRECTION_LEFT = 1;
+
+
+    public final static int DIRECTION_RIGHT     = 0;
+    public final static int DIRECTION_LEFT      = 1;
 
     public static ViewPropertyAnimator reganRoll(final Context context, final View v, int direction, final Runnable betweenAnimationAction){
         final float[] xVals = direction == DIRECTION_LEFT ?
