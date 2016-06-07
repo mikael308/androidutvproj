@@ -54,18 +54,22 @@ public class RealEstateHelper extends DatabaseHelper<RealEstate>{
     @Override
     public long persist(RealEstate entry) {
         ContentValues values = new ContentValues();
-        values.put(COLUMN_ID,               entry.getId());
-        values.put(COLUMN_ADDRESS,          entry.getAddress());
-        values.put(COLUMN_LAT,              entry.getLatLng().latitude);
-        values.put(COLUMN_LNG,              entry.getLatLng().longitude);
-        values.put(COLUMN_TYPE,             entry.getType().getId());
-        values.put(COLUMN_CONSTRUCTYEAR,    entry.getConstructYear().getTime());
-        values.put(COLUMN_STARTBID,         entry.getStartBid());
-        values.put(COLUMN_RENT,             entry.getRent());
-        values.put(COLUMN_FLOOR,            entry.getFloor());
-        values.put(COLUMN_ROOMS,            entry.getRooms());
-        values.put(COLUMN_LIVINGSPACE,      entry.getLivingSpace());
-        values.put(COLUMN_DESCRIPTION,      entry.getDescription());
+        values.put(COLUMN_ID,                   entry.getId());
+        values.put(COLUMN_ADDRESS,              entry.getAddress());
+        if (entry.getLatLng() != null){
+            values.put(COLUMN_LAT,              entry.getLatLng().latitude);
+            values.put(COLUMN_LNG,              entry.getLatLng().longitude);
+        }
+        if (entry.getType() != null)
+            values.put(COLUMN_TYPE,             entry.getType().getId());
+        if (entry.getConstructYear() != null)
+            values.put(COLUMN_CONSTRUCTYEAR,    entry.getConstructYear().getTime());
+        values.put(COLUMN_STARTBID,             entry.getStartBid());
+        values.put(COLUMN_RENT,                 entry.getRent());
+        values.put(COLUMN_FLOOR,                entry.getFloor());
+        values.put(COLUMN_ROOMS,                entry.getRooms());
+        values.put(COLUMN_LIVINGSPACE,          entry.getLivingSpace());
+        values.put(COLUMN_DESCRIPTION,          entry.getDescription());
 
         return mSQLiteDatabase.insert(TABLE_NAME, null, values);
     }
