@@ -157,4 +157,7 @@ public class ThousandSeparator implements TextWatcher{
     public static String format(Double d, String thousandSeparator, String decimalSeparator){
         return format(String.valueOf(d), thousandSeparator, decimalSeparator);
     }
+    public static String format(Double d, String thousandSeparator, String decimalSeparator, String unitSymbol){
+        return format(String.valueOf(d), thousandSeparator, decimalSeparator, unitSymbol);
+    }
 }
