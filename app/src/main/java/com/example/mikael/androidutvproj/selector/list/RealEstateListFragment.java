@@ -144,7 +144,6 @@ public class RealEstateListFragment extends ClickableListFragment<RealEstateList
 
     @Override
     public void updateResetView() {
-        Log.d("listfragment", "resetView");
 
         RealEstateListAdapter listadapter = (RealEstateListAdapter) getListAdapter();
 
