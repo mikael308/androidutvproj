@@ -115,7 +115,16 @@ public class RealEstateListFragment extends ClickableListFragment<RealEstateList
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        return super.onOptionsItemSelected(item);
+        switch(item.getItemId()){
+            case R.id.action_new:
+                DatabaseDialog.newRealEstate(getActivity())
+                        .show(getActivity().getSupportFragmentManager(), "newRealEstate");
+                break;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+
+        return true;
     }
 
 
