@@ -44,7 +44,7 @@ public class SettingsListFragment extends ListFragment {
     private SettingsListInfoItem        mListitem_lang;
     /**
      * listitem : photo source<br>
-     * key: Settings.SHAREDPREFKEY_PHOTOSRC
+     * key: Settings.SHAREDPREFKEY_PHOTOSOURCE
      */
     private SettingsListInfoItem        mListitem_photosrc;
     /**
