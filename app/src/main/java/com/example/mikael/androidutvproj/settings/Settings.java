@@ -35,7 +35,7 @@ public class Settings {
     /**
      * shared preferences settings key : photosource
      */
-    public static final String SHAREDPREFKEY_PHOTOSRC = "SHAREDPREFKEY_PHOTOSRC";
+    public static final String SHAREDPREFKEY_PHOTOSOURCE = "SHAREDPREFKEY_PHOTOSOURCE";
 
     public static final String SHAREDPREFKEY_SHOWDATES = "SHAREDPREFKEY_SHOWDATES";
 
