@@ -116,7 +116,9 @@
             android:text="@string/realestate_std_value"
             app:thousandSeparatorSymbol="@string/thousand_sep"
             app:decimalSeparatorSymbol="@string/decimal_sep"
-            android:id="@+id/realestate_startBid"  />
+            app:valueUnit="@string/realestate_startbid_unit"
+            android:id="@+id/realestate_startbid"  />
+
 
     </LinearLayout>
     <!-- RENT -->
@@ -142,6 +144,7 @@
             android:text="@string/realestate_std_value"
             app:thousandSeparatorSymbol="@string/thousand_sep"
             app:decimalSeparatorSymbol="@string/decimal_sep"
+            app:valueUnit="@string/realestate_rent_unit"
             android:id="@+id/realestate_rent" />
 
     </LinearLayout>
@@ -168,6 +171,7 @@
             android:text="@string/realestate_std_value"
             app:thousandSeparatorSymbol="@string/thousand_sep"
             app:decimalSeparatorSymbol="@string/decimal_sep"
+            app:valueUnit="@string/realestate_floor_unit"
             android:id="@+id/realestate_floor" />
 
     </LinearLayout>
@@ -194,6 +198,7 @@
             android:text="@string/realestate_std_value"
             app:thousandSeparatorSymbol="@string/thousand_sep"
             app:decimalSeparatorSymbol="@string/decimal_sep"
+            app:valueUnit="@string/realestate_rooms_unit"
             android:id="@+id/realestate_rooms" />
 
     </LinearLayout>
@@ -220,6 +225,7 @@
             android:text="@string/realestate_std_value"
             app:thousandSeparatorSymbol="@string/thousand_sep"
             app:decimalSeparatorSymbol="@string/decimal_sep"
+            app:valueUnit="@string/realestate_livingSpace_unit"
             android:id="@+id/realestate_livingspace" />
 
     </LinearLayout>
@@ -247,6 +253,7 @@
             android:gravity="left"
             app:thousandSeparatorSymbol="@string/thousand_sep"
             app:decimalSeparatorSymbol="@string/decimal_sep"
+            app:valueUnit="@string/realestate_priceLivingSpace_unit"
             android:id="@+id/realestate_priceLivingSpace" />
 
     </LinearLayout>
