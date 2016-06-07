@@ -93,8 +93,10 @@ public class RealEstate extends ParentDataAccessObject implements Comparable<Rea
      * this type of RealEstate
      */
     private Type mType;
-
-    private ArrayList<Event> mShowings = new ArrayList<>(2);
+    /**
+     * list of showings
+     */
+    private ArrayList<Event> mShowings = new ArrayList<>(1);
 
     /**
      * collection of photos of this Event
