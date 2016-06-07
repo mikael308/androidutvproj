@@ -167,11 +167,10 @@ public class ImageNavigatorFragment extends DialogFragment {
      * animations is run and calls callback method in {@link ImageNavigatorListener}
      */
     public void navigateLeft(){
-
         Animators.reganRoll(getActivity(), mImageDisplay, Animators.DIRECTION_LEFT, new Runnable() {
             @Override
             public void run() {
-                mImageNavigatorListener.navigateRight();
+                mImageNavigatorListener.onNavigateRight();
             }
         }).start();
     }
@@ -184,7 +183,7 @@ public class ImageNavigatorFragment extends DialogFragment {
         Animators.reganRoll(getActivity(), mImageDisplay, Animators.DIRECTION_RIGHT, new Runnable() {
             @Override
             public void run() {
-                mImageNavigatorListener.navigateLeft();
+                mImageNavigatorListener.onNavigateLeft();
             }
         }).start();
     }
