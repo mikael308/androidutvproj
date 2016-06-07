@@ -69,11 +69,15 @@ public class ThousandSeparator implements TextWatcher{
         String content = mTextView.getText().toString();
 
         if (DECIMAL_SEP != null){
-            content = unFormat(content, DECIMAL_SEP);
+            content = unFormat(content, DECIMAL_SEP, UNIT_SYMBOL);
             content = format(content, THOUSAND_SEP, DECIMAL_SEP);
         } else {
             content = unFormat(content);
             content = format(content, THOUSAND_SEP);
+        }
+
+        if (UNIT_SYMBOL != null && ! UNIT_SYMBOL.isEmpty()){
+            content = String.format(FORMAT_DIGIT_UNIT, content, UNIT_SYMBOL);
         }
 
         mTextView.setText(content);
