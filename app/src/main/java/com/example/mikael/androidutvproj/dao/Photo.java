@@ -204,13 +204,14 @@ public class Photo extends ChildDataAccessObject{
         setPhotoFile(new File(in.readString()));
 
         long datetime = in.readLong();
-        if(datetime > 0)
+        if (datetime > 0)
             setDate(new Date(datetime));
 
-        LatLng latLng = in.readTypedObject(LatLng.CREATOR);
-        setLatLng(latLng);
-    }
+        double lat = in.readDouble();
+        double lng = in.readDouble();
+        setLatLng(new LatLng(lat, lng));
 
+    }
 
     public static final Parcelable.Creator CREATOR = new Parcelable.Creator() {
         public Photo createFromParcel(Parcel in) {
