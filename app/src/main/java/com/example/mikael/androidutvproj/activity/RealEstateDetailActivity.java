@@ -1,8 +1,11 @@
 package com.example.mikael.androidutvproj.activity;
 
+
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuItem;
 
 import com.example.mikael.androidutvproj.database.DataMapper;
 import com.example.mikael.androidutvproj.display.RealEstateDetailsFragment;
@@ -14,6 +17,13 @@ import com.example.mikael.androidutvproj.display.RealEstateDetailsFragment;
  * @version 1.0
  */
 public class RealEstateDetailActivity extends AppCompatActivity  {
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        super.onCreateOptionsMenu(menu);
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
