@@ -25,8 +25,8 @@ public class EditTextNumber extends EditText {
 
     public EditTextNumber(Context context) {
         super(context);
-        mThousand_sep = getContext().getString(R.string.thousand_sep);
-        mDecimal_sep =  getContext().getString(R.string.decimal_sep);
+        mThousand_sep   = getContext().getString(R.string.thousand_sep);
+        mDecimal_sep    =  getContext().getString(R.string.decimal_sep);
         initListeners();
     }
 
@@ -49,8 +49,8 @@ public class EditTextNumber extends EditText {
     private void init(AttributeSet attrs){
         TypedArray ta = getContext().obtainStyledAttributes(attrs, R.styleable.EditTextNumber);
 
-        mThousand_sep  = ta.getString(R.styleable.EditTextNumber_thousandSeparatorSymbol);
-        mDecimal_sep   = ta.getString(R.styleable.EditTextNumber_decimalSeparatorSymbol);
+        mThousand_sep   = ta.getString(R.styleable.EditTextNumber_thousandSeparatorSymbol);
+        mDecimal_sep    = ta.getString(R.styleable.EditTextNumber_decimalSeparatorSymbol);
         mUnitSymbol     = ta.getString(R.styleable.EditTextNumber_valueUnit);
 
         ta.recycle();
