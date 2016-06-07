@@ -50,13 +50,19 @@ public class RealEstateDetailActivity extends AppCompatActivity  {
     }
 
 
+    @Override
+    public void onPostCreate(Bundle savedInstanceState, PersistableBundle persistentState) {
+        super.onPostCreate(savedInstanceState, persistentState);
+
+        RealEstateDetailsFragment realEstateDetailsFragment = getDetailsFragment();
+
         DataMapper.attach(
                 realEstateDetailsFragment
         );
 
-        getFragmentManager().beginTransaction()
-                .add(android.R.id.content, realEstateDetailsFragment).commit();
+        RealEstate re = DataMapper.getCurrentRealEstate();
 
+        realEstateDetailsFragment.setView(re);
     }
 
 
