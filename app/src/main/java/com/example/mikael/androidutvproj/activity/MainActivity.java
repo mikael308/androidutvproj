@@ -37,14 +37,24 @@ public class MainActivity extends AppCompatActivity {
         //////////////////////////
         // EVENTS
         /////////////////////////
-        Button btn_event     = (Button) findViewById(R.id.menu_btn_events);
-        btn_event.setOnClickListener(new View.OnClickListener() {
+        Button btn_realestates     = (Button) findViewById(R.id.menu_btn_events);
+        btn_realestates.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(getApplicationContext(), RealEstateActivity.class));
             }
         });
 
+        //TODO tmp
+        btn_realestates.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                Log.d("hal", "delete database " + DatabaseHelper.DATABASE_NAME);
+                getApplicationContext().deleteDatabase(DatabaseHelper.DATABASE_NAME);
+
+                return true;
+            }
+        });
     }
 
     @Override
