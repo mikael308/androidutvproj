@@ -332,19 +332,28 @@ public class PhotoDetailActivity extends AppCompatActivity
 
         getImageNavigator().display(std_loadingphoto);
 
+        final Activity act = this;
         new PostponedUITask2(this){
             private Bitmap bitmap;
             @Override
             public void onWorkerThread() {
                 if(photo != null){
-                    bitmap = getScaledBitmap(photo);
+                    try{
+                        bitmap = getScaledBitmap(photo);
+                    } catch(Exception e){
+
+                    }
                 }
             }
 
             @Override
             public void onUIThread() {
-                if(photo != null && bitmap != null){
+                if(photo != null && bitmap != null) {
                     getImageNavigator().display(bitmap);
+
+                } if(bitmap == null){
+                    //TODO add toastmsg
+                  Toast.makeText(act, "could not find photo", Toast.LENGTH_SHORT).show();
 
                 } else {
                     getImageNavigator().display(std_background);
