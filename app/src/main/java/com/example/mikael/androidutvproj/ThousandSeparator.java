@@ -97,12 +97,12 @@ public class ThousandSeparator implements TextWatcher{
      * @param decimalSeparator decimal symbol
      * @return
      */
-    public static String unFormat(String s, String decimalSeparator){
+    public static String unFormat(String s, String decimalSeparator, String unitSymbol){
         String dec_sep ="(";
         if(decimalSeparator.equals("."))
             dec_sep+="\\";
         dec_sep += decimalSeparator + ")";
-        String regex = String.format(REGEX_DIGITS_ONLY, dec_sep);
+        String regex = String.format(REGEX_DIGITS_ONLY, dec_sep, unitSymbol);
         return s.replaceAll(regex, "");
     }
 
