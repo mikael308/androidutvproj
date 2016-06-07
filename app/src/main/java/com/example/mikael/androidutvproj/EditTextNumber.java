@@ -2,6 +2,7 @@ package com.example.mikael.androidutvproj;
 
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.graphics.Rect;
 import android.util.AttributeSet;
 import android.widget.EditText;
 
@@ -12,6 +13,12 @@ import android.widget.EditText;
  * @version 1.0
  */
 public class EditTextNumber extends EditText {
+
+
+
+    private ThousandSeparator mThousandSeparator;
+
+    private ThousandSeparator mThousandSeparatorOnFocus;
     /**
      * text/symbol used for thousand seperating
      */
@@ -42,6 +49,29 @@ public class EditTextNumber extends EditText {
         initListeners();
     }
 
+    @Override
+    protected void onFocusChanged(boolean focused, int direction, Rect previouslyFocusedRect) {
+        super.onFocusChanged(focused, direction, previouslyFocusedRect);
+        if(focused){
+            removeTextChangedListener(mThousandSeparator);
+            String text = getText().toString();
+            text = ThousandSeparator.unFormat(text);
+            text = ThousandSeparator.format(text, mThousand_sep, mDecimal_sep);
+            setText(text);
+            addTextChangedListener(mThousandSeparatorOnFocus);
+
+        } else {
+            removeTextChangedListener(mThousandSeparatorOnFocus);
+            String text = getText().toString();
+            text = ThousandSeparator.unFormat(text);
+            text = ThousandSeparator.format(text, mThousand_sep, mDecimal_sep, mUnitSymbol);
+            setText(text);
+            addTextChangedListener(mThousandSeparator);
+
+        }
+
+    }
+
     /**
      * initialize this attributes from xml attributes
      * @param attrs
@@ -61,6 +91,7 @@ public class EditTextNumber extends EditText {
      */
     private void initListeners(){
         mThousandSeparator          = new ThousandSeparator(this, mThousand_sep, mDecimal_sep, mUnitSymbol);
+        mThousandSeparatorOnFocus   = new ThousandSeparator(this, mThousand_sep, mDecimal_sep);
         addTextChangedListener(mThousandSeparator);
     }
 
