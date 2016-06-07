@@ -268,8 +268,9 @@ public class RealEstate extends ParentDataAccessObject implements Comparable<Rea
      * set this type
      * @param type new type value
      */
-    public void setType(Type type){
+    public RealEstate setType(Type type){
         mType = type;
+        return this;
     }
     /**
      * set this amount of room
