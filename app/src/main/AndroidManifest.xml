@@ -27,6 +27,7 @@
         
         <activity
             android:name=".activity.MainActivity"
+            android:launchMode="singleTask"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -35,18 +36,22 @@
             </intent-filter>
         </activity>
         <activity android:name=".activity.RealEstateActivity"
+            android:launchMode="singleTask"
             android:label="@string/realestate_activity">
 
         </activity>
         <activity android:name=".activity.RealEstateDetailActivity"
+            android:launchMode="singleTask"
             android:label="@string/realestatedetails_activity" >
 
         </activity>
         <activity android:name=".activity.PhotoDetailActivity"
+            android:launchMode="singleTask"
             android:label="@string/displayphoto_activity">
 
         </activity>
         <activity android:name=".activity.SettingsActivity"
+            android:launchMode="singleTask"
             android:label="@string/settings_activity">
 
         </activity>
