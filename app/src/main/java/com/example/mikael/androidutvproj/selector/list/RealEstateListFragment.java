@@ -110,7 +110,7 @@ public class RealEstateListFragment extends ClickableListFragment<RealEstateList
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        super.onCreateOptionsMenu(menu, inflater);
+        inflater.inflate(R.menu.menu_realestate_list, menu);
     }
 
     @Override
