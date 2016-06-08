@@ -258,7 +258,9 @@ public class SettingsListFragment extends ListFragment {
         layout.addView(new SettingsListItem(getActivity(), Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM).toString()));
         layout.addView(new SettingsListItem(getActivity(), f.getAbsolutePath().toString()));
 
-        listitems = getSubDirectoryPaths(listitems, f);
+
+
+        listitems = getDirectoryTreePaths(listitems, f);
         for (String dirpath : listitems){
             layout.addView(new SettingsListItem(getActivity(), dirpath));
         }
