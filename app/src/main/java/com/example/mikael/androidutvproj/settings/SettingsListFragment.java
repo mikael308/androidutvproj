@@ -227,8 +227,8 @@ public class SettingsListFragment extends ListFragment {
      * @param f rootfile
      * @return list of file eventlistFragment subdirectories
      */
-    private List<String> getSubDirectoryPaths(List<String> paths, File f){
         if (f.isDirectory())   paths.add(f.getAbsolutePath());
+    private List<String> getDirectoryTreePaths(List<String> paths, File f){
 
         File[] flist = f.listFiles();
         if (flist == null)     return paths;
