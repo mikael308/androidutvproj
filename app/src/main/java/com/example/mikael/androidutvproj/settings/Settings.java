@@ -64,11 +64,23 @@ public class Settings {
     private static SharedPreferences mSharedPrefs;
 
 
-
     private Settings(){
 
     }
 
+    /**
+     * initialize this Settings<br>
+     * @param context
+     */
+    public static void initSettings(Context context){
+
+        Log.d("hal", "a\ninitSettings : running init settings");
+        mSharedPrefs = context.getSharedPreferences(SHAREDPREFKEY_SETTINGS, context.MODE_PRIVATE);
+
+        String langcode = mSharedPrefs.getString(SHAREDPREFKEY_LANGUAGE, LANGUAGE_DEFAULT);
+        if(setLanguage(context, langcode)){
+
+        }
 
     }
     /**
