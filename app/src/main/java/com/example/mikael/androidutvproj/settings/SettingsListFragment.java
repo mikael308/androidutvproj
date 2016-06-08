@@ -210,8 +210,9 @@ public class SettingsListFragment extends ListFragment {
                 .setAdapter(adapter, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        String lang = Lang.findByIdx(which).getName();
-                        getActivity().getSharedPreferences(Settings.SHAREDPREFKEY_SETTINGS, getActivity().MODE_PRIVATE).edit()
+                        String langName = adapter.getItem(which).toString();
+                        String langCode = Lang.getByName(langName).getLangCode();
+                        mSharedPref.edit()
                                 .putString(Settings.SHAREDPREFKEY_LANGUAGE, langCode)
                                 .apply();
 
