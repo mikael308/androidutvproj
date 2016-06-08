@@ -102,6 +102,16 @@ public class Settings {
     }
 
     /**
+     * get the current displaylanguage<br>
+     *     {@link #initSettings(Context)} must have been set in prior of calling this
+     * @return
+     */
+    public static String getCurrentLangCode(){
+
+        return mSharedPrefs.getString(SHAREDPREFKEY_LANGUAGE, LANGUAGE_DEFAULT);
+    }
+
+    /**
      * get the name of the current display language
      * @return
      */
