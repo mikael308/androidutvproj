@@ -1,6 +1,5 @@
 package com.example.mikael.androidutvproj.settings;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
