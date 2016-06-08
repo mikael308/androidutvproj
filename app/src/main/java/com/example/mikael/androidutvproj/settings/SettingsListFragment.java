@@ -7,6 +7,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.annotation.Nullable;
+import android.support.v4.app.ListFragment;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -251,21 +252,16 @@ public class SettingsListFragment extends ListFragment {
      * @return settings dialog
      */
     private AlertDialog dialog_photoSource(){
-        List<String> listitems = new ArrayList<>();
+        List<String> listitems = new ArrayList<>(0);
 
-        File f = Environment.getExternalStorageDirectory().getParentFile();
-        LinearLayout layout = new LinearLayout(getActivity());
-        layout.addView(new SettingsListItem(getActivity(), Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM).toString()));
-        layout.addView(new SettingsListItem(getActivity(), f.getAbsolutePath().toString()));
+        listitems = getDirectoryTreePaths(listitems, Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES));
+        listitems.addAll(getDirectoryTreePaths(new ArrayList<String>(0), Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM)));
 
-
-
-        listitems = getDirectoryTreePaths(listitems, f);
-        for (String dirpath : listitems){
-            layout.addView(new SettingsListItem(getActivity(), dirpath));
+        for(Iterator<String> it = listitems.iterator(); it.hasNext();){
+            String item = it.next();
+            if(item.contains("thumbnails"))
+                it.remove();
         }
-        ScrollView scrollView = new ScrollView(getActivity());
-        scrollView.addView(layout);
 
         final List<String> PHOTOSRC = listitems;
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
@@ -277,8 +273,8 @@ public class SettingsListFragment extends ListFragment {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         String photosrc = PHOTOSRC.get(which);
-                        getActivity().getSharedPreferences(Settings.SHAREDPREFKEY_SETTINGS, getActivity().MODE_PRIVATE).edit()
-                                .putString(Settings.SHAREDPREFKEY_PHOTOSRC, photosrc)
+                        mSharedPref.edit()
+                                .putString(Settings.SHAREDPREFKEY_PHOTOSOURCE, photosrc)
                                 .apply();
 
                     }
