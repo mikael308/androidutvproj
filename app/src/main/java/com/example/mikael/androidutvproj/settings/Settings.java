@@ -75,5 +75,23 @@ public class Settings {
         return activity.getSharedPreferences(SHAREDPREFKEY_SETTINGS, activity.MODE_PRIVATE)
                 .getString(SHAREDPREFKEY_PHOTOSOURCE, PHOTOSRC_DEFAULT);
     }
+    /**
+     * set this configuration language
+     * @param langcode new language langcode
+     * @return true if new language was set correct
+     */
+    public static boolean setLanguage(Context context, String langcode){
+        if (Lang.getByLangCode(langcode) == null
+                || context == null) return false;
+
+        Locale newLocale = new Locale(langcode);
+        Resources res = context.getResources();
+        Configuration conf = res.getConfiguration();
+        conf.locale = newLocale;
+        res.updateConfiguration(conf, res.getDisplayMetrics());
+
+        return true;
+    }
+
 
 }
