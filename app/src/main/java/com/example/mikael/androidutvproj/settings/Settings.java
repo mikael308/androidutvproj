@@ -93,5 +93,14 @@ public class Settings {
         return true;
     }
 
+    /**
+     * get the name of the current display language
+     * @return
+     */
+    public static Lang getCurrentLang(){
+        String langcode = getCurrentLangCode();
+        return Lang.getByLangCode(langcode);
+    }
+
 
 }
