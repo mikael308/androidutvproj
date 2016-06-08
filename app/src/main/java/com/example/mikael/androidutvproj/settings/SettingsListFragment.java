@@ -227,17 +227,19 @@ public class SettingsListFragment extends ListFragment {
      * @param f rootfile
      * @return list of file eventlistFragment subdirectories
      */
-        if (f.isDirectory())   paths.add(f.getAbsolutePath());
     private List<String> getDirectoryTreePaths(List<String> paths, File f){
+        if (f.isDirectory()){
+            paths.add(f.getAbsolutePath());
+        }
 
         File[] flist = f.listFiles();
-        if (flist == null)     return paths;
+        if (flist == null)
+            return paths;
 
-        for (int i = 0; i < flist.length; i++){
-            File tf = flist[i];
-            if (tf.isDirectory()){
-                paths = getSubDirectoryPaths(paths, tf);
-            }
+        for (File file : flist){
+            if (file.isDirectory())
+                paths = getDirectoryTreePaths(paths, file);
+
         }
 
         return paths;
