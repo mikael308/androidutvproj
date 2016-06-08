@@ -24,7 +24,8 @@ public class Settings {
     ////////////////
 
     /**
-     * shared preferenes main key : settings
+     * shared preferenes main key : settings<br>
+     *     main key to settings shared preferences
      */
     public static final String SHAREDPREFKEY_SETTINGS = "SETTINGS";
     /**
@@ -33,10 +34,14 @@ public class Settings {
      */
     public static final String SHAREDPREFKEY_LANGUAGE = "SHAREDPREFKEY_LANGUAGE";
     /**
-     * shared preferences settings key : photosource
+     * shared preferences settings key : photosource<br>
+     *     holds value where photos should be stored
      */
     public static final String SHAREDPREFKEY_PHOTOSOURCE = "SHAREDPREFKEY_PHOTOSOURCE";
-
+    /**
+     * shared preferences settings key : show dates<br>
+     *     holds value for setting if events will be marked as by their state
+     */
     public static final String SHAREDPREFKEY_SHOWDATES = "SHAREDPREFKEY_SHOWDATES";
 
 
@@ -53,7 +58,10 @@ public class Settings {
      */
     public static final String PHOTOSRC_DEFAULT = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM).toString();
 
-
+    /**
+     * Settings shared preferences<br>
+     *     see key {@link #SHAREDPREFKEY_SETTINGS}
+     */
     private static SharedPreferences mSharedPrefs;
 
 
