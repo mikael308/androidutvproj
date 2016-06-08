@@ -247,7 +247,7 @@ public class SettingsListFragment extends ListFragment {
 
     /**
      * settings dialog : set photo source<br>
-     * if confirmed: shared preference Settings.SHAREDPREFKEY_PHOTOSRC is set to new value
+     * if confirmed: shared preference Settings.SHAREDPREFKEY_PHOTOSOURCE is set to new value
      * @return settings dialog
      */
     private AlertDialog dialog_photoSource(){
