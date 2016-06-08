@@ -120,5 +120,13 @@ public class Settings {
         return Lang.getByLangCode(langcode);
     }
 
+    /**
+     * get the photosource selected in settings
+     * @return
+     */
+    public static String getPhotoSource(){
+        return mSharedPrefs.getString(SHAREDPREFKEY_PHOTOSOURCE, PHOTOSRC_DEFAULT);
+    }
+
 
 }
