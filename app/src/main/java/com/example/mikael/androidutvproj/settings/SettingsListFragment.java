@@ -203,7 +203,7 @@ public class SettingsListFragment extends ListFragment {
         scrollView.addView(layout);
 
         AlertDialog.Builder builder     = new AlertDialog.Builder(getActivity());
-        ArrayAdapter<String> adapter    = new ArrayAdapter<>(getActivity(), android.R.layout.simple_list_item_1, listitems);
+        final ArrayAdapter<String> adapter    = new ArrayAdapter<>(getActivity(), android.R.layout.simple_list_item_1, listitems);
         return builder
                 .setTitle(getResources().getString(R.string.settings_listitem_language_header))
                 .setIcon(R.drawable.ic_language_black_24dp)
