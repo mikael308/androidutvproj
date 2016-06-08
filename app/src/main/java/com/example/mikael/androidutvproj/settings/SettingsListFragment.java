@@ -1,9 +1,12 @@
 package com.example.mikael.androidutvproj.settings;
 
+import android.app.Activity;
 import android.app.AlertDialog;
-import android.app.ListFragment;
+import android.app.Application;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
+import android.content.pm.ActivityInfo;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.annotation.Nullable;
@@ -16,11 +19,14 @@ import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.ScrollView;
+import android.widget.Toast;
 
 import com.example.mikael.androidutvproj.R;
+import com.example.mikael.androidutvproj.activity.RealEstateActivity;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 /**
