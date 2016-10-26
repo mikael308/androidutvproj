@@ -249,7 +249,7 @@ public class DataMapper extends Subject {
 
                 mItemList_buffer = DatabaseFacade.readEntries();
 
-                simDatabaseWork(DBG_DBWORK_DELAY); //TODO tmp dbg
+                //simDatabaseWork(DBG_DBWORK_DELAY); //TODO tmp dbg
 
                 return true;
             }
@@ -294,7 +294,7 @@ public class DataMapper extends Subject {
                         setCurrentRealEstate((RealEstate) entry);
                     }
 
-                    simDatabaseWork(DBG_DBWORK_DELAY); //TODO tmp debug
+                    //simDatabaseWork(DBG_DBWORK_DELAY); //TODO tmp debug
                 }
                 return true;
             }
@@ -334,7 +334,7 @@ public class DataMapper extends Subject {
                         return false;
                     }
 
-                    simDatabaseWork(DBG_DBWORK_DELAY); //TODO tmp debug
+                    //simDatabaseWork(DBG_DBWORK_DELAY); //TODO tmp debug
                 }
                 return true;
             }
@@ -382,7 +382,7 @@ public class DataMapper extends Subject {
                     if (! edit(entry))
                         return false;
 
-                    simDatabaseWork(DBG_DBWORK_DELAY); //TODO tmp debug
+                    //simDatabaseWork(DBG_DBWORK_DELAY); //TODO tmp debug
                 }
 
                 return true;
