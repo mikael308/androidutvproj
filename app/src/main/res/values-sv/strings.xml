@@ -148,7 +148,7 @@
         <string name="photo_new">nytt foto</string>
         <string name="photo_delete">ta bort foto</string>
         <string name="photo_edit">redigera foto</string>g>
-
+		<string name="photo_not_found">kunde inte hitta foto</string>
         <string name="delete_file">Ta bort fil från lagringsenhet</string>
 
         <!-- TODO DUPLICATE OF poto_delete phtoo_edit etc här ovan.. -->

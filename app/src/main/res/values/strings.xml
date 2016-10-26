@@ -102,6 +102,7 @@
     <string name="photo_new">New photo</string>
     <string name="photo_delete">Delete photo</string>
     <string name="photo_edit">Edit photo</string>
+	<string name="photo_not_found">could not find photo</string>
     <string name="showing_title">Showing</string>
     <string name="showing_delete">Delete showing</string>
     <string name="showing_edit">Edit showing</string>

@@ -352,8 +352,8 @@ public class PhotoDetailActivity extends AppCompatActivity
                     getImageNavigator().display(bitmap);
 
                 } if(bitmap == null){
-                    //TODO add toastmsg
-                  Toast.makeText(act, "could not find photo", Toast.LENGTH_SHORT).show();
+                 
+                  Toast.makeText(act, getResources().getString(R.string.photo_not_found), Toast.LENGTH_SHORT).show();
 
                 } else {
                     getImageNavigator().display(std_background);
