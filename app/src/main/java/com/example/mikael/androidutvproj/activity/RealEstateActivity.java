@@ -54,6 +54,7 @@ public class RealEstateActivity extends AppCompatActivity
      */
     private static String BUNDLEKEY_CURRENTREALESTATE_IDX = "BUNDLEKEY_CURRENTREALESTATE";
 
+    private final static String BUNDLEKEY_SELECTOR_LIST_VISIBLE = "SELECTOR";
 
     private String BUNDLEKEY_LANGCODE = "LANGCODE";
 
@@ -277,8 +278,6 @@ public class RealEstateActivity extends AppCompatActivity
         return re;
     }
 
-
-    private final static String BUNDLEKEY_SELECTOR_LIST_VISIBLE = "SELECTOR";
 
     /**
      *
